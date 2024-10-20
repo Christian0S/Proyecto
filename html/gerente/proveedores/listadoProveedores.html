@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores - Vivero Las Magnolias</title>
+    <link rel="stylesheet" href="/Assent/css/gerente/proveedores/listadoDeProveedores.css">
+    <link rel="stylesheet" href="/Assent/css/gerente/general.css">
+</head>
+<body>
+    <header>
+        <h1>PROVEEDORES</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
+                <div class="notification-menu" id="notificationMenu">
+                    <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                </div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu">
+                    <p><a href="/html/gerente/edicion_perfil.html" class="button1" id="editProfileBtn">Editar Perfil</a></p>
+                    <p><a href="#" class="button1" id="historyBtn">Historial</a></p>
+                    <p><a href="#" class="button1" id="logoutBtn">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
+                <li>
+                    <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
+                        <p class="text-toggle">COMPRAS</p>
+                        <div class="orden-dropdown" id="ordenDropdown">
+                            <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
+                            <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
+                            <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
+                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+                <li><a href="#" class="button">PROCESOS</a></li>
+            </ul>
+        </nav>
+        
+        <main class="content" >
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Buscar...">
+                <a href="/Html/gerente/proveedores/crearProveedor.html">+</a>
+                <button id="dashboardBtn">DASHBOARD</button>
+            </div>
+            <main class="inventory-grid" id="inventoryGrid">
+            <table >
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Nombre</th>
+                        <th>Cantidad de Calificaciones</th> <!-- Cambiado aquí -->
+                        <th>Calificación </th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="providerBody">
+                    <!-- Los proveedores se llenarán aquí con JavaScript -->
+                </tbody>
+            </table>
+        </main>
+        </main>
+    </div>
+
+    <script src="/Assent/js/gerente/proveedores/ListadoProveedores.js"></script>
+    <script src="/Assent/js/gerente/general.js"></script>
+</body>
+</html>

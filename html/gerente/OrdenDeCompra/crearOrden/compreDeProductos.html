@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio - Vivero Las Magnolias</title>
+    <link rel="stylesheet" href="/Assent/css/gerente/general.css">
+    <link rel="stylesheet" href="/Assent/css/gerente/OrdenDeCompra/compreProductos/compraProductos.css">
+</head>
+<body>
+    <header>
+        <h1>PAGINA DE INICIO</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
+                <div class="notification-menu" id="notificationMenu">
+                    <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                </div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu">
+                    <p><a href="/html/gerente/edicion_perfil.html" class="button1" id="editProfileBtn">Editar Perfil</a></p>
+                    <p><a href="#" class="button1" id="historyBtn">Historial</a></p>
+                    <p><a href="#" class="button1" id="logoutBtn">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
+                <li>
+                    <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
+                        <p class="text-toggle">COMPRAS</p>
+                        <div class="orden-dropdown" id="ordenDropdown">
+                            <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
+                            <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
+                            <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
+                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+                <li><a href="#" class="button">PROCESOS</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <h1 style="text-align: center; margin: 5%;">Agregar Productos</h1>
+
+            <form id="productoForm" class="producto-form">
+                <label for="imageInput" class="image-label">
+                    <img id="productImage" src="/Assent/img/profile/default-avatar.jpeg" alt="Imagen del Producto">
+                </label>
+                <div class="form-group">
+                    <label for="productName">Nombre del Producto:</label>
+                    <select id="productName" required>
+                        <option value="">Selecciona un producto</option>
+                        <!-- Aquí se llenarán las opciones dinámicamente -->
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="productSize">Tamaño Esperado:</label>
+                    <input type="text" id="productSize" placeholder="Ej. 10cm x 20cm" required>
+                </div>
+                <div class="form-group">
+                    <label for="deliveryDate">Fecha de Entrega:</label>
+                    <input type="date" id="deliveryDate" required>
+                </div>
+                <div class="form-group">
+                    <label for="productQuantity">Cantidad:</label>
+                    <input type="number" id="productQuantity" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Descripción:</label>
+                    <textarea id="productDescription" placeholder="Descripción del producto" rows="4" required></textarea>
+                </div>
+                <button type="submit" class="button">Agregar Producto</button>
+            </form>
+        </main>
+    </div>
+    <script src="/Assent/js/gerente/odenDeCompra/compraProducto/compraProductos.js"></script>
+    <script src="/Assent/js/gerente/inicio.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio - Vivero Las Magnolias</title>
+    <link rel="stylesheet" href="/Assent/css/gerente/OrdenDeCompra/CrearOrdenCompra.css">
+    <link rel="stylesheet" href="/Assent/css/gerente/general.css">
+</head>
+<body>
+    <header>
+        <h1>CREAR ORDEN DE COMPRA</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="Notificaciones">
+                <div class="notification-menu" id="notificationMenu"></div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="Usuario">
+                <div class="profile-menu" id="profileMenu">
+                    <p><a href="/Html/gerente/edicion_perfil.html" class="button1" id="editProfileBtn">Editar Perfil</a></p>
+                    <p><a href="#" class="button1" id="historyBtn">Historial</a></p>
+                    <p><a href="#" class="button1" id="logoutBtn">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
+                <li>
+                    <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
+                        <p class="text-toggle">COMPRAS</p>
+                        <div class="orden-dropdown" id="ordenDropdown">
+                            <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
+                            <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
+                            <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
+                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+                <li><a href="#" class="button">PROCESOS</a></li>
+            </ul>
+        </nav>
+        <main class="content">
+            <div class="container">
+                <div class="options-grid">
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Plantas</p>
+                    </button>
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Servicio</p>
+                    </button>
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Artesanías-Materas</p>
+                    </button>
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Abono</p>
+                    </button>
+                </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src=""></script>
+    <script src="/Assent/js/gerente/general.js"></script>
+    <script src="/Assent/js/gerente/odenDeCompra/crearOdenCompra.js"></script>
+</body>
+</html>

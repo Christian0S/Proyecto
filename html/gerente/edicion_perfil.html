@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/Assent/css/gerente/ed_perfil.css">
+    <link rel="stylesheet" href="/Assent/css/gerente/general.css">
+</head>
+
+<body>
+    <header>
+        <h1>PAGINA DE INICIO</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
+                <div class="notification-menu" id="notificationMenu">
+                    <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                </div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu">
+                    <p><a href="../Html/edicion_perfil.html" class="button1" id="editProfileBtn">Editar Perfil</a></p>
+                    <p><a href="#" class="button1" id="historyBtn">Historial</a></p>
+                    <p><a href="#" class="button1" id="logoutBtn">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
+                <li>
+                    <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
+                        <p class="text-toggle">COMPRAS</p>
+                        <div class="orden-dropdown" id="ordenDropdown">
+                            <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
+                            <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
+                            <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
+                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+                <li><a href="#" class="button">PROCESOS</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="profile-header">
+                <input type="file" id="profile-pic" accept="image/*" style="display:none;" />
+                <label for="profile-pic">
+                    <img id="avatars" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar" class="avatar"/>
+                </label>
+            </div>
+            <form id="editProfileForm" class="profile-form">
+                <div class="form-row">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" />
+                </div>
+                <div class="form-row">
+                    <label for="apellidos">Apellidos:</label>
+                    <input type="text" id="apellidos" />
+                </div>
+                <div class="form-row">
+                    <label for="correo">Correo:</label>
+                    <input type="email" id="correo" />
+                </div>
+                <div class="form-row">
+                    <label for="telefono">Número de teléfono:</label>
+                    <input type="tel" id="telefono" />
+                </div>
+                <div class="form-row">
+                    <label for="fecha-nacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fecha-nacimiento" />
+                </div>
+                <div class="form-row">
+                    <label for="direccion">Dirección:</label>
+                    <input type="text" id="direccion" />
+                </div>
+                <div class="form-row">
+                    <label for="ciudad">Ciudad:</label>
+                    <input type="text" id="ciudad" />
+                </div>
+                <div class="form-row">
+                    <label for="pais">País:</label>
+                    <input type="text" id="pais" />
+                </div>
+                <div class="form-row">
+                    <label for="tipo-id">Tipo de identificación:</label>
+                    <select id="tipo-id">
+                        <option value="Cédula de Ciudadanía">Cédula de Ciudadanía</option>
+                        <option value="Pasaporte">Pasaporte</option>
+                        <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <label for="numero-id">Número de identificación:</label>
+                    <input type="text" id="numero-id" />
+                </div>
+                <div class="form-row">
+                    <label for="puesto">Puesto:</label>
+                    <input type="text" id="puesto" disabled /> <!-- Campo no modificable -->
+                </div>
+                <div class="form-row">
+                    <button type="submit" class="btn-update">Actualizar Perfil</button>
+                </div>
+            </form>
+
+            <div class="change-password">
+                <h2>Cambiar Contraseña</h2>
+                <form id="changePasswordForm" class="password-form">
+                    <div class="form-row">
+                        <label for="contrasena-actual">Contraseña Actual:</label>
+                        <input type="password" id="contrasena-actual" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="nueva-contrasena">Nueva Contraseña:</label>
+                        <input type="password" id="nueva-contrasena" required />
+                    </div>
+                    <div class="form-row">
+                        <label for="confirmar-contrasena">Confirmar Nueva Contraseña:</label>
+                        <input type="password" id="confirmar-contrasena" required />
+                    </div>
+                    <div class="form-row">
+                        <button type="submit" id="cambiar-contrasena" class="btn-change">Cambiar Contraseña</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/Assent/js/gerente/general.js"></script>
+    <script src="/Assent/js/gerente/edicionPerfil.js"></script>
+</body>
+</html>

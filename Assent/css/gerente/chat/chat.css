@@ -1,0 +1,74 @@
+body {
+    background-color: #f0f4f8; /* Color de fondo más suave */
+}
+
+.chat-container {
+    width: 900px; /* Ancho de la ventana */
+    height: 500px; /* Alto de la ventana */
+    border: 2px solid rgba(0, 255, 255, 0.5); /* Bordes en cian más opaco */
+    border-radius: 10px; /* Bordes redondeados */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Evitar que el contenido se desborde */
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco opaco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    margin: 0 auto; /* Centrar la ventana del chat en la página */
+}
+
+.chat-header {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+#providerImage {
+    width: 50px; /* Ajusta el tamaño según sea necesario */
+    height: 50px; /* Ajusta el tamaño según sea necesario */
+    border-radius: 50%; /* Para hacer que la imagen sea circular */
+    margin-right: 10px;
+}
+
+.messages {
+    flex: 1; /* Espacio para el chat */
+    max-height: 420px; /* 84% de 500px es aproximadamente 420px */
+    overflow-y: auto; /* Asegura el desplazamiento vertical */
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    overflow-wrap: break-word; /* Permitir que el texto largo se ajuste */
+    background-color: #e9ecef; /* Color de fondo para los mensajes */
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco para el input */
+    border-top: 1px solid #ccc;
+}
+
+#fileInput {
+    margin-right: 10px; /* Espacio entre los botones */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+}
+
+#messageInput {
+    flex: 1; /* Ocupa el espacio disponible */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+#sendButton {
+    background-color: #28a745; /* Color verde */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+#sendButton:hover {
+    background-color: #218838; /* Color verde más oscuro al pasar el mouse */
+}

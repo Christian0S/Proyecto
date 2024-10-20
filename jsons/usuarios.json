@@ -1,0 +1,16 @@
+[
+    {
+        "name": "Gerente",
+        "position": "gerente",
+        "email": "gerente@vivero.com",
+        "password": "80a73334a9d830c4aeadc433adeb5a7462084eacd7254ca5ad933d5b3d95ced7",
+        "accepted": true
+    },
+    {
+        "name": "Empleado",
+        "position": "empleado",
+        "email": "empleado@vivero.com",
+        "password": "ba905255a99b2118d8d1dd1753d87252c8981a0ad1048096fbfcd552beadc002",
+        "accepted": true
+    }
+]

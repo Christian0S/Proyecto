@@ -1,0 +1,108 @@
+.image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar elementos horizontalmente */
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+}
+
+.image-label {
+    cursor: pointer;
+}
+
+#productImage {
+    width: 100px; /* Ajusta el tamaño de la imagen */
+    height: 100px; /* Ajusta el tamaño de la imagen */
+    border-radius: 50px;
+    margin-bottom: 10px; /* Espacio entre la imagen y los inputs */
+}
+
+/* Estilo general del formulario */
+.producto-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para los grupos de formulario */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Estilo para las etiquetas */
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Estilo para los inputs y selects */
+.form-group input[type="text"],
+.form-group input[type="number"],
+.form-group input[type="date"],
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Estilo para el textarea */
+.form-group textarea {
+    resize: vertical; /* Permitir el redimensionamiento solo vertical */
+}
+
+/* Estilo para el botón de agregar producto */
+.producto-form .button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Efecto hover para el botón */
+.producto-form .button:hover {
+    background-color: #218838;
+}
+
+/* Estilo para la lista de productos registrados */
+.productos-list {
+    margin-top: 30px;
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+}
+
+.productos-list h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada producto en la lista */
+.productos-list ul {
+    list-style: none;
+    padding: 0;
+}
+
+.productos-list li {
+    background-color: #f1f1f1;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las imágenes de productos en la lista */
+.productos-list img {
+    max-width: 50px;
+    margin-top: 5px;
+}

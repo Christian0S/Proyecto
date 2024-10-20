@@ -1,0 +1,47 @@
+.options-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    gap: 20px; /* Espacio entre botones */
+    max-width: 800px; /* Aumentar ancho máximo de la cuadrícula */
+    margin: 0 auto; /* Centrar horizontalmente */
+    padding: 20px; /* Espacio interno */
+}
+
+/* Estilos para los botones */
+.option-item {
+    background-color: #f0f0f0; /* Color de fondo */
+    border: none; /* Sin borde */
+    padding: 60px; /* Aumentar el espacio interno para hacer los botones más grandes */
+    text-align: center; /* Centrar texto */
+    cursor: pointer; /* Cambiar cursor al pasar por encima */
+    border-radius: 8px; /* Bordes redondeados */
+    background-size: cover; /* Cubrir el fondo */
+    background-position: center; /* Centrar la imagen de fondo */
+    color: #333; /* Color del texto */
+    font-size: 24px; /* Aumentar el tamaño de fuente */
+    position: relative; /* Necesario para el fondo traslúcido */
+    width: 100%; /* Hacer que los botones ocupen el 100% del ancho de la celda */
+}
+
+/* Fondo traslúcido para el texto */
+.option-item p {
+    margin: 0; /* Sin margen */
+    font-weight: bold; /* Texto en negrita */
+    position: relative; /* Para poder aplicar el fondo traslúcido */
+    z-index: 1; /* Asegurar que el texto esté encima del fondo */
+    background-color: rgba(255, 255, 255, 0.6); /* Fondo blanco traslúcido */
+    padding: 10px; /* Espacio alrededor del texto */
+    border-radius: 4px; /* Bordes redondeados para el fondo del texto */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 600px) {
+    .options-grid {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .option-item {
+        padding: 40px; /* Ajustar el padding para pantallas pequeñas */
+        font-size: 20px; /* Reducir el tamaño de fuente en pantallas pequeñas */
+    }
+}

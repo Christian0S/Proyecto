@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat con Proveedor</title>
+    <link rel="stylesheet" href="/Assent/css/gerente/chat/chat.css"> <!-- Agrega tu CSS aquí -->
+</head>
+<body>
+    <div class="chat-container">
+        <header class="chat-header">
+            <img id="providerImage" src="" alt="Imagen del Proveedor" />
+            <h2 id="providerName"></h2>
+        </header>
+        <div class="messages" id="messageContainer"></div>
+        <div class="input-container">
+            <input type="text" id="messageInput" placeholder="Escribe un mensaje...">
+            <input type="file" id="fileInput" accept="image/*,application/pdf">
+            <button id="sendButton">Enviar</button> <!-- Emoji para enviar -->
+        </div>
+    </div>
+
+    <script src="/Assent/js/gerente/chat/chat.js"></script>
+</body>
+</html>

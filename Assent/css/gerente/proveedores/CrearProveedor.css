@@ -1,0 +1,107 @@
+.button {
+    background-color: #41855d; /* Color del botón */
+    color: white; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+.button:hover {
+    background-color: #1b2e1c; /* Color del botón al pasar el ratón */
+}
+
+.form-container {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.profile-header {
+    display: flex; /* Usar flexbox para alinear imagen y texto */
+    justify-content: center; /* Centrar la imagen y el texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.profile-header label {
+    margin-right: 10px; /* Espacio entre la etiqueta y la imagen */
+}
+
+.profile-header img {
+    width: 100px; /* Ancho fijo para la imagen */
+    height: 100px; /* Alto fijo para la imagen */
+    border-radius: 50%; /* Bordes redondeados para la imagen */
+    border: 2px solid #41855d; /* Borde verde alrededor de la imagen */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Espacio entre los grupos de formulario */
+}
+
+.form-group label {
+    display: block; /* Que cada etiqueta ocupe una línea completa */
+    margin-bottom: 5px; /* Espacio entre la etiqueta y el campo */
+    font-weight: bold; /* Negrita para las etiquetas */
+}
+
+.form-group input,
+.form-group select {
+    width: 100%; /* Ancho completo */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #cccccc; /* Borde suave */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #41855d; /* Color del borde al enfocar */
+    outline: none; /* Sin borde por defecto */
+}
+
+/* Estilos para el botón de descarga */
+#downloadJson {
+    margin-top: 20px; /* Espacio superior */
+    background-color: #1692df; /* Color del botón */
+    color: white; /* Color del texto */
+    padding: 10px 15px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de puntero */
+    font-size: 16px; /* Tamaño de fuente */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+#downloadJson:hover {
+    background-color: #2c3e50; /* Color del botón al pasar el ratón */
+}
+
+.creation-info {
+    margin-top: 20px; /* Espacio superior */
+    font-size: 14px; /* Tamaño de fuente */
+    color: #666; /* Color de texto gris para la información */
+}
+
+.actions {
+    display: flex; /* Flex para acciones */
+    gap: 10px; /* Espaciado entre acciones */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .header-icons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .form-container {
+        margin: 10px; /* Margen reducido en dispositivos móviles */
+    }
+}

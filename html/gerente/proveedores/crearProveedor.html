@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Proveedor</title>
+    <link rel="stylesheet" href="/Assent/css/gerente/proveedores/CrearProveedor.css">
+    <link rel="stylesheet" href="/Assent/css/gerente/general.css">
+</head>
+<body>
+    <header>
+        <h1>PAGINA DE INICIO</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
+                <div class="notification-menu" id="notificationMenu">
+                    <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                </div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu">
+                    <p><a href="/html/gerente/edicion_perfil.html" class="button1" id="editProfileBtn">Editar Perfil</a></p>
+                    <p><a href="#" class="button1" id="historyBtn">Historial</a></p>
+                    <p><a href="#" class="button1" id="logoutBtn">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
+                <li>
+                    <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
+                        <p class="text-toggle">COMPRAS</p>
+                        <div class="orden-dropdown" id="ordenDropdown">
+                            <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
+                            <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
+                            <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
+                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+                <li><a href="#" class="button">PROCESOS</a></li>
+            </ul>
+        </nav>
+        <form id="providerForm" class="form-container" onsubmit="addProvider(event)">
+            <div class="profile-header">
+                <input type="file" id="profile-pic" accept="image/*" style="display:none;" onchange="previewImage(event)" />
+                <label for="profile-pic">
+                    <img id="avatarsProveedor" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar" class="avatar"/>
+                </label>
+            </div>
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos:</label>
+                <input type="text" id="apellidos" required>
+            </div>
+            <div class="form-group">
+                <label for="tipoIdentificacion">Tipo de Identificación:</label>
+                <select id="tipoIdentificacion" required>
+                    <option value="Cédula">Cédula</option>
+                    <option value="NIT">NIT</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                    <option value="RUT">RUT</option>
+                    <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="numeroIdentificacion">Número de Identificación:</label>
+                <input type="text" id="numeroIdentificacion" required>
+            </div>
+            <div class="form-group">
+                <label for="pais">País:</label>
+                <select id="pais" required>
+                    <option value="Colombia">Colombia</option>
+                    <option value="México">México</option>
+                    <option value="Argentina">Argentina</option>
+                    <option value="España">España</option>
+                    <option value="Estados Unidos">Estados Unidos</option>
+                    <option value="Brasil">Brasil</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" id="ciudad" required>
+            </div>
+            <div class="form-group">
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de Teléfono:</label>
+                <input type="tel" id="telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" id="correo" required>
+            </div>
+            <button type="submit" class="button">Guardar Proveedor</button>
+            <div class="creation-info">
+                <p>Creado por: <span id="createdBy">Usuario</span></p>
+                <p id="userRole">Rol: <span id="userRoleBy"></span></p>
+                <p>Fecha de creación: <span id="creationDate"></span></p>
+            </div>
+        </form>
+    </div>
+    <script src="/Assent/js/gerente/proveedores/crearProveedor.js"></script>
+    <script src="/Assent/js/gerente/general.js"></script>
+</body>
+</html>

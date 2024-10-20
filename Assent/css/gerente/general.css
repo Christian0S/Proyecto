@@ -1,0 +1,191 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* Fondo de la página */
+    overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+.user img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+header {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2 {
+    margin: 0;
+}
+
+.header-icons {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+
+
+.container {
+    display: flex;
+}
+
+.button {
+    background-color: #41855d; /* Color del botón */
+    width: 90%;
+    color: white; /* Color del texto del botón */
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: left;
+    display: block;
+}
+
+.button:hover {
+    background-color: #1b2e1c; /* Color de fondo al pasar el ratón */
+}
+
+.content {
+    flex-grow: 1; /* Toma todo el espacio restante */
+    padding: 20px; /* Espaciado alrededor del contenido */
+    justify-content: center;
+    display: flex;
+    flex-direction: column; /* Alineación vertical */
+    overflow-y: auto; /* Permite desplazamiento en el contenido */
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #41855d;
+    color: white;
+    padding: 20px;
+    max-height: auto; /* Full height */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    min-height: 92.6vh; 
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px;
+}
+
+.sidebar ul li a {
+    text-align: left;
+    color: white;
+    text-decoration: none;
+}
+
+.sidebar ul li div {
+    padding: 0 0 0 10px ;
+    width: 90%;
+    cursor: pointer;
+}
+
+
+
+/* Estilos para los enlaces en el dropdown */
+.orden-dropdown a {
+    display: block;
+    background-color: #41855d; /* Color de fondo para los enlaces */
+    color: #41855d; /* Color del texto */
+    padding: 20px; /* Espaciado para los enlaces */
+    text-align: left; /* Alinear texto a la izquierda */
+    text-decoration: none; /* Quitar subrayado */
+    border-radius: 5px; /* Bordes redondeados para los enlaces */
+    margin-bottom: 10px; /* Espacio entre los enlaces */
+    font-weight: bold; /* Hacer el texto en negrita */
+    transition: background-color 0.3s; /* Transición suave para el efecto hover */
+}
+
+/* Efecto hover para los enlaces del dropdown */
+.orden-dropdown a:hover {
+    background-color: #1e422d; /* Cambiar fondo al pasar el ratón */
+    color: white; /* Cambiar color del texto al pasar el ratón */
+}
+
+.orden-compra-toggle {
+    position: absolute; /* Set positioning for dropdown */
+}
+
+.orden-dropdown {
+    display: none; /* Hidden by default */
+    position: absolute;/* Posición relativa al padre */
+    left: 0; /* Alineado a la izquierda del padre */
+    top: 100%; /* Posicionado debajo del toggle */
+    background-color: #41855d; /* Color de fondo para el dropdown */
+    border: 1px solid #41855d;
+    z-index: 1000;
+    min-width: 200px; /* Establecer un ancho mínimo */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Agregar sombra para profundidad */
+    width: 100%;
+}
+
+/* Ajustar el div padre para el efecto hover */
+.orden-compra-toggle {
+    position: relative; /* Posición relativa para el dropdown */
+    cursor: pointer; /* Cambiar cursor al pasar el ratón */
+}
+
+/* Mostrar dropdown al pasar el ratón sobre el padre */
+.orden-compra-toggle:hover .orden-dropdown {
+    display: block; /* Mostrar dropdown al pasar el ratón */
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    min-width: 150px; /* Ajuste el ancho mínimo del menú */
+}
+
+.notification:hover .notification-menu,
+.user:hover .profile-menu {
+    display: block;
+}
+
+.notification-menu {
+    display: none;
+    position: absolute;
+    right: 60px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    min-width: 150px; /* Ajuste el ancho mínimo del menú */
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    z-index: 1000;
+    min-width: 150px; /* Ajuste el ancho mínimo del menú */
+}
+
+.notification img {
+    width: 40px;
+    height: 40px;
+}
+
+
+
