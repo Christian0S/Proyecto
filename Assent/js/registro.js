@@ -28,7 +28,7 @@ async function guardarSolicitudPendiente(nombre, cargo, correo, contraseña) {
     // Leer usuarios existentes desde el archivo usuarios.json
     let usuarios = [];
     try {
-        const response = await fetch('../../JSONs/usuarios.json');
+        const response = await fetch('jsons/usuarios.json');
         usuarios = await response.json();
     } catch (error) {
         console.error("Error al leer el archivo JSON de usuarios:", error);
@@ -65,5 +65,5 @@ document.getElementById('registroForm').addEventListener('submit', async functio
     // Si todo es válido, guardar la solicitud pendiente
     await guardarSolicitudPendiente(nombre, cargo, correo, contraseña);
     alert("Su solicitud de registro ha sido enviada para aprobación.");
-    window.location.href = "../Index.html";  // Redirigir al inicio de sesión
+    window.location.href = "/index.html";  // Redirigir al inicio de sesión
 });

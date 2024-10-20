@@ -49,7 +49,7 @@ async function login(event) {
         } else if (user.position === "proveedor") {
             window.location.href = "proveedor.html";
         } else if (user.position === "gerente") {
-            window.location.href = "/html/gerente/Inicio.html";
+            window.location.href = "html/gerente/Inicio.html";
         }
     } else {
         alert("Usuario o contraseña incorrectos o cuenta no aceptada.");
