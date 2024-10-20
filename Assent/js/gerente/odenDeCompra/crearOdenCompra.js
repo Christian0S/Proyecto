@@ -16,11 +16,12 @@ botones.forEach((boton) => {
         // Determinar la ruta según el texto del botón
         switch (textoBoton.toLowerCase()) {
             case 'plantas':
-            case 'abono':
-            case 'artesanías-materas': // Agregado para artesanías y materas
+            case 'materas':
+            case 'artesanías':
+            case 'abonos-tierra': // Agregado para artesanías y materas
                 ruta = rutas.compraProductos; // Redirige a la misma página de compra
                 break;
-            case 'servicio':
+            case 'servicios':
                 ruta = rutas.servicios; // Redirige a la página de servicios
                 break;
             default:

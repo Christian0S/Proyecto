@@ -1,108 +1,124 @@
-.image-container {
+#formContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centrar elementos horizontalmente */
-    margin-bottom: 20px; /* Espacio debajo de la imagen */
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative; /* Para manejar el botón "Siguiente" */
 }
 
-.image-label {
+#addProductBtn {
+    position: absolute;
+    top: 90px;
+    left: 300px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
+    z-index: 10; /* Asegúrate de que esté encima de otros elementos */
 }
 
-#productImage {
-    width: 100px; /* Ajusta el tamaño de la imagen */
-    height: 100px; /* Ajusta el tamaño de la imagen */
-    border-radius: 50px;
-    margin-bottom: 10px; /* Espacio entre la imagen y los inputs */
+#nextBtn {
+    background-color: #1692df; /* Azul especificado */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute; /* Fijo en la parte inferior derecha */
+    bottom: 40px;
+    right: 40px;
+    z-index: 10; /* Asegúrate de que esté encima de otros elementos */
 }
 
-/* Estilo general del formulario */
-.producto-form {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 20px;
+.product-card {
     border: 1px solid #ccc;
-    border-radius: 8px;
+    padding: 20px;
+    margin: 10px; /* Espaciado entre tarjetas */
+    border-radius: 10px;
     background-color: #f9f9f9;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Ajustamos el tamaño de las tarjetas */
+    display: inline-block; /* Permite que las tarjetas se alineen en línea */
+    vertical-align: top; /* Alinea las tarjetas verticalmente */
+    position: relative; /* Para el posicionamiento del botón de eliminar */
 }
 
-/* Estilo para los grupos de formulario */
 .form-group {
     margin-bottom: 15px;
 }
 
-/* Estilo para las etiquetas */
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
+.image-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-top: 10px;
 }
 
-/* Estilo para los inputs y selects */
-.form-group input[type="text"],
-.form-group input[type="number"],
-.form-group input[type="date"],
-.form-group select,
-.form-group textarea {
+.image-label {
+    display: block; /* Asegura que la imagen se muestre como un bloque */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.image-input {
+    display: none; /* Oculta el input de archivo */
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+    float: right; /* Mueve el botón de eliminar a la derecha */
+}
+
+/* Estilos para inputs y selects */
+input[type="text"],
+input[type="file"],
+input[type="number"],
+textarea,
+select {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-/* Estilo para el textarea */
-.form-group textarea {
-    resize: vertical; /* Permitir el redimensionamiento solo vertical */
-}
-
-/* Estilo para el botón de agregar producto */
-.producto-form .button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-}
-
-/* Efecto hover para el botón */
-.producto-form .button:hover {
-    background-color: #218838;
-}
-
-/* Estilo para la lista de productos registrados */
-.productos-list {
-    margin-top: 30px;
-    border-top: 2px solid #ccc;
-    padding-top: 20px;
-}
-
-.productos-list h2 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-/* Estilo para cada producto en la lista */
-.productos-list ul {
-    list-style: none;
-    padding: 0;
-}
-
-.productos-list li {
-    background-color: #f1f1f1;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-/* Estilo para las imágenes de productos en la lista */
-.productos-list img {
-    max-width: 50px;
     margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical; /* Permite cambiar el tamaño verticalmente */
+}
+
+input[type="file"] {
+    padding: 5px; /* Ajusta el padding para inputs de archivo */
+}
+
+/* Hover effects */
+button:hover {
+    opacity: 0.9; /* Efecto de hover para botones */
+}
+.suggestions {
+    border: 1px solid #ccc;
+    background: #fff;
+    position: absolute; /* Para que se superponga al formulario */
+    z-index: 10; /* Para que aparezca encima de otros elementos */
+    max-height: 200px; /* Limitar la altura */
+    overflow-y: auto; /* Agregar scroll si hay muchas sugerencias */
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer; /* Cambiar el cursor al pasar sobre las sugerencias */
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0; /* Resaltar la sugerencia al pasar el ratón */
 }

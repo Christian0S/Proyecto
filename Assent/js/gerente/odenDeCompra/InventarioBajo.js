@@ -3,7 +3,7 @@ async function loadProducts() {
     const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
 
     try {
-        const response = await fetch('/JSONs/productos.json');
+        const response = await fetch('/jsons/productos.json');
         const jsonProducts = await response.json();
 
         // Fusionar los productos de localStorage y JSON, evitando duplicados
@@ -35,7 +35,7 @@ function displayProducts(products) {
 
     products.forEach(product => {
         // Only display low stock products (<= 20)
-        if (product.quantityToAdd <= 20) { // Cambiar a quantityToAdd
+        if (product.quantityToAdd <= 20) {
             const productDiv = document.createElement('div');
             productDiv.classList.add('product');
 
@@ -45,9 +45,15 @@ function displayProducts(products) {
                 <div class="product-info">
                     <h3>${product.name}</h3>
                     <p>Categoría: ${product.category}</p>
-                    <p>Stock: ${product.quantityToAdd}</p> <!-- Cambiar a quantityToAdd -->
+                    <p>Stock: ${product.quantityToAdd}</p>
                 </div>
             `;
+
+            // Add click event to redirect to the product order page with the product id
+            productDiv.addEventListener('click', () => {
+                window.location.href = `/html/gerente/OrdenDeCompra/crearOrden/compreDeProductos.html?id=${product.id}`;
+            });
+
             inventoryGrid.appendChild(productDiv);
         }
     });
@@ -65,7 +71,7 @@ function filterProducts(products) {
             // Filtrar productos si hay filtros seleccionados
             const filteredProducts = selectedFilters.length > 0
                 ? products.filter(product =>
-                    selectedFilters.includes(product.category.toLowerCase()) && product.quantityToAdd <= 20 // Cambiar a quantityToAdd
+                    selectedFilters.includes(product.category.toLowerCase()) && product.quantityToAdd <= 20
                   )
                 : products; // Si no hay filtros, muestra todos los productos
 
@@ -74,5 +80,40 @@ function filterProducts(products) {
     });
 }
 
+// Function to get query parameters from the URL
+function getQueryParams() {
+    const params = new URLSearchParams(window.location.search);
+    return {
+        id: params.get('id')
+    };
+}
+
+// Load product details based on id
+async function loadProductDetails() {
+    const { id } = getQueryParams();
+    
+    if (id) {
+        // Fetch products from localStorage or JSON if needed
+        const storedProducts = JSON.parse(localStorage.getItem('products')) || [];
+        const product = storedProducts.find(p => p.id === id);
+
+        if (product) {
+            // Fill the form with product details
+            document.getElementById('productName').value = product.name;
+            document.getElementById('productCategory').value = product.category;
+            document.getElementById('productQuantity').value = product.quantityToAdd;
+            // Agrega otros campos del formulario según sea necesario
+        } else {
+            console.error('Producto no encontrado');
+        }
+    }
+}
+
 // Llamar a la función de cargar productos al cargar la página
 window.onload = loadProducts;
+
+// Llamar a la función para cargar los detalles del producto cuando la página se cargue
+window.onload = () => {
+    loadProducts();
+    loadProductDetails();
+};

@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <h1>PAGINA DE INICIO</h1>
+        <h1>AGREGAR PRODUCTOS</h1>
         <div class="header-icons">
             <div class="notification" onclick="toggleNotifications()">
                 <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
@@ -50,37 +50,16 @@
             </ul>
         </nav>
         <main class="content">
-            <h1 style="text-align: center; margin: 5%;">Agregar Productos</h1>
+            
+            <!-- Botón de añadir nuevo formulario -->
+            <button id="addProductBtn" class="add-product-btn">+</button>
 
-            <form id="productoForm" class="producto-form">
-                <label for="imageInput" class="image-label">
-                    <img id="productImage" src="/Assent/img/profile/default-avatar.jpeg" alt="Imagen del Producto">
-                </label>
-                <div class="form-group">
-                    <label for="productName">Nombre del Producto:</label>
-                    <select id="productName" required>
-                        <option value="">Selecciona un producto</option>
-                        <!-- Aquí se llenarán las opciones dinámicamente -->
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="productSize">Tamaño Esperado:</label>
-                    <input type="text" id="productSize" placeholder="Ej. 10cm x 20cm" required>
-                </div>
-                <div class="form-group">
-                    <label for="deliveryDate">Fecha de Entrega:</label>
-                    <input type="date" id="deliveryDate" required>
-                </div>
-                <div class="form-group">
-                    <label for="productQuantity">Cantidad:</label>
-                    <input type="number" id="productQuantity" min="1" required>
-                </div>
-                <div class="form-group">
-                    <label for="productDescription">Descripción:</label>
-                    <textarea id="productDescription" placeholder="Descripción del producto" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="button">Agregar Producto</button>
-            </form>
+            <div id="formContainer" class="form-container">
+                <!-- Los formularios se insertarán dinámicamente aquí -->
+            </div>
+
+            <!-- Botón siguiente -->
+            <button id="nextBtn" class="next-button">Siguiente</button>
         </main>
     </div>
     <script src="/Assent/js/gerente/odenDeCompra/compraProducto/compraProductos.js"></script>
