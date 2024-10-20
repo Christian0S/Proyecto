@@ -108,7 +108,7 @@ button:hover {
 .suggestions {
     border: 1px solid #ccc;
     background: #fff;
-    position: absolute; /* Para que se superponga al formulario */
+     /* Para que se superponga al formulario */
     z-index: 10; /* Para que aparezca encima de otros elementos */
     max-height: 200px; /* Limitar la altura */
     overflow-y: auto; /* Agregar scroll si hay muchas sugerencias */
