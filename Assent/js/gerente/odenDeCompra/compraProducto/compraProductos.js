@@ -52,10 +52,10 @@ async function loadProductData() {
     }
 }
 
-async function suggestProducts(input) {
+async function suggestProducts(input, productCounter) {
     const categorySelect = document.getElementById(`productCategory_${productCounter}`);
     const category = categorySelect.value; // Obtener la categoría seleccionada
-    const suggestionsContainer = document.getElementById('suggestionsContainer');
+    const suggestionsContainer = document.getElementById(`suggestionsContainer_${productCounter}`);
     suggestionsContainer.innerHTML = ''; // Limpiar sugerencias anteriores
 
     if (input) {
@@ -101,13 +101,10 @@ async function suggestProducts(input) {
     }
 }
 
-
-
 // Evento para añadir una nueva tarjeta de producto
 addProductBtn.addEventListener('click', () => {
     addProductForm(); // Llamamos a la función para agregar un nuevo formulario
 });
-
 // Función para añadir una tarjeta de producto
 function addProductForm(product) {
     productCounter++; // Incrementamos el contador para cada nueva tarjeta
@@ -119,7 +116,6 @@ function addProductForm(product) {
     // Si se pasa un producto, usamos sus datos; de lo contrario, campos vacíos
     const nameValue = product ? product.name : '';
     const categoryValue = product ? product.category : '';
-    console.log(categoryValue)
     const descriptionValue = product ? product.description : '';
     const sizeValue = product ? product.size : ''; // Para la característica del tamaño
     const quantityValue = product ? product.quantity : ''; // Para la cantidad
@@ -135,8 +131,8 @@ function addProductForm(product) {
         </div>
         <div class="form-group">
             <label for="productName_${productCounter}">Nombre del Producto:</label>
-            <input type="text" id="productName_${productCounter}" value="${nameValue}" placeholder="Ej. Planta de interior" oninput="suggestProducts(this.value)">
-            <div id="suggestionsContainer" class="suggestions-container"></div> <!-- Contenedor para sugerencias -->
+            <input type="text" id="productName_${productCounter}" value="${nameValue}" placeholder="Ej. Planta de interior" oninput="suggestProducts(this.value, ${productCounter})">
+            <div id="suggestionsContainer_${productCounter}" class="suggestions-container"></div> <!-- Contenedor para sugerencias único -->
         </div>
         <div class="form-group">
             <label for="productCategory_${productCounter}">Categoría:</label>
@@ -183,7 +179,6 @@ function addProductForm(product) {
     // Actualizamos la posición del botón "Siguiente"
     updateNextButtonPosition();
 }
-
 // Función para eliminar una tarjeta de producto
 function removeProductForm(button) {
     const productCard = button.parentElement;

@@ -65,5 +65,5 @@ document.getElementById('registroForm').addEventListener('submit', async functio
     // Si todo es válido, guardar la solicitud pendiente
     await guardarSolicitudPendiente(nombre, cargo, correo, contraseña);
     alert("Su solicitud de registro ha sido enviada para aprobación.");
-    window.location.href = "/index.html";  // Redirigir al inicio de sesión
+    window.location.href = "../index.html";  // Redirigir al inicio de sesión
 });
