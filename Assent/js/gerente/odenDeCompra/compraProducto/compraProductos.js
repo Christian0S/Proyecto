@@ -117,7 +117,8 @@ function addProductForm(product) {
     const nameValue = product ? product.name : '';
     const categoryValue = product ? product.category : '';
     const descriptionValue = product ? product.description : '';
-    const sizeValue = product ? product.size : ''; // Para la característica del tamaño
+    const sizeValue = ''; // Para la característica del tamaño
+    const DateValue = '';
     const quantityValue = product ? product.quantity : ''; // Para la cantidad
     const imageValue = product ? product.image : '/Assent/img/profile/default-avatar.jpeg';
 
@@ -146,6 +147,10 @@ function addProductForm(product) {
         <div class="form-group">
             <label for="productSize_${productCounter}">Características:</label>
             <input type="text" id="productSize_${productCounter}" value="${sizeValue}" placeholder="Tamaño, Color, etc.">
+        </div>
+        <div class="form-group">
+            <label for="productDate_${productCounter}">Date:</label>
+            <input type="date" id="productDate_${productCounter}" value="${DateValue}" placeholder="Ej. 10" min="1">
         </div>
         <div class="form-group">
             <label for="productQuantity_${productCounter}">Cantidad:</label>
@@ -186,41 +191,52 @@ function removeProductForm(button) {
     updateNextButtonPosition(); // Actualizar la posición del botón "Siguiente" después de eliminar
 }
 
-// Evento para el botón "Siguiente"
+
+//  botón siguiente función 
 nextBtn.addEventListener('click', () => {
     const products = [];
 
-    // Recorremos todas las tarjetas de producto para extraer los datos
     formContainer.querySelectorAll('.product-card').forEach(card => {
         const name = card.querySelector('input[id^="productName_"]').value;
         const category = card.querySelector('select[id^="productCategory_"]').value;
         const size = card.querySelector('input[id^="productSize_"]').value;
-        const quantity = card.querySelector('input[id^="productQuantity_"]').value; // Obtener la cantidad
+        const date = card.querySelector('input[id^="productDate_"]').value;
+        const quantity = card.querySelector('input[id^="productQuantity_"]').value;
         const description = card.querySelector('textarea[id^="productDescription_"]').value;
-        const image = card.querySelector('input[id^="imageInput_"]').files[0];
 
-        // Validamos que los campos no estén vacíos
-        if (name && category && size && description && image && quantity) {
+        const imageInput = card.querySelector('input[id^="imageInput_"]');
+        const imagePreview = card.querySelector('img[id^="productPreview_"]');
+
+        const imageFile = imageInput.files.length > 0 ? imageInput.files[0].name : null;
+        const image = imageFile ? imageFile : imagePreview.src;
+
+        // Comprueba si todos los campos necesarios están llenos
+        if (name && category && size && description && image && date && quantity) {
             products.push({
                 name: name,
                 category: category,
                 size: size,
-                quantity: quantity, // Guardar la cantidad
+                date: date,
+                quantity: quantity,
                 description: description,
-                image: image.name // Guardamos solo el nombre de la imagen
+                image: image
             });
+        } else {
+            console.log('Algunos campos están vacíos en la tarjeta del producto:', { name, category, size, description, image, date, quantity });
         }
     });
 
-    // Mostramos los productos en la consola por ahora
-    console.log(products);
+    console.log('Productos recopilados:', products); // Ver cuántos productos se han recopilado
 
     if (products.length > 0) {
+        localStorage.setItem('OrdenCompraProducts', JSON.stringify(products));
         alert(`${products.length} productos añadidos.`);
+        window.location.href = '/html/gerente/OrdenDeCompra/crearOrden/EnviarOrdenDeCompra.html';
     } else {
         alert('No se ha añadido ningún producto.');
     }
 });
+
 
 // Función para actualizar la posición del botón "Siguiente"
 function updateNextButtonPosition() {

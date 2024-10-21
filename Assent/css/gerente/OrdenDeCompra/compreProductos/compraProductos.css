@@ -83,6 +83,7 @@
 input[type="text"],
 input[type="file"],
 input[type="number"],
+input[type="date"],
 textarea,
 select {
     width: 100%;

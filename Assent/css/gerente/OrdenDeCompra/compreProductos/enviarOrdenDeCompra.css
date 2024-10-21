@@ -1,0 +1,49 @@
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.unique-products-section, .unique-suppliers-section {
+  border: 1px solid #ccc;
+  padding: 10px; /* Reducido para que se vea más compacto */
+}
+
+.unique-info-section {
+  grid-column: span 2;
+  border: 1px solid #ccc;
+  padding: 10px; /* Reducido para que se vea más compacto */
+}
+
+.unique-products-table, .unique-suppliers-table, .unique-info-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.unique-products-table th, .unique-suppliers-table th, .unique-info-table td {
+  border: 1px solid #ccc;
+  padding: 8px; /* Reducido para que se vea más compacto */
+  text-align: left;
+}
+
+.unique-products-table th, .unique-suppliers-table th {
+  background-color: #35424a; /* Color de fondo de encabezados */
+  color: white; /* Color del texto en encabezados */
+}
+
+.selected-suppliers {
+  font-weight: bold; /* Resaltar el conteo de proveedores seleccionados */
+}
+
+button {
+  background-color: #35424a;
+  color: white;
+  border: none;
+  padding: 4px 8px; /* Ajustado para que se vea más pequeño */
+  cursor: pointer;
+  border-radius: 5px; /* Bordes redondeados */
+}
+
+button:hover {
+  background-color: #080a0a;
+}

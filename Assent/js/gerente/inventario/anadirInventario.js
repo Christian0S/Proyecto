@@ -34,7 +34,7 @@ function loadSuppliers() {
             data.forEach(supplier => {
                 if (supplier.id && supplier.nombre) {
                     const option = document.createElement('option');
-                    option.value = supplier.id;
+                    option.value = supplier.id; // Guardar el ID del proveedor
                     option.textContent = `${supplier.nombre} ${supplier.apellidos || ''}`;
                     supplierSelect.appendChild(option);
                 }
@@ -47,14 +47,14 @@ function loadSuppliers() {
     localSuppliers.forEach(supplier => {
         if (supplier.id && supplier.nombre) {
             const option = document.createElement('option');
-            option.value = supplier.id;
+            option.value = supplier.id; // Guardar el ID del proveedor
             option.textContent = supplier.nombre;
             supplierSelect.appendChild(option);
         }
     });
 }
 
-// Función para cargar los datos de creación al cargar la página
+// Función para cargar la información de creación al cargar la página
 function loadCreationInfo() {
     userData = getUserData(); // Obtener datos del usuario y guardarlos en la variable global
 
@@ -62,6 +62,26 @@ function loadCreationInfo() {
     document.getElementById('creatorName').textContent = userData.nombre;
     document.getElementById('creatorRole').textContent = userData.rol;
     document.getElementById('creationDate').textContent = new Date().toLocaleDateString(); // Mostrar la fecha actual
+}
+
+// Función para actualizar el listado de productos del proveedor
+function updateSupplierProducts(supplierId, newProductName) {
+    const suppliers = JSON.parse(localStorage.getItem('suppliers')) || [];
+
+    // Buscar el proveedor por su ID
+    const supplier = suppliers.find(supplier => supplier.id === parseInt(supplierId));
+    if (supplier) {
+        // Verificar si el producto ya está en la lista
+        if (!supplier.productos.includes(newProductName)) {
+            supplier.productos.push(newProductName); // Añadir el nuevo producto
+            localStorage.setItem('suppliers', JSON.stringify(suppliers)); // Guardar la lista actualizada en localStorage
+            console.log(`Producto "${newProductName}" añadido al proveedor ${supplier.nombre}.`);
+        } else {
+            console.log(`El producto "${newProductName}" ya está en la lista de productos del proveedor.`);
+        }
+    } else {
+        console.error(`Proveedor con ID ${supplierId} no encontrado.`);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -120,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.save-button').addEventListener('click', function() {
         const productName = document.getElementById('productName').value;
         const categorySelect = document.getElementById('categorySelect').value;
-        const supplierSelect = document.getElementById('supplierSelect').value;
+        const supplierId = document.getElementById('supplierSelect').value;  // Usar ID del proveedor
         const basePrice = parseFloat(document.getElementById('basePrice').value);
         const ultPercentage = parseFloat(document.getElementById('UltPercentage').value);
         const sellingPrice = parseFloat(document.getElementById('VenPrice').value);
@@ -131,7 +151,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const productImage = document.getElementById('productImage').src;
         const productDescription = localStorage.getItem('productDescription') || '';
 
-
         // Generar un ID único para el nuevo producto
         let products = JSON.parse(localStorage.getItem('products')) || [];
         const newProductId = products.length ? products[products.length - 1].id + 1 : 1;  // Incrementar el ID
@@ -140,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: newProductId,
             name: productName,
             category: categorySelect,
-            supplierId: supplierSelect,
+            supplierId: supplierId, // Guardar el ID del proveedor
             basePrice: basePrice,
             ultPercentage: ultPercentage,
             sellingPrice: sellingPrice,
@@ -160,6 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Guardar producto en localStorage
         products.push(product);
         localStorage.setItem('products', JSON.stringify(products));
+
+        // Actualizar la lista de productos del proveedor
+        updateSupplierProducts(supplierId, productName);
 
         alert("Producto guardado exitosamente."); // Muestra mensaje solo si se guardó
         // Redirigir a la página de listado de productos

@@ -9,12 +9,15 @@
 </head>
 <body>
     <header>
+        <button class="toggle-button" onclick="toggleSidebar()">☰</button>
         <h1>PAGINA DE INICIO</h1>
         <div class="header-icons">
             <div class="notification" onclick="toggleNotifications()">
                 <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
-                <div class="notification-menu" id="notificationMenu">
-                    <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                    </div>
                 </div>
             </div>
             <div class="user" onclick="toggleProfile()">
@@ -29,25 +32,25 @@
     </header>
 
     <div class="container">
-        <nav class="sidebar">
-            <ul>
-                <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
-                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
-                <li>
-                    <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
-                        <p class="text-toggle">COMPRAS</p>
-                        <div class="orden-dropdown" id="ordenDropdown">
-                            <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
-                            <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
-                            <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
-                        </div>
+        <nav class="sidebar" id="sidebar">
+        <ul>
+            <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
+            <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
+            <li>
+                <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
+                    <p class="text-toggle">COMPRAS</p>
+                    <div class="orden-dropdown" id="ordenDropdown">
+                        <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
+                        <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
+                        <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
                     </div>
-                </li>
-                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
-                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
-                <li><a href="#" class="button">PROCESOS</a></li>
-            </ul>
-        </nav>
+                </div>
+            </li>
+            <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
+            <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+            <li><a href="#" class="button">PROCESOS</a></li>
+        </ul>
+    </nav>
         <main class="content">
             <h1 style="text-align: center; margin: 5%;">Vivero Las Magnolias</h1>
             <div class="carousel">

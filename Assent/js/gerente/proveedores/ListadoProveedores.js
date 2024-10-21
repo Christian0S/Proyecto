@@ -51,7 +51,14 @@ function renderProviders() {
             <td>${provider.id}</td>
             <td>${provider.correo}</td>
             <td>${provider.nombre}</td>
-            <td>${provider.cantidadCalificaciones}</td>
+            <td><ul>
+            <li>${provider.productos[0]}</li>
+            <li>${provider.productos[1]}</li>
+            <li>${provider.productos[2]}</li>
+            <li>${provider.productos[3]}</li>
+            <li>${provider.productos[4]}</li>
+            <li>${provider.productos[5]}</li>
+            </ul></td>
             <td>${provider.calificacion}</td>
             <td>
                 <button onclick="editProvider(${provider.id})">✏️</button>
@@ -118,6 +125,7 @@ function renderFilteredProviders(filteredProviders) {
             <td>${provider.id}</td>
             <td>${provider.correo}</td>
             <td>${provider.nombre}</td>
+            <td>${provider.productos}</td>
             <td>${provider.cantidadCalificaciones}</td>
             <td>${provider.calificacion}</td>
             <td>

@@ -37,7 +37,7 @@ function loadSuppliers() {
             data.forEach(supplier => {
                 if (supplier.id && supplier.nombre) {
                     const option = document.createElement('option');
-                    option.value = supplier.id;
+                    option.value = supplier.id; // Usar el ID del proveedor
                     option.textContent = `${supplier.nombre} ${supplier.apellidos || ''}`;
                     supplierSelect.appendChild(option);
                 }
@@ -50,7 +50,7 @@ function loadSuppliers() {
     localSuppliers.forEach(supplier => {
         if (supplier.id && supplier.nombre) {
             const option = document.createElement('option');
-            option.value = supplier.id;
+            option.value = supplier.id; // Usar el ID del proveedor
             option.textContent = supplier.nombre;
             supplierSelect.appendChild(option);
         }
@@ -66,6 +66,7 @@ function loadCreationInfo() {
     document.getElementById('creatorRole').textContent = userData.rol;
     document.getElementById('creationDate').textContent = new Date().toLocaleDateString(); // Mostrar la fecha actual
 }
+
 // Cargar producto para edición
 function loadProductForEditing() {
     const params = new URLSearchParams(window.location.search);
@@ -78,7 +79,7 @@ function loadProductForEditing() {
             // Rellenar los campos del formulario con los datos del producto
             document.getElementById('productName').value = product.name || '';
             document.getElementById('categorySelect').value = product.category || '';
-            document.getElementById('supplierSelect').value = product.supplierId || '';
+            document.getElementById('supplierSelect').value = product.supplierId || ''; // Usar el ID del proveedor
             document.getElementById('basePrice').value = product.basePrice || 0;
             document.getElementById('UltPercentage').value = product.ultPercentage || 0;
             document.getElementById('VenPrice').value = product.sellingPrice || 0;
@@ -105,13 +106,25 @@ function loadProductForEditing() {
     }
 }
 
+// Función para actualizar el listado de productos del proveedor
+function updateSupplierProducts(supplierId, newProductName) {
+    const suppliers = JSON.parse(localStorage.getItem('suppliers')) || [];
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM completamente cargado.');
-    loadSuppliers(); // Cargar proveedores
-    loadCreationInfo(); // Cargar información del creador
-    loadProductForEditing(); // Cargar producto para editar
-});
+    // Buscar el proveedor por su ID
+    const supplier = suppliers.find(supplier => supplier.id === parseInt(supplierId));
+    if (supplier) {
+        // Verificar si el producto ya está en la lista
+        if (!supplier.productos.includes(newProductName)) {
+            supplier.productos.push(newProductName); // Añadir el nuevo producto
+            localStorage.setItem('suppliers', JSON.stringify(suppliers)); // Guardar la lista actualizada en localStorage
+            console.log(`Producto "${newProductName}" añadido al proveedor ${supplier.nombre}.`);
+        } else {
+            console.log(`El producto "${newProductName}" ya está en la lista de productos del proveedor.`);
+        }
+    } else {
+        console.error(`Proveedor con ID ${supplierId} no encontrado.`);
+    }
+}
 
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM completamente cargado.');
@@ -171,7 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.save-button').addEventListener('click', function() {
         const productName = document.getElementById('productName').value;
         const categorySelect = document.getElementById('categorySelect').value;
-        const supplierSelect = document.getElementById('supplierSelect').value;
+        const supplierSelect = document.getElementById('supplierSelect').value; // Usar el ID del proveedor
         const basePrice = parseFloat(document.getElementById('basePrice').value);
         const ultPercentage = parseFloat(document.getElementById('UltPercentage').value);
         const sellingPrice = parseFloat(document.getElementById('VenPrice').value);
@@ -197,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: productId ? parseInt(productId) : (products.length ? products[products.length - 1].id + 1 : 1), // Usar el ID existente si se está editando
             name: productName,
             category: categorySelect,
-            supplierId: supplierSelect,
+            supplierId: supplierSelect, // Guardar el ID del proveedor
             basePrice: basePrice,
             ultPercentage: ultPercentage,
             sellingPrice: sellingPrice,
@@ -228,6 +241,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Guardar en localStorage
         localStorage.setItem('products', JSON.stringify(products));
+
+        // Actualizar la lista de productos del proveedor
+        updateSupplierProducts(supplierSelect, productName);
 
         alert("Producto guardado exitosamente.");
         // Redirigir a la página de listado de productos

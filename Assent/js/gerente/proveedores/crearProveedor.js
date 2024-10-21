@@ -71,13 +71,18 @@ function addProvider(event) {
         telefono,
         correo,
         fechaCreacion,
-        creadoPor: getUserData().nombre, // Obtener el creador
-        rol: getUserData().rol, // Obtener el rol del creador
+        productos: [], // listado de proveedores
         calificacion: 0, // Calificación inicial
         cantidadCalificaciones: 0, // Cantidad de calificaciones inicial
-        imagen // Agregar el campo de imagen al JSON
+        imagen, // Agregar el campo de imagen al JSON
+        createdBy: {
+            name: getUserData().nombre, // Usar la variable global
+            role: getUserData().rol,    // Usar la variable global
+            date: new Date().toLocaleDateString()
+        }
     };
-
+    console.log(newProvider)
+    alert(newProvider)
     // Obtener los proveedores existentes del localStorage
     const providers = JSON.parse(localStorage.getItem('providers')) || [];
 

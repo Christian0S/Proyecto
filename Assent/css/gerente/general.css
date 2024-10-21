@@ -40,6 +40,24 @@ h1, h2 {
     display: flex;
 }
 
+.button1{display: inline-block;
+    text-align: left;
+    width: 90%;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #41855d;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.button1:hover{
+    background-color: #1b2e1c;
+}
+
+
+
 .button {
     background-color: #41855d; /* Color del botón */
     width: 90%;
@@ -187,5 +205,25 @@ h1, h2 {
     height: 40px;
 }
 
+.toggle-button {
+    display: none; /* Mostrar el botón de toggle en dispositivos pequeños */
+}
 
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Ocultar la barra lateral en dispositivos pequeños */
+        position: absolute; /* Posicionarlo absoluto */
+        background-color: #41855d; /* Color de fondo */
+        width: 100%; /* Ajustar el ancho al 100% */
+        z-index: 1000; /* Asegurarse de que esté encima de otros elementos */
+    }
+
+    .toggle-button {
+        display: block; /* Mostrar el botón de toggle en dispositivos pequeños */
+    }
+
+    .sidebar.active {
+        display: block; /* Mostrar el menú cuando está activo */
+    }
+}
 

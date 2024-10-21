@@ -21,7 +21,7 @@ async function login(event) {
     // Si no hay usuarios, cargar usuarios predeterminados
     if (users.length === 0) {
         try {
-            const response = await fetch('jsons/usuarios.json');
+            const response = await fetch('/jsons/usuarios.json');
             users = await response.json();
             localStorage.setItem('usuarios', JSON.stringify(users)); // Guardar en localStorage
         } catch (error) {

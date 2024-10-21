@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proveedores - Vivero Las Magnolias</title>
-    <link rel="stylesheet" href="/Assent/css/gerente/proveedores/listadoDeProveedores.css">
+    <title>Página de Inicio - Vivero Las Magnolias</title>
     <link rel="stylesheet" href="/Assent/css/gerente/general.css">
+    <link rel="stylesheet" href="/Assent/css/gerente/OrdenDeCompra/compreProductos/enviarOrdenDeCompra.css">
 </head>
 <body>
     <header>
-        <h1>PROVEEDORES</h1>
+        <h1>PAGINA DE INICIO</h1>
         <div class="header-icons">
             <div class="notification" onclick="toggleNotifications()">
                 <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
@@ -27,6 +27,7 @@
             </div>
         </div>
     </header>
+
     <div class="container">
         <nav class="sidebar">
             <ul>
@@ -47,34 +48,70 @@
                 <li><a href="#" class="button">PROCESOS</a></li>
             </ul>
         </nav>
-        
-        <main class="content" >
-            <div class="search-bar">
-                <input type="text" id="searchInput" placeholder="Buscar...">
-                <a href="/Html/gerente/proveedores/crearProveedor.html">+</a>
-                <button id="dashboardBtn">DASHBOARD</button>
-            </div>
-            <main class="inventory-grid" id="inventoryGrid">
-            <table >
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>Nombre</th>
-                        <th>Productos</th> <!-- Cambiado aquí -->
-                        <th>Calificación </th>
-                        <th>Acciones</th>
-                    </tr>
-                </thead>
-                <tbody id="providerBody">
-                    <!-- Los proveedores se llenarán aquí con JavaScript -->
-                </tbody>
-            </table>
-        </main>
-        </main>
+        <main class="content">
+          <div class="unique-products-section">
+              <h2>Productos</h2>
+              <table class="unique-products-table">
+                  <thead>
+                      <tr>
+                          <th>Producto</th>
+                          <th>Cantidad</th>
+                          <th>Tamaño</th>
+                          <th>Fecha Entrega</th>
+                          <th>N. Proveedores</th>
+                      </tr>
+                  </thead>
+                  <tbody id="productsList">
+                      <!-- Aquí se cargarán los productos dinámicamente -->
+                  </tbody>
+              </table>
+          </div>
+      
+          <div class="unique-suppliers-section">
+              <h2>Proveedores</h2>
+              <table class="unique-suppliers-table">
+                  <thead>
+                      <tr>
+                          <th>Proveedor</th>
+                          <th>Calificación</th>
+                          <th>Producto</th>
+                          <th>ID Compra</th>
+                          <th>Acciones</th>
+                      </tr>
+                  </thead>
+                  <tbody id="suppliersList">
+                      <!-- Aquí se cargarán los proveedores dinámicamente -->
+                  </tbody>
+              </table>
+          </div>
+      
+          <div class="unique-info-section">
+              <h2>Información General</h2>
+              <table class="unique-info-table">
+                  <tr>
+                      <td>Nombre:</td>
+                      <td id="userName">Miguel</td>
+                  </tr>
+                  <tr>
+                      <td>Puesto:</td>
+                      <td id="userRole">Gerente</td>
+                  </tr>
+                  <tr>
+                      <td>ID COMPRA:</td>
+                      <td id="purchaseID">54545123</td>
+                  </tr>
+                  <tr>
+                      <td>Correo:</td>
+                      <td id="userEmail">jray48@gmail.com</td>
+                  </tr>
+              </table>
+          </div>
+          <button class="unique-send-button" id="sendButton">Enviar</button>
+      </main>
+
     </div>
 
-    <script src="/Assent/js/gerente/proveedores/ListadoProveedores.js"></script>
     <script src="/Assent/js/gerente/general.js"></script>
+    <script src="/Assent/js/gerente/odenDeCompra/compraProducto/EnviarOrdenDeCompra.js"></script>
 </body>
 </html>

@@ -10,45 +10,46 @@
 </head>
 
 <body>
-    <header>
+    <header class="header-custom">
+        <button class="toggle-button-custom" onclick="toggleSidebar()">☰</button>
         <h1>PAGINA DE INICIO</h1>
-        <div class="header-icons">
+        <div class="header-icons-custom">
             <div class="notification" onclick="toggleNotifications()">
                 <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
-                <div class="notification-menu" id="notificationMenu">
-                    <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                <div class="notification-menu-custom" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                    </div>
                 </div>
             </div>
             <div class="user" onclick="toggleProfile()">
                 <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
-                <div class="profile-menu" id="profileMenu">
-                    <p><a href="../Html/edicion_perfil.html" class="button1" id="editProfileBtn">Editar Perfil</a></p>
-                    <p><a href="#" class="button1" id="historyBtn">Historial</a></p>
-                    <p><a href="#" class="button1" id="logoutBtn">Cerrar Sesión</a></p>
+                <div class="profile-menu-custom" id="profileMenu">
+                    <p><a href="/html/gerente/edicion_perfil.html" class="button-primary" id="editProfileBtn">Editar Perfil</a></p>
+                    <p><a href="#" class="button-primary" id="historyBtn">Historial</a></p>
+                    <p><a href="#" class="button-primary" id="logoutBtn">Cerrar Sesión</a></p>
                 </div>
             </div>
         </div>
     </header>
-
-    
-    <div class="container">
-        <nav class="sidebar">
+    <div class="container-custom">
+        <nav class="sidebar-custom">
             <ul>
-                <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
-                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
+                <li><a href="/html/gerente/Inicio.html" class="button-secondary">INICIO</a></li>
+                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button-secondary">PROVEEDORES</a></li>
                 <li>
-                    <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
+                    <div class="orden-compra-toggle-custom" onclick="toggleOrdenMenu()">
                         <p class="text-toggle">COMPRAS</p>
-                        <div class="orden-dropdown" id="ordenDropdown">
+                        <div class="orden-dropdown-custom" id="ordenDropdown">
                             <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
                             <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
                             <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
                         </div>
                     </div>
                 </li>
-                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
-                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
-                <li><a href="#" class="button">PROCESOS</a></li>
+                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button-secondary">EMPLEADOS</a></li>
+                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button-secondary">INVENTARIO</a></li>
+                <li><a href="#" class="button-secondary">PROCESOS</a></li>
             </ul>
         </nav>
         <div class="content">
