@@ -45,7 +45,7 @@ async function login(event) {
 
         // Redirigir según el rol del usuario
         if (user.position === "empleado") {
-            window.location.href = "/html/empleado/inicio.html";
+            window.location.href = "html/empleado/inicio.html";
         } else if (user.position === "proveedor") {
             window.location.href = "proveedor.html";
         } else if (user.position === "gerente") {

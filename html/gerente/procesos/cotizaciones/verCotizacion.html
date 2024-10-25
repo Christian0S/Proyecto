@@ -110,18 +110,20 @@
             }
 
             document.getElementById('volverBtn').addEventListener('click', () => {
-                window.open('/html/gerente/cotizaciones/cotizaciones.html', '_blank');
+                window.location.href = '/html/gerente/procesos/cotizaciones.html', '_blank';
             });
 
             document.getElementById('rechazarBtn').addEventListener('click', () => {
                 const razon = prompt('Por favor, ingrese la razón del rechazo:');
                 if (razon) {
                     alert(`Cotización rechazada. Razón: ${razon}`);
+                    window.location.href = '/html/gerente/procesos/cotizaciones.html', '_blank';
                 }
             });
 
             document.getElementById('aceptarBtn').addEventListener('click', () => {
                 alert('Cotización aceptada.');
+                window.location.href = '/html/gerente/procesos/cotizaciones.html', '_blank';
             });
         });
     </script>
