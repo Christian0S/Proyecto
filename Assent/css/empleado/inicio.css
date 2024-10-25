@@ -1,0 +1,60 @@
+/* Main Content (Inicio) */
+.contenido {
+    margin-left: 270px;
+    padding: 20px;
+    flex-grow: 1;
+    background-color: #ecf0f1;
+}
+
+
+.texto-motivacional {
+    text-align: center;
+}
+
+.texto-motivacional h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.texto-motivacional p {
+    font-size: 18px;
+    color: #7f8c8d;
+}
+
+/* Estilos del carrusel */
+.carousel {
+    width: 100%; /* Ancho completo del contenedor */
+    max-width: 1000px; /* Máximo ancho si deseas limitar el tamaño del carrusel */
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Imágenes del carrusel */
+.carousel img {
+    margin-top: 50px;
+    margin-bottom: 100px;
+    border-radius: 10px;
+    width: 100%; /* Ajustar el ancho al 100% del contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    max-height: 500px; /* Altura máxima para mantener una apariencia uniforme */
+    object-fit: cover; /* Asegura que las imágenes cubran todo el contenedor de manera uniforme */
+}
+
+/* Ajuste del contenedor de cada imagen */
+.carousel-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Altura fija para el carrusel */
+    background-color: #f0f8e7; /* Fondo claro en caso de que las imágenes no ocupen todo el espacio */
+}
+
+@media (max-width: 768px) {
+    .carousel-slide {
+        height: 300px; /* Reducir el tamaño del carrusel en pantallas pequeñas */
+    }
+    .carousel img {
+        max-height: 300px;
+    }
+}

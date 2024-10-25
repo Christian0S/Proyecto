@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Empleados Compras</title>
+    <link rel="stylesheet" href="/Assent/css/empleado/OrdenDeCompra/CrearOrdenCompra.css">
+    <link rel="stylesheet" href="/Assent/css/empleado/general.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+        <h1>PORTAL EMPLEADO</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="Notificaciones">
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones -->
+                    </div>
+                </div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu" style="display: none;">
+                    <p><a href="/html/gerente/edicion_perfil.html" class="button1">Editar Perfil</a></p>
+                    <p><a href="#" class="button1">Historial</a></p>
+                    <p><a href="#" class="button1">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div>
+    <!-- Sidebar -->
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="/html/empleado/inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/empleado/OrdenDeCompra/InvetarioBajo.html" class="button">MENÚ DE INVENTARIO BAJO</a></li>
+                <li><a href="/html/empleado/OrdenDeCompra/crearOrdenDeCompra.html" class="button">CREAR ORDEN DE COMPRA</a></li>
+                <li><a href="/html/empleado/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="contenido inicio">
+        <main class="content">
+            <div class="container">
+                <div class="options-grid">
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Plantas</p>
+                    </button>
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Servicios</p>
+                    </button>
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Materas</p>
+                    </button>
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Artesanías</p>
+                    </button>
+                    <button class="option-item" style="background-image: url('/Assent/img/imagenes de ordencomprea/pexels-photo-4751990.jpeg');">
+                        <p>Abonos-Tierra</p>
+                    </button>
+                </div>
+                </div>
+            </div>
+        </main>
+
+        
+    </div>
+    <script src="/Assent/js/empleado/odenDeCompra/crearOdenCompra.js"></script>
+    <script src="/Assent/js/empleado/general.js"></script>
+</body>
+</html>

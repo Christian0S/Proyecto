@@ -1,0 +1,73 @@
+/* Center the filter section above the product grid */
+.filter-section {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the filters horizontally */
+    gap: 15px; /* Add space between each filter */
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #cccc;
+    border-radius: 0px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-wrap: wrap; /* Make filters wrap to the next line if they overflow */
+}
+
+/* Ensure the inventory grid follows the filter section */
+.inventory-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.filter-checkbox {
+    margin-right: 10px;
+}
+
+/* Styles for individual product cards */
+.product {
+    background-color: #ffffff;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 220px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.product-img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.product-info {
+    margin-top: 10px;
+}
+
+.product-info h3 {
+    font-size: 18px;
+    color: #333;
+}
+
+.product-info p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Add hover effect for products */
+.product:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    transition: all 0.2s ease-in-out;
+}
+
+.product-img {
+    width: 150px;
+    height: 150px; /* Ajusta el ancho según lo que necesites */ /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Cubre el área asignada sin distorsionar la imagen */
+    border-radius: 8px; /* Bordes redondeados si lo deseas */
+    display: block; /* Asegura que cada imagen esté en su propia línea */
+    margin: 10px auto; /* Centra la imagen y agrega un margen */
+}
+

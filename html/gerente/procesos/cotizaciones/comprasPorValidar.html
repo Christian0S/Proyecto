@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización Aprobada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .cotizacion-details {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: green;
+        }
+        .cotizacion-field {
+            margin-bottom: 15px;
+        }
+        .cotizacion-field label {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        input[type="number"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        input[type="number"]:focus {
+            border-color: #5cb85c;
+            outline: none;
+        }
+        .input-container {
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cotizacionId = urlParams.get('id');
+
+            // Función para cargar la cotización desde el JSON
+            const fetchCotizacionData = async () => {
+                try {
+                    const response = await fetch('/jsons/comprasPorValidar.json'); // Ajusta la ruta a tu archivo JSON
+                    const data = await response.json();
+                    const cotizacion = data.find(cot => cot.id == cotizacionId);
+                    if (cotizacion) {
+                        document.getElementById('nombreCompra').textContent = cotizacion.nombrePedido;
+                        document.getElementById('proveedor').textContent = cotizacion.proveedor;
+                        document.getElementById('fechaCreada').textContent = cotizacion.fechaCreacion;
+                        document.getElementById('fechaEntrega').textContent = cotizacion.fechaEntrega;
+                        document.getElementById('fechaAceptacion').textContent = cotizacion.fechaAceptacion;
+                        document.getElementById('valor').textContent = cotizacion.valorTotal;
+                        document.getElementById('estado').textContent = cotizacion.estado;
+
+                        const productList = document.getElementById('productList');
+                        cotizacion.productos.forEach(producto => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${producto.nombre}</td>
+                                <td>${producto.cantidad}</td>
+                                <td>${producto.valorUnitario}</td>
+                                <td class="input-container"><input type="number" min="0" value="null" class="cantidadLlegada" placeholder="Cantidad que llegó"></td>
+                            `;
+                            productList.appendChild(row);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error al cargar los datos:', error);
+                }
+            };
+
+            fetchCotizacionData();
+
+            document.getElementById('volverBtn').addEventListener('click', () => {
+                const currentUrl = window.location.href;
+                // Verifica si la URL actual no es la de inicio de procesos
+                if (!currentUrl.includes('inicoProcesos.html')) {
+                    window.location.href = '/html/gerente/procesos/inicoProcesos.html', '_blank';
+                } else {
+                    alert("Ya estás en la página de procesos.");
+                }
+            });
+
+            document.getElementById('ValidarBtn').addEventListener('click', async () => {
+                // Obtener cantidades llegadas desde los inputs
+                const cantidadesLlegadas = Array.from(document.querySelectorAll('.cantidadLlegada'))
+                    .map(input => {
+                        const value = input.value.trim(); // Eliminar espacios en blanco
+                        return value !== '' ? parseInt(value) : null; // Devolver null si está vacío
+                    });
+
+                // Obtener cantidades esperadas desde las celdas de la tabla
+                const cantidadesEsperadas = Array.from(document.querySelectorAll('tbody tr td:nth-child(2)'))
+                    .map(td => parseInt(td.textContent) || 0); // Convertir a entero, o 0 si es NaN
+
+                console.log("Cantidades llegadas:", cantidadesLlegadas); // Verificar valores
+                console.log("Cantidades esperadas:", cantidadesEsperadas); // Verificar valores
+
+                let validacionCompleta = true; // Este indicador ahora solo sirve para el mensaje
+                let mensaje = "Resumen de validación:\n";
+
+                cantidadesEsperadas.forEach((cantidadEsperada, index) => {
+                    const cantidadLlegada = cantidadesLlegadas[index];
+
+                    // Validar que la cantidad llegada no esté vacía (null)
+                    if (cantidadLlegada === null) {
+                        mensaje += `Producto ${index + 1}: La cantidad llegada está vacía y no se considera válida.\n`;
+                        validacionCompleta = false; // Establecer validación incompleta
+                    } else if (cantidadLlegada < cantidadEsperada) {
+                        // Si llegó menos de lo esperado
+                        mensaje += `Producto ${index + 1}: Se esperaba ${cantidadEsperada}, llegó ${cantidadLlegada} (Menos de lo esperado).\n`;
+                    } else if (cantidadLlegada > cantidadEsperada) {
+                        // Si llegó más de lo esperado
+                        mensaje += `Producto ${index + 1}: Se esperaba ${cantidadEsperada}, llegó ${cantidadLlegada} (Más de lo esperado).\n`;
+                    } else {
+                        // Validación exitosa
+                        mensaje += `Producto ${index + 1}: Validación exitosa (Esperada: ${cantidadEsperada}, Llegó: ${cantidadLlegada}).\n`;
+                    }
+                });
+
+                console.log("Validación completa:", validacionCompleta); // Verificar el estado de validacionCompleta
+
+                // Alerta con el resumen de validación
+                alert(mensaje);
+
+                // Guardar solo cantidades válidas en el JSON, ignorando las vacías
+                const cantidadesValidas = cantidadesLlegadas.filter(cantidad => cantidad !== null); // Filtrar nulls
+
+                // Siempre guardar las cantidades llegadas en el JSON, independientemente de la validación
+                if (validacionCompleta) {
+                        window.location.href = '/html/gerente/procesos/inicoProcesos.html', '_blank';
+                    } else {
+                        // Aquí puedes manejar un comportamiento diferente si hay discrepancias y no todas son válidas
+                        console.log("Se han registrado discrepancias, pero se guardaron las cantidades.");
+                    }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="cotizacion-details">
+        <h1>Cotización Aprobada</h1>
+        <div class="cotizacion-field">
+            <label>Nombre de Compra:</label>
+            <span id="nombreCompra"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Proveedor:</label>
+            <span id="proveedor"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Fecha Creada:</label>
+            <span id="fechaCreada"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Fecha de Entrega:</label>
+            <span id="fechaEntrega"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Fecha de Aceptación:</label>
+            <span id="fechaAceptacion"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Valor Total:</label>
+            <span id="valor"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Estado:</label>
+            <span id="estado"></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad Esperada</th>
+                    <th>Precio Unitario</th>
+                    <th>Cantidad que llegó</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+
+        <div class="buttons">
+            <button id="volverBtn">🔙 Volver</button>
+            <button id="ValidarBtn">✅ Validar</button>
+        </div>
+    </div>
+</body>
+</html>

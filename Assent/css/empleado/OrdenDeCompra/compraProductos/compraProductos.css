@@ -1,0 +1,125 @@
+#formContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    position: relative; /* Para manejar el botón "Siguiente" */
+}
+
+#addProductBtn {
+    position: absolute;
+    top: 90px;
+    left: 300px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    border: none;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10; /* Asegúrate de que esté encima de otros elementos */
+}
+
+#nextBtn {
+    background-color: #1692df; /* Azul especificado */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    position: absolute; /* Fijo en la parte inferior derecha */
+    bottom: 40px;
+    right: 40px;
+    z-index: 10; /* Asegúrate de que esté encima de otros elementos */
+}
+
+.product-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 10px; /* Espaciado entre tarjetas */
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    width: 300px; /* Ajustamos el tamaño de las tarjetas */
+    display: inline-block; /* Permite que las tarjetas se alineen en línea */
+    vertical-align: top; /* Alinea las tarjetas verticalmente */
+    position: relative; /* Para el posicionamiento del botón de eliminar */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.image-preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50px;
+    margin-top: 10px;
+}
+
+.image-label {
+    display: block; /* Asegura que la imagen se muestre como un bloque */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+}
+
+.image-input {
+    display: none; /* Oculta el input de archivo */
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+    float: right; /* Mueve el botón de eliminar a la derecha */
+}
+
+/* Estilos para inputs y selects */
+input[type="text"],
+input[type="file"],
+input[type="number"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical; /* Permite cambiar el tamaño verticalmente */
+}
+
+input[type="file"] {
+    padding: 5px; /* Ajusta el padding para inputs de archivo */
+}
+
+/* Hover effects */
+button:hover {
+    opacity: 0.9; /* Efecto de hover para botones */
+}
+.suggestions {
+    border: 1px solid #ccc;
+    background: #fff;
+     /* Para que se superponga al formulario */
+    z-index: 10; /* Para que aparezca encima de otros elementos */
+    max-height: 200px; /* Limitar la altura */
+    overflow-y: auto; /* Agregar scroll si hay muchas sugerencias */
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer; /* Cambiar el cursor al pasar sobre las sugerencias */
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0; /* Resaltar la sugerencia al pasar el ratón */
+}

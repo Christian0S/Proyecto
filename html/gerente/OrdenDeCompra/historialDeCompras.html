@@ -54,8 +54,22 @@
     <main class="content">
         <div class="search-bar">
             <input type="text" id="search" placeholder="Buscar...">
-                
-        
+            <button id="toggleCalendar" onclick="toggleCalendario()" >📅 Generar Informe</button> <!-- Botón para el calendario e informe -->
+            <div id="calendario-container" style="display:none;">
+                <label for="startDate">Desde:</label>
+                <input type="date" id="startDate">
+                <label for="endDate">Hasta:</label>
+                <input type="date" id="endDate">
+                <button onclick="generarInformePorFecha()">Generar PDF</button>
+            </div>
+
+        </div>
+        <div id="calendarContainer" style="display: none;">
+            <label for="startDate">Fecha de inicio:</label>
+            <input type="date" id="startDate">
+            <label for="endDate">Fecha de fin:</label>
+            <input type="date" id="endDate">
+            <button id="generateReport">Generar PDF</button>
         </div>
         <div class="inventory-grid">
             <table id="inventory-table">
@@ -77,9 +91,12 @@
             </table>
         </div>
     </main>
+    
+    
     </div>
 
     <script src="/Assent/js/gerente/general.js"></script>
     <script src="/Assent/js/gerente/odenDeCompra/historialDeCompras.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </body>
 </html>

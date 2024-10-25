@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Empleados Compras</title>
+    <link rel="stylesheet" href="/Assent/css/empleado/Inventario/editarInventario.css">
+    <link rel="stylesheet" href="/Assent/css/empleado/general.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+        <h1>PORTAL EMPLEADO</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="Notificaciones">
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones -->
+                    </div>
+                </div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu" style="display: none;">
+                    <p><a href="/html/gerente/edicion_perfil.html" class="button1">Editar Perfil</a></p>
+                    <p><a href="#" class="button1">Historial</a></p>
+                    <p><a href="#" class="button1">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div>
+    <!-- Sidebar -->
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="/html/empleado/inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/empleado/OrdenDeCompra/InvetarioBajo.html" class="button">MENÚ DE INVENTARIO BAJO</a></li>
+                <li><a href="/html/empleado/OrdenDeCompra/crearOrdenDeCompra.html" class="button">CREAR ORDEN DE COMPRA</a></li>
+                <li><a href="/html/empleado/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="contenido inicio">
+        <section class="product-form">
+            <div class="image-container">
+                <label for="imageInput" class="image-label">
+                    <img id="productImage" src="/Assent/img/profile/default-avatar.jpeg" alt="Imagen del Producto">
+                </label>
+                <input type="file" id="imageInput" accept="image/*" hidden onchange="loadImage(event)">
+                <input type="text" id="productName" placeholder="Nombre del Producto" required>
+                <select id="categorySelect" required>
+                    <option value="" disabled selected>Seleccionar Categoría</option>
+                    <option value="Materas">Materas</option>
+                    <option value="Artesanías">Artesanías</option>
+                    <option value="Plantas">Plantas</option>
+                    <option value="Abonos-Tierra">Abonos-Tierra</option>
+                </select>
+                <button type="button" class="description-button" onclick="toggleDescriptionPopup()">Descripción</button>
+            </div>
+        
+            <div class="supplier-pricing-container">
+                <div class="supplier-container">
+                    <label for="supplierSelect">Seleccionar Proveedor</label>
+                    
+                    
+                    <label for="VenPrice">Precio de Venta</label>
+                    <input type="number" id="VenPrice" required readonly>
+            
+                    <label for="vatPercentage">IVA (%)</label>
+                    <input type="number" id="vatPercentage" required >
+            
+                    <label for="priceWithVAT">Precio Venta con IVA</label>
+                    <input type="number" id="priceWithVAT" required readonly>
+            
+                    <label for="quantityToAdd">Cantidad a añadir</label>
+                    <input type="number" id="quantityToAdd" required>
+            
+                    <label for="quantityToAlert">Cantidad Alerta Bajo</label>
+                    <input type="number" id="quantityToAlert" required>
+                </div>
+            </div>
+        
+            <div class="creator-info">
+                <p>Creado por: <span id="creatorName"></span></p>
+                <p>Rol: <span id="creatorRole"></span></p>
+                <p>Fecha de creación: <span id="creationDate"></span></p>
+            </div>
+        
+            <div class="alert-container" id="alertContainer" style="display: none;">
+                <p>Por favor, asegúrate de que la cantidad a añadir sea al menos 1.</p>
+            </div>
+        
+            <div class="button-container">
+                <button type="button" class="cancel-button">Cancelar</button>
+                <button type="button" class="save-button">Guardar</button>
+            </div>
+        
+            <div id="descriptionPopup" class="description-popup">
+                <div class="popup-content">
+                    <span class="close" onclick="toggleDescriptionPopup()">&times;</span>
+                    <h2>Añadir Descripción</h2>
+                    <textarea id="descriptionText" rows="4" placeholder="Escribe la descripción aquí..."></textarea>
+                    <button type="button" class="save-description-button" onclick="saveDescription()">Guardar Descripción</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <script src="/Assent/js/empleado/inventario/editarInventario.js"></script>
+    <script src="/Assent/js/empleado/general.js"></script>
+</body>
+</html>

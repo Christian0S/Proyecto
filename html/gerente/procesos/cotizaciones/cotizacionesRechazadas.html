@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización Rechazada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .cotizacion-details {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: red;
+        }
+        .cotizacion-field {
+            margin-bottom: 15px;
+        }
+        .cotizacion-field label {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .explanation {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #ffe6e6;
+            border: 1px solid #ffcccc;
+            border-radius: 5px;
+            color: #cc0000;
+        }
+    </style>
+    <script>
+        async function cargarCotizaciones() {
+            try {
+                const response = await fetch('/jsons/comprasRechazadas.json'); // Reemplaza con la ruta a tu archivo JSON
+                if (!response.ok) throw new Error('Error al cargar las cotizaciones');
+                return await response.json();
+            } catch (error) {
+                console.error(error);
+                return []; // Devuelve un array vacío en caso de error
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            const cotizaciones = await cargarCotizaciones();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const cotizacionId = urlParams.get('id');
+            console.log('ID de cotización recibido:', cotizacionId);
+
+            const cotizacion = cotizaciones.find(cot => cot.id == cotizacionId);
+            console.log('Cotización encontrada:', cotizacion);
+
+            if (cotizacion) {
+                document.getElementById('nombreCompra').textContent = cotizacion.nombreCompra;
+                document.getElementById('proveedor').textContent = cotizacion.proveedor;
+                document.getElementById('direccionProveedor').textContent = cotizacion.direccion;
+                document.getElementById('fechaCreada').textContent = cotizacion.fechaCreacion;
+                document.getElementById('fechaRechazo').textContent = cotizacion.fechaRechazo;
+                document.getElementById('fechaRechazoD').textContent = cotizacion.fechaRechazo;
+                document.getElementById('valor').textContent = cotizacion.valor;
+                document.getElementById('estado').textContent = cotizacion.estado;
+                document.getElementById('motivoRechazo').textContent = cotizacion.razonRechazo;
+                document.getElementById('motivoRechazoD').textContent = cotizacion.razonRechazo;
+
+                const productList = document.getElementById('productList');
+                cotizacion.productos.forEach(producto => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `<td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.precio}</td><td>${producto.fechaEntrega}</td>`;
+                    productList.appendChild(row);
+                });
+            } else {
+                console.error('Cotización no encontrada');
+                // Manejo de un mensaje para el usuario si la cotización no se encuentra
+            }
+        });
+    </script>
+</head>
+<body>
+    <div class="cotizacion-details">
+        <h1>Cotización Rechazada</h1>
+        <div class="cotizacion-field">
+            <label>Nombre de Compra:</label>
+            <span id="nombreCompra"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Proveedor:</label>
+            <span id="proveedor"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Dirección del Proveedor:</label>
+            <span id="direccionProveedor"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Fecha Creada:</label>
+            <span id="fechaCreada"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Fecha de Rechazo:</label>
+            <span id="fechaRechazo"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Valor Total:</label>
+            <span id="valor"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Estado:</label>
+            <span id="estado"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Motivo del Rechazo:</label>
+            <span id="motivoRechazo"></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Fecha de Entrega</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+
+        <!-- Texto explicativo añadido -->
+        <div class="explanation">
+            <p>Esta cotización fue rechazada el <strong><span id="fechaRechazoD"></span></strong> debido al siguiente motivo: <strong><span id="motivoRechazoD"></span></strong> Si tienes preguntas adicionales o deseas apelar esta decisión, por favor, contacta al departamento de compras.</p>
+        </div>
+    </div>
+</body>
+</html>

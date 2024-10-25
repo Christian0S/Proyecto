@@ -1,0 +1,145 @@
+/* Estilos generales para la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+main.content {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #35424a;
+}
+
+.inventory-grid {
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #35424a;
+}
+
+table th {
+    background-color: #35424a;
+    color: white;
+}
+
+button {
+    background-color: #35424a;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #080a0a;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: flex-start; /* Cambiar para alinear a la izquierda */
+    margin-bottom: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 5px;
+    width: 250px; /* Ajustar el ancho */
+}
+
+.search-bar button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background: #1692df;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background: #2c3e50;
+}
+
+#nextBtn {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #1692df;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+main.content {
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #35424a;
+}
+
+/* Estilos del menú de navegación */
+.menu-navigation {
+    margin-bottom: 20px;
+}
+
+.menu-navigation ul {
+    list-style: none;
+    padding: 0;
+    display: flex; /* Coloca los elementos del menú en línea horizontal */
+    justify-content: center; /* Centra los elementos del menú */
+    background-color: #35424a; /* Color de fondo del menú */
+}
+
+.menu-navigation li {
+    margin: 0 15px; /* Espacio entre los elementos del menú */
+}
+
+.menu-navigation a {
+    color: white; /* Color del texto */
+    text-decoration: none;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-navigation a:hover {
+    background-color: #1692df; /* Color de fondo cuando se pasa el cursor */
+    color: white; /* Color del texto cuando se pasa el cursor */
+}
+
+.menu-navigation .active {
+    background-color: #1692df; /* Color de fondo cuando está activo */
+    color: white; /* Color del texto cuando está activo */
+    border-radius: 5px;
+}

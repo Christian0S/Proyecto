@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización Aprobada</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .cotizacion-details {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+            color: green;
+        }
+        .cotizacion-field {
+            margin-bottom: 15px;
+        }
+        .cotizacion-field label {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cotizacionId = urlParams.get('id');
+
+            // Función para cargar la cotización desde el JSON
+            const fetchCotizacionData = async () => {
+                try {
+                    const response = await fetch('/jsons/comprasActivas.json'); // Ajusta la ruta a tu archivo JSON
+                    const data = await response.json();
+                    const cotizacion = data.find(cot => cot.id == cotizacionId);
+                    if (cotizacion) {
+                        document.getElementById('nombreCompra').textContent = cotizacion.nombrePedido;
+                        document.getElementById('proveedor').textContent = cotizacion.proveedor;
+                        document.getElementById('fechaCreada').textContent = cotizacion.fechaCreacion;
+                        document.getElementById('fechaEntrega').textContent = cotizacion.fechaEntrega;
+                        document.getElementById('fechaAceptacion').textContent = cotizacion.fechaAceptacion; // Nueva línea para la fecha de aceptación
+                        document.getElementById('valor').textContent = cotizacion.valorTotal;
+                        document.getElementById('estado').textContent = cotizacion.estado;
+
+                        const productList = document.getElementById('productList');
+                        cotizacion.productos.forEach(producto => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `<td>${producto.nombre}</td><td>${producto.cantidad}</td><td>${producto.valorUnitario}</td>`;
+                            productList.appendChild(row);
+                        });
+                    }
+                } catch (error) {
+                    console.error('Error al cargar los datos:', error);
+                }
+            };
+
+            fetchCotizacionData();
+
+            document.getElementById('volverBtn').addEventListener('click', () => {
+                window.open('/html/gerente/procesos/inicoProcesos.html', '_blank');
+            });
+
+            document.getElementById('rechazarBtn').addEventListener('click', () => {
+                const razon = prompt('Por favor, ingrese la razón del rechazo:');
+                if (razon) {
+                    alert(`Cotización rechazada. Razón: ${razon}`);
+                    window.open('/html/gerente/procesos/inicoProcesos.html', '_blank');
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="cotizacion-details">
+        <h1>Cotización Aprobada</h1>
+        <div class="cotizacion-field">
+            <label>Nombre de Compra:</label>
+            <span id="nombreCompra"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Proveedor:</label>
+            <span id="proveedor"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Fecha Creada:</label>
+            <span id="fechaCreada"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Fecha de Entrega:</label>
+            <span id="fechaEntrega"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Fecha de Aceptación:</label> <!-- Nueva línea para la fecha de aceptación -->
+            <span id="fechaAceptacion"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Valor Total:</label>
+            <span id="valor"></span>
+        </div>
+        <div class="cotizacion-field">
+            <label>Estado:</label>
+            <span id="estado"></span>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th> <!-- Modificado para incluir la cantidad -->
+                    <th>Precio Unitario</th> <!-- Añadido para mostrar el precio unitario -->
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+
+        <div class="buttons">
+            <button id="volverBtn">🔙 Volver</button>
+            <button id="rechazarBtn">❌ Rechazar</button>
+        </div>
+    </div>
+</body>
+</html>

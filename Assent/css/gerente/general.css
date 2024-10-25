@@ -88,7 +88,7 @@ h1, h2 {
     padding: 20px;
     max-height: auto; /* Full height */
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    min-height: 92.6vh; 
+    min-height: 92.6vh;
 }
 
 .sidebar ul {

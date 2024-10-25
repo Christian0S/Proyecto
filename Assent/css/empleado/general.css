@@ -1,0 +1,174 @@
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f8e7; /* Fondo claro y fresco, similar a plantas */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #fff; /* Verde oscuro natural */
+    position: fixed; /* Fijo en la parte superior */
+    width: 100%;
+    z-index: 2;
+}
+
+header h1 {
+    margin-left: 20px;
+    font-size: 24px;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.notification img,
+.user img {
+    border-radius: 50px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.profile-menu, .notification-menu {
+    background: white;
+    border: 1px solid #ccc;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    width: 200px;
+    padding: 10px;
+    display: none;
+}
+
+.profile-menu a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
+}
+
+.profile-menu a:hover {
+    background-color: #3b8345;
+    color: white;
+}
+
+/* Sidebar */
+.container {
+    display: flex;
+    margin-top: 60px; /* Dejar espacio debajo del header fijo */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    display: block;
+}
+
+.sidebar ul li a:hover {
+    background-color: #4ca76b; /* Verde más claro al pasar el mouse */
+}
+
+.button {
+    background-color: #4ca76b; /* Color del botón */
+    width: 90%;
+    color: white; /* Color del texto del botón */
+    padding: 10px 15px;
+    cursor: pointer;
+    text-align: left;
+    display: block;
+}
+
+.button:hover{
+    border-radius: 10px;
+    background-color: #41855d
+}
+
+.toggle-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+/* Ocultar el menú lateral inicialmente en pantallas pequeñas */
+.sidebar {
+    width: 250px;
+    background-color: #4ca76b; /* Verde claro */
+    position: fixed;
+    top: 75px; /* Debajo del header */
+    left: 0;
+    min-height: calc(100% - 75px); /* Ajustar la altura sin invadir el header */
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none; /* Ocultar el menú por defecto en pantallas pequeñas */
+    }
+
+    .toggle-button {
+        display: block; /* Mostrar el botón de hamburguesa en pantallas pequeñas */
+    }
+
+    .contenido {
+        margin-left: 0; /* Ajustar el contenido para ocupar todo el ancho cuando el menú está oculto */
+    }
+}
+
+/* Mostrar el menú lateral cuando esté activo en pantallas pequeñas */
+.sidebar.active {
+    display: block;
+    position: fixed;
+    width: 250px; /* Ajusta el ancho del menú lateral aquí si es necesario */
+    height: calc(100% - 60px);
+    background-color: #4ca76b;
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+/* Ocultar el menú lateral al presionar el botón de cerrar en pantallas pequeñas */
+.sidebar.closed {
+    transform: translateX(-250px); /* Mueve el menú fuera de la pantalla */
+}
+
+/* Contenido principal */
+.contenido {
+    padding: 20px;
+    background-color: #f0f8e7; /* Fondo general del contenido */
+    margin-left: 250px;
+    flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+    .contenido {
+        margin-left: 0; /* Eliminar el margen cuando el menú está oculto */
+    }
+}

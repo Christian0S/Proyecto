@@ -1,0 +1,145 @@
+[
+    { 
+        "id": 1, 
+        "nombreCompra": "Compra A", 
+        "proveedor": "Vanessa", 
+        "fechaRechazo": "15/10/2024", 
+        "valor": "$10,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Macetas de barro", "precio": "$1,000", "fechaEntrega": "01/11/2024", "cantidad": 10 }
+        ], 
+        "razonRechazo": "Proveedor no cumplió con los tiempos acordados.",
+        "direccion": "Calle 123, Ciudad A",
+        "fechaCreacion": "01/10/2024"
+    },
+    { 
+        "id": 2, 
+        "nombreCompra": "Compra B", 
+        "proveedor": "Jose", 
+        "fechaRechazo": "16/10/2024", 
+        "valor": "$15,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Macetas de plástico", "precio": "$1,500", "fechaEntrega": "02/11/2024", "cantidad": 15 }
+        ], 
+        "razonRechazo": "El precio superaba el presupuesto.",
+        "direccion": "Calle 456, Ciudad B",
+        "fechaCreacion": "02/10/2024"
+    },
+    { 
+        "id": 3, 
+        "nombreCompra": "Compra C", 
+        "proveedor": "Bob", 
+        "fechaRechazo": "17/10/2024", 
+        "valor": "$20,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Abono", "precio": "$2,000", "fechaEntrega": "03/11/2024", "cantidad": 5 }
+        ], 
+        "razonRechazo": "El proveedor no pudo garantizar la calidad del producto.",
+        "direccion": "Calle 789, Ciudad C",
+        "fechaCreacion": "03/10/2024"
+    },
+    { 
+        "id": 4, 
+        "nombreCompra": "Compra D", 
+        "proveedor": "Trey", 
+        "fechaRechazo": "18/10/2024", 
+        "valor": "$25,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Macetas de barro", "precio": "$2,500", "fechaEntrega": "04/11/2024", "cantidad": 20 },
+            { "nombre": "Abono", "precio": "$3,000", "fechaEntrega": "04/11/2024", "cantidad": 8 }
+        ], 
+        "razonRechazo": "Entrega fuera de los plazos acordados.",
+        "direccion": "Calle 101, Ciudad D",
+        "fechaCreacion": "04/10/2024"
+    },
+    { 
+        "id": 5, 
+        "nombreCompra": "Compra E", 
+        "proveedor": "Kuhic", 
+        "fechaRechazo": "19/10/2024", 
+        "valor": "$30,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Macetas de plástico", "precio": "$3,000", "fechaEntrega": "05/11/2024", "cantidad": 12 }
+        ], 
+        "razonRechazo": "Problemas con la calidad del producto.",
+        "direccion": "Calle 202, Ciudad E",
+        "fechaCreacion": "05/10/2024"
+    },
+    { 
+        "id": 6, 
+        "nombreCompra": "Compra F", 
+        "proveedor": "June", 
+        "fechaRechazo": "20/10/2024", 
+        "valor": "$35,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Abono", "precio": "$3,500", "fechaEntrega": "06/11/2024", "cantidad": 10 },
+            { "nombre": "Macetas de barro", "precio": "$3,000", "fechaEntrega": "06/11/2024", "cantidad": 5 }
+        ], 
+        "razonRechazo": "El proveedor no pudo cumplir con los tiempos acordados.",
+        "direccion": "Calle 303, Ciudad F",
+        "fechaCreacion": "06/10/2024"
+    },
+    { 
+        "id": 7, 
+        "nombreCompra": "Compra G", 
+        "proveedor": "Madison", 
+        "fechaRechazo": "21/10/2024", 
+        "valor": "$40,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Macetas de plástico", "precio": "$4,000", "fechaEntrega": "07/11/2024", "cantidad": 18 }
+        ], 
+        "razonRechazo": "El presupuesto fue sobrepasado.",
+        "direccion": "Calle 404, Ciudad G",
+        "fechaCreacion": "07/10/2024"
+    },
+    { 
+        "id": 8, 
+        "nombreCompra": "Compra H", 
+        "proveedor": "Patrick", 
+        "fechaRechazo": "22/10/2024", 
+        "valor": "$45,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Abono", "precio": "$4,500", "fechaEntrega": "08/11/2024", "cantidad": 7 }
+        ], 
+        "razonRechazo": "Falta de documentos requeridos.",
+        "direccion": "Calle 505, Ciudad H",
+        "fechaCreacion": "08/10/2024"
+    },
+    { 
+        "id": 9, 
+        "nombreCompra": "Compra I", 
+        "proveedor": "Quinton", 
+        "fechaRechazo": "23/10/2024", 
+        "valor": "$50,000", 
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Macetas de barro", "precio": "$5,000", "fechaEntrega": "09/11/2024", "cantidad": 25 }
+        ], 
+        "razonRechazo": "No se cumplieron los requisitos de calidad.",
+        "direccion": "Calle 606, Ciudad I",
+        "fechaCreacion": "09/10/2024"
+    },
+    { 
+        "id": 10, 
+        "nombreCompra": "Compra J", 
+        "proveedor": "Padraig", 
+        "fechaRechazo": "24/10/2024", 
+        "valor": "$55,000",
+        "estado": "Rechazado",
+        "productos": [
+            { "nombre": "Macetas de plástico", "precio": "$5,500", "fechaEntrega": "10/11/2024", "cantidad": 20 },
+            { "nombre": "Abono", "precio": "$6,000", "fechaEntrega": "10/11/2024", "cantidad": 15 }
+        ], 
+        "razonRechazo": "Error en la factura emitida.",
+        "direccion": "Calle 707, Ciudad J",
+        "fechaCreacion": "10/10/2024"
+    }
+]

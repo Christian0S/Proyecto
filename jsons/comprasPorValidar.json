@@ -1,0 +1,255 @@
+[
+    {
+        "id": 11,
+        "nombrePedido": "Pedido K",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$60,000",
+        "direccionEntrega": "Calle Principal 22",
+        "fechaEntrega": "2024-10-30",
+        "fechaAceptacion": "2024-10-31",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Plantas Ornamentales",
+                "cantidad": 50,
+                "valorUnitario": "$800"
+            },
+            {
+                "nombre": "Sustrato de Coco",
+                "cantidad": 10,
+                "valorUnitario": "$3,500"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "nombrePedido": "Pedido L",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$75,000",
+        "direccionEntrega": "Avenida Central 45",
+        "fechaEntrega": "2024-11-05",
+        "fechaAceptacion": "2024-11-06",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Semillas de Flores",
+                "cantidad": 100,
+                "valorUnitario": "$500"
+            },
+            {
+                "nombre": "Fertilizante Orgánico",
+                "cantidad": 20,
+                "valorUnitario": "$2,500"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "nombrePedido": "Pedido M",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$42,000",
+        "direccionEntrega": "Calle Las Palmas 67",
+        "fechaEntrega": "2024-11-07",
+        "fechaAceptacion": "2024-11-08",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Macetas de Barro",
+                "cantidad": 40,
+                "valorUnitario": "$800"
+            },
+            {
+                "nombre": "Piedra Volcánica",
+                "cantidad": 15,
+                "valorUnitario": "$1,200"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "nombrePedido": "Pedido N",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$89,000",
+        "direccionEntrega": "Boulevard Jardines 89",
+        "fechaEntrega": "2024-11-10",
+        "fechaAceptacion": "2024-11-11",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Abono Líquido",
+                "cantidad": 25,
+                "valorUnitario": "$2,000"
+            },
+            {
+                "nombre": "Plantas Suculentas",
+                "cantidad": 70,
+                "valorUnitario": "$1,500"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "nombrePedido": "Pedido O",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$50,000",
+        "direccionEntrega": "Calle Lomas 23",
+        "fechaEntrega": "2024-11-12",
+        "fechaAceptacion": "2024-11-13",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Tierra para Macetas",
+                "cantidad": 35,
+                "valorUnitario": "$1,000"
+            },
+            {
+                "nombre": "Fertilizante Nitrogenado",
+                "cantidad": 15,
+                "valorUnitario": "$2,500"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "nombrePedido": "Pedido P",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$68,000",
+        "direccionEntrega": "Avenida San Juan 15",
+        "fechaEntrega": "2024-11-15",
+        "fechaAceptacion": "2024-11-16",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Arena para Jardines",
+                "cantidad": 50,
+                "valorUnitario": "$1,000"
+            },
+            {
+                "nombre": "Plantas de Interior",
+                "cantidad": 30,
+                "valorUnitario": "$2,500"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "nombrePedido": "Pedido Q",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$55,000",
+        "direccionEntrega": "Calle Antigua 78",
+        "fechaEntrega": "2024-11-17",
+        "fechaAceptacion": "2024-11-18",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Árboles Frutales",
+                "cantidad": 10,
+                "valorUnitario": "$3,500"
+            },
+            {
+                "nombre": "Macetas de Metal",
+                "cantidad": 15,
+                "valorUnitario": "$1,200"
+            }
+        ]
+    },
+    {
+        "id": 18,
+        "nombrePedido": "Pedido R",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$90,000",
+        "direccionEntrega": "Avenida del Sol 32",
+        "fechaEntrega": "2024-11-20",
+        "fechaAceptacion": "2024-11-21",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Sustrato para Orquídeas",
+                "cantidad": 60,
+                "valorUnitario": "$1,200"
+            },
+            {
+                "nombre": "Semillas de Césped",
+                "cantidad": 25,
+                "valorUnitario": "$2,000"
+            }
+        ]
+    },
+    {
+        "id": 19,
+        "nombrePedido": "Pedido S",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$63,000",
+        "direccionEntrega": "Calle del Mar 45",
+        "fechaEntrega": "2024-11-22",
+        "fechaAceptacion": "2024-11-23",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Macetas Colgantes",
+                "cantidad": 40,
+                "valorUnitario": "$1,500"
+            },
+            {
+                "nombre": "Fertilizante Universal",
+                "cantidad": 20,
+                "valorUnitario": "$1,500"
+            }
+        ]
+    },
+    {
+        "id": 20,
+        "nombrePedido": "Pedido T",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$77,000",
+        "direccionEntrega": "Calle Valle Verde 12",
+        "fechaEntrega": "2024-11-25",
+        "fechaAceptacion": "2024-11-26",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Macetas Rectangulares",
+                "cantidad": 55,
+                "valorUnitario": "$1,000"
+            },
+            {
+                "nombre": "Abono Fosforado",
+                "cantidad": 12,
+                "valorUnitario": "$2,500"
+            }
+        ]
+    },
+    {
+        "id": 21,
+        "nombrePedido": "Pedido U",
+        "proveedor": "Guate",
+        "fechaCreacion": "2024-10-24",
+        "valorTotal": "$85,000",
+        "direccionEntrega": "Boulevard Las Flores 89",
+        "fechaEntrega": "2024-11-27",
+        "fechaAceptacion": "2024-11-28",
+        "estado": "Validar",
+        "productos": [
+            {
+                "nombre": "Piedra Decorativa",
+                "cantidad": 75,
+                "valorUnitario": "$1,000"
+            },
+            {
+                "nombre": "Plantas de Exterior",
+                "cantidad": 45,
+                "valorUnitario": "$1,500"
+            }
+        ]
+    }
+]

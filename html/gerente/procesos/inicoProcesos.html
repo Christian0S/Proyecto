@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Inicio - Vivero Las Magnolias</title>
+    <link rel="stylesheet" href="/Assent/css/gerente/procesos/inicioProcesos.css">
     <link rel="stylesheet" href="/Assent/css/gerente/general.css">
-    <link rel="stylesheet" href="/Assent/css/gerente/inicio.css">
 </head>
 <body>
     <header>
         <button class="toggle-button" onclick="toggleSidebar()">☰</button>
-        <h1>PAGINA DE INICIO</h1>
+        <h1>PROCESOS</h1>
         <div class="header-icons">
             <div class="notification" onclick="toggleNotifications()">
                 <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
@@ -51,33 +51,54 @@
             <li><a href="/html/gerente/procesos/inicoProcesos.html" class="button">PROCESOS</a></li>
         </ul>
     </nav>
-        <main class="content">
-            <h1 style="text-align: center; margin: 5%;">Vivero Las Magnolias</h1>
-            <div class="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="/Assent/img/idex-createProfile/img_1.jpg" alt="Slide 1">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/Assent/img/idex-createProfile/Img_2.jpg" alt="Slide 2">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="/Assent/img/idex-createProfile/IMG_20220409_173722.jpg" alt="Slide 3">
-                    </div>
-                </div>
-                <a class="carousel-control prev" onclick="moveSlide(-1)">&#10094;</a>
-                <a class="carousel-control next" onclick="moveSlide(1)">&#10095;</a>
-            </div>
+    <main class="content">
+        <!-- Menú de navegación -->
+        <nav class="menu-navigation">
+            <ul>
+                <li><a href="/html/gerente/procesos/inicoProcesos.html">GESTIÓN DE PRODUCTOS</a></li>
+                <li><a href="cotizaciones.html">COTIZACIONES</a></li>
+                <li><a href="activo.html">ACTIVO</a></li>
+                <li><a href="validar.html">VALIDAR</a></li>
+                <li><a href="finalizado.html">FINALIZADO</a></li>
+                <li><a href="rechazadas.html">RECHAZADAS</a></li>
+            </ul>
+        </nav>
 
-            <div class="description">
-                <p >
-                    Somos una empresa familiar dedicada a la producción y comercialización de material vegetal de alta calidad de tipo ornamental, frutal y especies nativas; venta de materas, artesanías, abonos, fertilizantes, sustratos y demás productos complementarios. Adicionalmente ofrecemos el servicio de asesoría técnica en jardinería y establecimiento de plantaciones, mediante la atención personalizada a nuestros clientes.
-                </p>
-            </div>
-        </main>
+        <h1>Gestión de Productos</h1>
+
+        <!-- Barra de búsqueda -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Buscar producto por nombre">
+            <button id="searchButton">Buscar</button>
+        </div>
+
+        <!-- Tabla de productos -->
+        <div class="inventory-grid">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Seleccionar</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Tamaño</th>
+                        <th>Fecha</th>
+                        <th>Cantidad</th>
+                        <th>Descripción</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                    <!-- Se rellenará dinámicamente con JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Botón de siguiente -->
+        <button id="nextBtn">Siguiente</button>
+    </main>
     </div>
 
     <script src="/Assent/js/gerente/general.js"></script>
-    <script src="/Assent/js/gerente/inicio.js"></script>
+    <script src="/Assent/js/gerente/procesos/inicioProcesos.js"></script>
 </body>
 </html>

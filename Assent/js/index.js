@@ -21,7 +21,7 @@ async function login(event) {
     // Si no hay usuarios, cargar usuarios predeterminados
     if (users.length === 0) {
         try {
-            const response = await fetch('../../jsons/usuarios.json');
+            const response = await fetch('../jsons/usuarios.json');
             users = await response.json();
             localStorage.setItem('usuarios', JSON.stringify(users)); // Guardar en localStorage
         } catch (error) {
@@ -45,7 +45,7 @@ async function login(event) {
 
         // Redirigir según el rol del usuario
         if (user.position === "empleado") {
-            window.location.href = "empleado.html";
+            window.location.href = "/html/empleado/inicio.html";
         } else if (user.position === "proveedor") {
             window.location.href = "proveedor.html";
         } else if (user.position === "gerente") {
