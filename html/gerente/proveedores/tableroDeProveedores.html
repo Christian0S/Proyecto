@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Proveedor</title>
+    <link rel="stylesheet" href="../../../Assent/css/gerente/proveedores/tableroDeProveedores.css">
+    <link rel="stylesheet" href="../../../Assent/css/gerente/general.css">
+</head>
+<body>
+    <header>
+        <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+        <h1>PAGINA DE INICIO</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="../../../Assent/img/notificacion/bell.png" alt="User Avatar">
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                    </div>
+                </div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="../../../Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu">
+                    <p><a href="../../../html/gerente/edicion_perfil.html" class="button1" id="editProfileBtn">Editar Perfil</a></p>
+                    <p><a href="/html/gerente/historialDECambio.html" class="button1" id="historyBtn">Historial</a></p>
+                    <p><a href="#" class="button1" id="logoutBtn">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar">
+            <ul>
+                <li><a href="/html/gerente/Inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/gerente/proveedores/listadoProveedores.html" class="button">PROVEEDORES</a></li>
+                <li>
+                    <div class="orden-compra-toggle" onclick="toggleOrdenMenu()">
+                        <p class="text-toggle">COMPRAS</p>
+                        <div class="orden-dropdown" id="ordenDropdown">
+                            <a href="/html/gerente/OrdenDeCompra/InvetarioBajo.html" class="orden-option">Menú de Inventario Bajo</a>
+                            <a href="/html/gerente/OrdenDeCompra/crearOrdenDeCompra.html" class="orden-option">Crear Orden de Compra</a>
+                            <a href="/html/gerente/OrdenDeCompra/historialDeCompras.html" class="orden-option">Historial de Compras</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/html/gerente/empleados/listadoDeEmpleados.html" class="button">EMPLEADOS</a></li>
+                <li><a href="/html/gerente/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+                <li><a href="/html/gerente/procesos/inicoProcesos.html" class="button">PROCESOS</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <div class="dashboard">
+                <div class="contenido">
+                    <div class="containerq">
+                        <div class="progress" id="grafica-proveedores" style="--i: 0; --clr: #4caf50;">
+                            <h3 id="proveedores-percentage">0%</h3>
+                            <h4>Proveedores</h4>
+                        </div>
+                
+                        <div class="progress" id="grafica-contratos" style="--i: 0; --clr: #2196F3;">
+                            <h3 id="contratos-percentage">0%</h3>
+                            <h4>Contratos</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="stats-container">
+                  <button class="stat-card" onclick="mostrarProveedores('mejoresCalificacion')">
+                    <h3>Mejores Calificación Proveedores</h3>
+                    <div class="icon-placeholder">&#128200;</div>
+                  </button>
+                  <button class="stat-card" onclick="mostrarProveedores('cumplimientoContratos')">
+                    <h3>Cumplimiento de los contratos</h3>
+                    <div class="icon-placeholder">&#128202;</div>
+                  </button>
+                  <button class="stat-card" onclick="mostrarProveedores('plazoEntrega')">
+                    <h3>Plazo de entrega</h3>
+                    <div class="icon-placeholder">&#128201;</div>
+                  </button>
+                  <button class="stat-card" onclick="mostrarProveedores('tasaDefectos')">
+                    <h3>Tasa de defectos en los productos</h3>
+                    <div class="icon-placeholder">&#128202;</div>
+                  </button>
+                </div>
+              </div>
+              
+              <div id="detalle-proveedor"></div>
+              
+        </div>
+    </div>
+    <script src="../../../Assent/js/gerente/proveedores/tableroDeProveedores.js"></script>
+    <script src="../../../Assent/js/gerente/general.js"></script>
+</body>
+</html>

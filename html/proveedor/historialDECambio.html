@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio - Vivero Las Magnolias</title>
+    <link rel="stylesheet" href="/Assent/css/proveedores/general.css">
+    <link rel="stylesheet" href="/Assent/css/proveedores/historialDeCambio.css">
+</head>
+<body style="align-items: center;">
+    <header>
+        <div class="icon message" onclick="toggleMessages()">
+            <img src="/Assent/img/notificacion/mensaje.png" alt="Mensajes">
+        </div>
+        <h1>PORTAL PROVEEDORES</h1>
+        <div class="header-icons">
+            <div class="icon notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="Notificaciones">
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones -->
+                    </div>
+                </div>
+            </div>
+            <div class="icon user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu" style="display: none;">
+                    <p><a href="/html/proveedor/edicion_perfil.html" class="button1">Editar Perfil</a></p>
+                    <p><a href="/html/proveedor/historialDECambio.html" class="button1">Historial</a></p>
+                    <p><a id="logoutBtn" href="#" class="button1">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content" >
+    <div class="contenido inicio">
+        
+        <div class="search-bar" >
+            <a class="button" href="/html/proveedor/inicio.html"> Volver</a>
+            <input type="text" id="searchInput" placeholder="Buscar">
+            <button onclick="filterByDate()">Seleccionar Periodo</button>
+        </div>
+    
+        <div class="inventory-grid">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Usuario</th>
+                        <th>Rol</th>
+                        <th>Acción</th>
+                        <th>Descripción</th>
+                        <th>Fecha y hora</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="registroTabla">
+                    <!-- Los registros serán cargados dinámicamente desde JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </main>
+</div>
+<main class="main-content">
+    </div>
+
+    <script src="/Assent/js/proveedores/historial.js"></script>
+    <script src="/Assent/js/empleado/general.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+</html>

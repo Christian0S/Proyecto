@@ -1,0 +1,32 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Página de Inicio - Vivero Las Magnolias</title>
+<link rel="stylesheet" href="/Assent/css/proveedores/opcciones/estadoPedido.css">
+<link rel="stylesheet" href="/Assent/css/proveedores/general.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+
+<main class="content">
+    <h1 style="text-align: center; margin: 50px 0;">Estado Pedido</h1>
+    <div class="search-container">
+        <input type="text" id="search" placeholder="Buscar..." oninput="filterTable()">
+    </div>
+    <table id="estadoPedidosTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre de Compra</th>
+                <th>Valor</th>
+                <th>Dirección</th>
+                <th>Fecha Entrega</th>
+                <th>Productos</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Las filas de datos se llenarán mediante JavaScript -->
+        </tbody>
+</main>
+
+<script src="/Assent/js/proveedores/general.js"></script>
+<script src="/Assent/js/proveedores/opcciones/estadoPedido.js"></script>

@@ -2,8 +2,12 @@ let data = [];
 
 async function fetchData() {
     try {
-        const response = await fetch('/jsons/comprasPorValidar.json'); // Ajusta la ruta a tu archivo JSON
-        data = await response.json();
+        const response = await fetch('/jsons/compras.json'); // Ajusta la ruta a tu archivo JSON
+        const allData = await response.json();
+        
+        // Filtrar los datos para obtener solo aquellos con estado "pendiente"
+        data = allData.filter(item => item.estado.toLowerCase() === 'validar');
+        
         fillTable();
     } catch (error) {
         console.error('Error al cargar los datos:', error);

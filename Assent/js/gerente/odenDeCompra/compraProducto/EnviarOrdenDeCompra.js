@@ -38,7 +38,7 @@ async function loadProductsFromJSON() {
             throw new Error('Network response was not ok');
         }
         productsFilterData = await response.json(); // Cargar los datos en la lista de productos de filtro
-        console.log('Productos filtrados cargados:', productsFilterData);
+        console.log('Productos filtrados cargados:');
     } catch (error) {
         console.error('Error fetching product data:', error);
     }
@@ -52,7 +52,7 @@ async function loadSuppliersFromJSON() {
             throw new Error('Network response was not ok');
         }
         suppliersData = await response.json(); // Cargar los datos de proveedores
-        console.log('Proveedores cargados:', suppliersData);
+        console.log('Proveedores cargados:');
     } catch (error) {
         console.error('Error fetching supplier data:', error);
     }
@@ -63,60 +63,37 @@ async function loadSuppliers() {
     const suppliersList = document.getElementById('suppliersList');
     suppliersList.innerHTML = ''; // Limpiar la tabla antes de cargar
 
-    // Filtrar proveedores según los productos cargados y su categoría
+    // Filtrar proveedores según los productos cargados
     const associatedSuppliers = suppliersData.filter(supplier => {
-        // Filtrar productos por nombre
+        // Verifica si el proveedor tiene productos asociados a los productos de la lista
         return productsData.some(product => 
-            supplier.productos.includes(product.name) // Coincide con los productos del proveedor
+            supplier.productos.includes(product.name) || 
+            product.category === supplier.category // Coincide con la categoría del proveedor
         );
     });
 
-    // Si no se encuentra ningún proveedor con la coincidencia de nombre, se filtrará solo por categoría
-    if (associatedSuppliers.length === 0) {
-        const suppliersByCategory = suppliersData.filter(supplier => 
-            productsData.some(product => product.category === supplier.productos) // Coincide con la categoría del proveedor
-        );
-
-        suppliersByCategory.forEach(supplier => {
-            const purchaseId = Math.floor(Math.random() * 1000000000); // Generar ID de compra automáticamente
-            const supplierRow = document.createElement('tr');
-            supplierRow.innerHTML = `
-                <td>${supplier.nombre}</td>
-                <td>${supplier.calificacion}</td>
-                <td>
-                    <ul>
-                        ${supplier.productos.map(product => `<li>${product}</li>`).join('')} <!-- Muestra los productos del proveedor -->
-                    </ul>
-                </td>
-                <td>${purchaseId}</td>
-                <td>
-                    <button class="accept-button" onclick="selectSupplier('${supplier.nombre}', '${purchaseId}', this)">✔️</button>
-                    <button class="reject-button" onclick="rejectSupplier('${supplier.nombre}')">❌</button>
-                </td>
-            `;
-            suppliersList.appendChild(supplierRow);
-        });
-    } else {
-        associatedSuppliers.forEach(supplier => {
-            const purchaseId = Math.floor(Math.random() * 1000000000); // Generar ID de compra automáticamente
-            const supplierRow = document.createElement('tr');
-            supplierRow.innerHTML = `
-                <td>${supplier.nombre}</td>
-                <td>${supplier.calificacion}</td>
-                <td>
-                    <ul>
-                        ${supplier.productos.filter(product => productsData.some(pd => pd.name === product)).map(product => `<li>${product}</li>`).join('')} <!-- Muestra solo los productos específicos -->
-                    </ul>
-                </td>
-                <td>${purchaseId}</td>
-                <td>
-                    <button class="accept-button" onclick="selectSupplier('${supplier.nombre}', '${purchaseId}', this)">✔️</button>
-                    <button class="reject-button" onclick="rejectSupplier('${supplier.nombre}')">❌</button>
-                </td>
-            `;
-            suppliersList.appendChild(supplierRow);
-        });
-    }
+    // Mostrar proveedores asociados
+    associatedSuppliers.forEach(supplier => {
+        const purchaseId = Math.floor(Math.random() * 1000000000); // Generar ID de compra automáticamente
+        const supplierRow = document.createElement('tr');
+        supplierRow.innerHTML = `
+            <td>${supplier.nombre}</td>
+            <td>${supplier.calificacion}</td>
+            <td>
+                <ul>
+                    ${supplier.productos.filter(product => 
+                        productsData.some(pd => pd.name === product || pd.category === supplier.category)
+                    ).map(product => `<li>${product}</li>`).join('')}
+                </ul>
+            </td>
+            <td>${purchaseId}</td>
+            <td>
+                <button class="accept-button" onclick="selectSupplier('${supplier.nombre}', '${purchaseId}', this)">✔️</button>
+                <button class="reject-button" onclick="rejectSupplier('${supplier.nombre}', this)">❌</button>
+            </td>
+        `;
+        suppliersList.appendChild(supplierRow);
+    });
 }
 
 // Función para seleccionar proveedor
@@ -126,42 +103,39 @@ function selectSupplier(supplierName, purchaseId, button) {
         alert(`El proveedor ${supplierName} ya ha sido seleccionado.`);
         return;
     }
+    // Agregar el proveedor a la lista de seleccionados
+    selectedSuppliers.add(supplierName);
 
+    // Aumentar el contador de proveedores seleccionados en la tabla
     const productsList = document.getElementById('productsList');
     const selectedSuppliersCount = productsList.querySelectorAll('.selected-suppliers');
-
-    // Aumentar el contador de proveedores seleccionados
     selectedSuppliersCount.forEach(count => {
         count.innerText = parseInt(count.innerText) + 1;
     });
 
-    // Agregar el proveedor a la lista de seleccionados
-    selectedSuppliers.add(supplierName);
-
-    // Deshabilitar el botón de aceptación para evitar múltiples selecciones
-    button.disabled = true;
 
     console.log(`Proveedor seleccionado: ${supplierName}, ID de compra: ${purchaseId}`);
 }
 
 // Función para rechazar proveedor
-function rejectSupplier(supplierName) {
-     // Eliminar el proveedor de la lista de seleccionados
-     selectedSuppliers.delete(supplierName);
+function rejectSupplier(supplierName, button) {
+    // Eliminar el proveedor de la lista de seleccionados
+    selectedSuppliers.delete(supplierName);
 
-     const productsList = document.getElementById('productsList');
-     const selectedSuppliersCount = productsList.querySelectorAll('.selected-suppliers');
- 
-     // Disminuir el contador de proveedores seleccionados
-     selectedSuppliersCount.forEach(count => {
-         count.innerText = Math.max(0, parseInt(count.innerText) - 1); // Evitar que el contador sea negativo
-     });
- 
-     // Habilitar el botón de aceptación nuevamente
-     button.parentElement.querySelector('.accept-button').disabled = false;
- 
-     console.log(`Proveedor rechazado: ${supplierName}`);
+    const productsList = document.getElementById('productsList');
+    const selectedSuppliersCount = productsList.querySelectorAll('.selected-suppliers');
+
+    // Disminuir el contador de proveedores seleccionados
+    selectedSuppliersCount.forEach(count => {
+        count.innerText = Math.max(0, parseInt(count.innerText) - 1); // Evitar que el contador sea negativo
+    });
+
+    // Habilitar el botón de aceptación nuevamente
+    button.disabled = false; // Habilitar el botón del proveedor rechazado
+
+    console.log(`Proveedor rechazado: ${supplierName}`);
 }
+
 
 document.getElementById('sendButton').addEventListener('click', () => {
     const requestDetails = {

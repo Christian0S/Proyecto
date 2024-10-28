@@ -31,9 +31,9 @@
     cursor: pointer;
     border-radius: 5px;
     font-size: 16px;
-    position: absolute; /* Fijo en la parte inferior derecha */
-    bottom: 40px;
-    right: 40px;
+    width: 120px;
+    margin: 50px;
+    /* Fijo en la parte inferior derecha */
     z-index: 10; /* Asegúrate de que esté encima de otros elementos */
 }
 

@@ -1,7 +1,6 @@
 // Array de rutas para cada botón
 const rutas = {
     compraProductos: "/html/empleado/OrdenDeCompra/crearOrden/compreDeProductos.html", // Página de compra de productos
-    servicios: "servicios.html" // Página de servicios
 };
 
 // Obtener el contenedor de los botones

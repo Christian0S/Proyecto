@@ -69,7 +69,7 @@
             // Función para cargar la cotización desde el JSON
             const fetchCotizacionData = async () => {
                 try {
-                    const response = await fetch('/jsons/comprasPorValidar.json'); // Ajusta la ruta a tu archivo JSON
+                    const response = await fetch('/jsons/compras.json'); // Ajusta la ruta a tu archivo JSON
                     const data = await response.json();
                     const cotizacion = data.find(cot => cot.id == cotizacionId);
                     if (cotizacion) {

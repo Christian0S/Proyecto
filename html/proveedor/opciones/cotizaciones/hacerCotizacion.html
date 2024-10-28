@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Cotización</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .cotizacion-details {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        .cotizacion-field {
+            margin-bottom: 15px;
+        }
+        .cotizacion-field label {
+            font-weight: bold;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cotizacionId = urlParams.get('id');
+
+            // Cargar datos desde el archivo JSON
+            fetch('/jsons/cotizaciones.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('Error al cargar el JSON');
+                    return response.json();
+                })
+                .then(cotizaciones => {
+                    const cotizacion = cotizaciones.find(cot => cot.id == cotizacionId);
+                    if (cotizacion) {
+                        document.getElementById('nombreCompra').textContent = cotizacion.nombreCompra;
+                        document.getElementById('correo').textContent = cotizacion.correo;
+                        document.getElementById('proveedor').textContent = cotizacion.proveedor;
+                        document.getElementById('fechaCreada').textContent = cotizacion.fechaCreada;
+                        document.getElementById('fechaEntrega').textContent = cotizacion.fechaEntrega;
+                        document.getElementById('valor').textContent = cotizacion.valor;
+                        document.getElementById('creadaPor').textContent = cotizacion.creadaPor;
+
+                        const productList = document.getElementById('productList');
+                        let totalValor = 0;
+
+                        cotizacion.productos.forEach(producto => {
+                            const row = document.createElement('tr');
+                            const priceInputId = `price_${producto.name.replace(/\s/g, '_')}`;
+                            row.innerHTML = `
+                                <td>${producto.name}</td>
+                                <td>${producto.category}</td>
+                                <td>${producto.size}</td>
+                                <td>${producto.date}</td>
+                                <td>${producto.quantity}</td>
+                                <td>${producto.description}</td>
+                                <td>
+                                    <input type="number" id="${priceInputId}" value="${producto.price}" min="0" style="width: 100%;" />
+                                </td>
+                                <td class="totalProduct" data-quantity="${producto.quantity}">${(producto.price * producto.quantity).toFixed(2)}</td>
+                            `;
+                            productList.appendChild(row);
+
+                            // Actualizar total al cambiar el precio
+                            const priceInput = document.getElementById(priceInputId);
+                            priceInput.addEventListener('input', () => {
+                                const quantity = producto.quantity;
+                                const newPrice = parseFloat(priceInput.value) || 0;
+                                const newTotal = (quantity * newPrice).toFixed(2);
+                                row.querySelector('.totalProduct').textContent = newTotal;
+
+                                // Calcular valor total
+                                updateTotalValue();
+                            });
+                        });
+
+                        // Inicializar el valor total
+                        updateTotalValue();
+
+                        function updateTotalValue() {
+                            totalValor = Array.from(document.querySelectorAll('.totalProduct'))
+                                .reduce((acc, td) => acc + parseFloat(td.textContent), 0);
+                            document.getElementById('valor').textContent = totalValor.toFixed(2);
+                        }
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+
+            document.getElementById('volverBtn').addEventListener('click', () => {
+                window.location.href = '/html/proveedor/inicio.html', '_blank';
+            });
+
+            document.getElementById('enviarBtn').addEventListener('click', () => {
+                alert('Cotización enviada con éxito.');
+                window.location.href = '/html/proveedor/inicio.html', '_blank';
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="cotizacion-details">
+        <h1>Detalles de la Cotización</h1>
+
+        <div class="cotizacion-field">
+            <label>Nombre de Compra:</label>
+            <span id="nombreCompra"></span>
+        </div>
+
+        <div class="cotizacion-field">
+            <label>Correo:</label>
+            <span id="correo"></span>
+        </div>
+
+        <div class="cotizacion-field">
+            <label>Proveedor:</label>
+            <span id="proveedor"></span>
+        </div>
+
+        <div class="cotizacion-field">
+            <label>Fecha Creada:</label>
+            <span id="fechaCreada"></span>
+        </div>
+
+        <div class="cotizacion-field">
+            <label>Fecha de Entrega:</label>
+            <span id="fechaEntrega"></span>
+        </div>
+
+        <div class="cotizacion-field">
+            <label>Valor Total:</label>
+            <span id="valor">0.00</span>
+        </div>
+
+        <div class="cotizacion-field">
+            <label>Creada Por:</label>
+            <span id="creadaPor"></span>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Categoría</th>
+                    <th>Tamaño</th>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Descripción</th>
+                    <th>Precio por Unidad</th>
+                    <th>Total por Producto</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+
+        <div class="buttons">
+            <button id="volverBtn">🔙 Volver</button>
+            <button id="enviarBtn">📤 Enviar</button>
+        </div>
+    </div>
+</body>
+</html>

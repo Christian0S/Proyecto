@@ -1,26 +1,63 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     let updatedUser = {};
 
     // Cargar datos de localStorage
-    const user = JSON.parse(localStorage.getItem('currentUser'));
-    
-    if (user) {
-        document.getElementById('nombre').value = user.name || '';
-        document.getElementById('apellidos').value = user.lastName || '';
-        document.getElementById('correo').value = user.email || '';
-        document.getElementById('telefono').value = user.phone || '';
-        document.getElementById('fecha-nacimiento').value = user.birthDate || '';
-        document.getElementById('direccion').value = user.address || '';
-        document.getElementById('ciudad').value = user.city || '';
-        document.getElementById('pais').value = user.country || '';
-        document.getElementById('tipo-id').value = user.idType || '';
-        document.getElementById('numero-id').value = user.idNumber || '';
-        document.getElementById('puesto').value = user.position || ''; 
-        document.getElementById('avatar').src = user.avatar || 'default-avatar.png';
-        document.getElementById('avatars').src = user.avatar || 'default-avatar.png'; // Imagen en el header
-        
+    const currentUserData = JSON.parse(localStorage.getItem('currentUser')); // Cambia 'userData' a 'currentUser'
+
+    if (currentUserData) {
+        // Si hay datos en localStorage, se cargan directamente
+        document.getElementById('nombre').value = currentUserData.name || '';
+        document.getElementById('apellidos').value = currentUserData.lastName || '';
+        document.getElementById('correo').value = currentUserData.email || '';
+        document.getElementById('telefono').value = currentUserData.phone || '';
+        document.getElementById('fecha-nacimiento').value = currentUserData.birthDate || '';
+        document.getElementById('direccion').value = currentUserData.address || '';
+        document.getElementById('ciudad').value = currentUserData.city || '';
+        document.getElementById('pais').value = currentUserData.country || '';
+        document.getElementById('tipo-id').value = currentUserData.idType || '';
+        document.getElementById('numero-id').value = currentUserData.idNumber || '';
+        document.getElementById('puesto').value = currentUserData.position || '';
+        document.getElementById('avatar').src = currentUserData.avatar || 'default-avatar.png';
+        document.getElementById('avatars').src = currentUserData.avatar || 'default-avatar.png'; // Imagen en el header
+
         // Inicializar updatedUser con los datos existentes
-        updatedUser = { ...user };
+        updatedUser = { ...currentUserData }; // Usa currentUserData
+    } else {
+        // Si no hay datos en localStorage, cargar desde el JSON
+        const email = JSON.parse(localStorage.getItem('userData')).email; // Obtener el email del localStorage
+
+        // Cargar usuarios desde el JSON
+        let users = [];
+        try {
+            const response = await fetch('/jsons/usuarios.json');
+            users = await response.json();
+        } catch (error) {
+            console.error("Error al cargar usuarios:", error);
+            alert("No se pudo cargar la lista de usuarios.");
+            return;
+        }
+
+        // Buscar el usuario en el JSON usando el email
+        const user = users.find(user => user.email === email);
+
+        if (user) {
+            document.getElementById('nombre').value = user.name || '';
+            document.getElementById('apellidos').value = user.lastName || '';
+            document.getElementById('correo').value = user.email || '';
+            document.getElementById('telefono').value = user.phone || '';
+            document.getElementById('fecha-nacimiento').value = user.fechaNacimiento || '';
+            document.getElementById('direccion').value = user.address || '';
+            document.getElementById('ciudad').value = user.ciudad || '';
+            document.getElementById('pais').value = user.pais || '';
+            document.getElementById('tipo-id').value = user.tipoIndentificacion || '';
+            document.getElementById('numero-id').value = user.nIdentificacion || '';
+            document.getElementById('puesto').value = user.position || '';
+            document.getElementById('avatar').src = user.avatar || 'default-avatar.png';
+            document.getElementById('avatars').src = user.avatar || 'default-avatar.png'; // Imagen en el header
+
+            // Inicializar updatedUser con los datos existentes
+            updatedUser = { ...user };
+        }
     }
 
     // Escuchar el formulario de actualización

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Proveedores</title>
+    <link rel="stylesheet" href="/Assent/css/proveedores/inicio.css">
+    <link rel="stylesheet" href="/Assent/css/proveedores/general.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="icon message" onclick="toggleMessages()">
+            <img src="/Assent/img/notificacion/mensaje.png" alt="Mensajes">
+        </div>
+        <h1>PORTAL PROVEEDORES</h1>
+        <div class="header-icons">
+            <div class="icon notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="Notificaciones">
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones -->
+                    </div>
+                </div>
+            </div>
+            <div class="icon user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu" style="display: none;">
+                    <p><a href="/html/proveedor/edicion_perfil.html" class="button1">Editar Perfil</a></p>
+                    <p><a href="/html/proveedor/historialDECambio.html" class="button1">Historial</a></p>
+                    <p><a id="logoutBtn" href="#" class="button1">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        <!-- Navigation Menu -->
+        <div class="nav-buttons">
+            <button id="cotizacionBtn" onclick="navigateTo('/html/proveedor/opciones/cotizaciones.html')">Hacer
+                Cotizaciones</button>
+            <button onclick="navigateTo('opciones/estadoPedido.html')">Estados Pedidos</button>
+            <button onclick="navigateTo('opciones/desempeno.html')">Desempeño</button>
+            <button onclick="navigateTo('opciones/gestionFacturas.html')">Gestionar Facturas</button>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-content" class="main-content">
+            <div class="image-placeholder">
+                <img src="/Assent/img/idex-createProfile/pexels-photo-10186615.jpeg" alt="Placeholder Image">
+            </div>
+        </div>
+    </div>
+
+    <script src="/Assent/js/proveedores/inicio.js"></script>
+    <script src="/Assent/js/proveedores/general.js"></script>
+    <script src="/Assent/js/proveedores/menssage.js"></script>
+</body>
+
+</html>

@@ -1,18 +1,18 @@
 [
     {
         "id": 1,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Orquídea Phalaenopsis",
         "category": "Plantas",
-        "supplierId": 1697742943154,
-        "basePrice": 40220.81,
+        "supplierId": 1697819782736,
+        "basePrice": 30000,
         "ultPercentage": 20.0,
-        "sellingPrice": 57435.312,
+        "sellingPrice": 45000,
         "vatPercentage": 19,
-        "priceWithVAT": 47862.76,
-        "quantityToAdd": 40,
-        "quantityToAlert": 20,
+        "priceWithVAT": 35700,
+        "quantityToAdd": 10,
+        "quantityToAlert": 5,
         "image": "/Assent/img/plantas.png",
-        "description": "Descripción del producto 1 en la categoría Plantas.",
+        "description": "Orquídea Phalaenopsis en maceta decorativa",
         "createdBy": {
             "name": "Juan Pérez",
             "role": "Empleado",
@@ -21,7 +21,7 @@
     },
     {
         "id": 2,
-        "name": "Producto 2 (Artesanías)",
+        "name": "Alcancía de Barro en Forma de Cerdito",
         "category": "Artesanías",
         "supplierId": "Verde Esperanza",
         "basePrice": 30787.37,
@@ -41,7 +41,7 @@
     },
     {
         "id": 3,
-        "name": "Producto 3 (Materas)",
+        "name": "Matera de Barro Grande",
         "category": "Materas",
         "supplierId": "Huertos Urbanos",
         "basePrice": 46656.63,
@@ -61,7 +61,7 @@
     },
     {
         "id": 4,
-        "name": "Producto 4 (Abonos-Tierra)",
+        "name": "Abono Orgánico Universal",
         "category": "Abonos-Tierra",
         "supplierId": "Plantas del Caribe",
         "basePrice": 22210.82,
@@ -81,7 +81,7 @@
     },
     {
         "id": 5,
-        "name": "Producto 5 (Abonos-Tierra)",
+        "name": "Fertilizante Mineral",
         "category": "Abonos-Tierra",
         "supplierId": "Verde Esperanza",
         "basePrice": 33702.97,
@@ -101,7 +101,7 @@
     },
     {
         "id": 6,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Hortensia Azul",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 20721.18,
@@ -121,7 +121,7 @@
     },
     {
         "id": 7,
-        "name": "Producto 7 (Artesanías)",
+        "name": "Maceta de Barro Decorativa",
         "category": "Artesanías",
         "supplierId": "Jardines de Colombia",
         "basePrice": 38623.17,
@@ -141,7 +141,7 @@
     },
     {
         "id": 8,
-        "name": "Producto 8 (Materas)",
+        "name": "Matera de Barro Decorativa",
         "category": "Materas",
         "supplierId": "Verde Esperanza",
         "basePrice": 48739.74,
@@ -161,7 +161,7 @@
     },
     {
         "id": 9,
-        "name": "Producto 9 (Abonos-Tierra)",
+        "name": "Compost Orgánico",
         "category": "Abonos-Tierra",
         "supplierId": "Vivero Verde",
         "basePrice": 49199.6,
@@ -181,7 +181,7 @@
     },
     {
         "id": 10,
-        "name": "Producto 10 (Abonos-Tierra)",
+        "name": "Humus de Lombriz",
         "category": "Abonos-Tierra",
         "supplierId": "Vivero Verde",
         "basePrice": 16096.44,
@@ -201,7 +201,7 @@
     },
     {
         "id": 11,
-        "name": "Producto 11 (Abonos-Tierra)",
+        "name": "Tierra Negra para Plantas",
         "category": "Abonos-Tierra",
         "supplierId": "Verde Esperanza",
         "basePrice": 34282.99,
@@ -221,7 +221,7 @@
     },
     {
         "id": 12,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Rosa Jardinera",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 12277.06,
@@ -241,7 +241,7 @@
     },
     {
         "id": 13,
-        "name": "Producto 13 (Materas)",
+        "name": "Matera Rústica de Arcilla",
         "category": "Materas",
         "supplierId": "Vivero Verde",
         "basePrice": 21459.2,
@@ -261,7 +261,7 @@
     },
     {
         "id": 14,
-        "name": "Producto 14 (Materas)",
+        "name": "Matera con Soporte de Hierro",
         "category": "Materas",
         "supplierId": "Sustentabilidad Verde",
         "basePrice": 38616.67,
@@ -281,7 +281,7 @@
     },
     {
         "id": 15,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Crisantemo Amarillo",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 29071.67,
@@ -301,7 +301,7 @@
     },
     {
         "id": 16,
-        "name": "Producto 16 (Abonos-Tierra)",
+        "name": "Fertilizante NPK",
         "category": "Abonos-Tierra",
         "supplierId": "Sustentabilidad Verde",
         "basePrice": 24665.71,
@@ -321,7 +321,7 @@
     },
     {
         "id": 17,
-        "name": "Producto 17 (Abonos-Tierra)",
+        "name": "Abono para Jardines",
         "category": "Abonos-Tierra",
         "supplierId": "Raíces Naturales",
         "basePrice": 20880.13,
@@ -341,7 +341,7 @@
     },
     {
         "id": 18,
-        "name": "Producto 18 (Artesanías)",
+        "name": "Jarrón de Barro Tallado",
         "category": "Artesanías",
         "supplierId": "Plantas del Caribe",
         "basePrice": 48898.27,
@@ -361,7 +361,7 @@
     },
     {
         "id": 19,
-        "name": "Producto 19 (Abonos-Tierra)",
+        "name": "Fertilizante Líquido",
         "category": "Abonos-Tierra",
         "supplierId": "Verde Esperanza",
         "basePrice": 30038.86,
@@ -381,7 +381,7 @@
     },
     {
         "id": 20,
-        "name": "Producto 20 (Artesanías)",
+        "name": "Vasija de Barro Pintada",
         "category": "Artesanías",
         "supplierId": "Raíces Naturales",
         "basePrice": 32991.28,
@@ -401,7 +401,7 @@
     },
     {
         "id": 21,
-        "name": "Producto 21 (Abonos-Tierra)",
+        "name": "Compostaje Natural",
         "category": "Abonos-Tierra",
         "supplierId": "Jardines de Colombia",
         "basePrice": 25742.73,
@@ -421,7 +421,7 @@
     },
     {
         "id": 22,
-        "name": "Producto 22 (Materas)",
+        "name": "Matera de Cerámica Esmaltada",
         "category": "Materas",
         "supplierId": "Huertos Urbanos",
         "basePrice": 42375.95,
@@ -441,7 +441,7 @@
     },
     {
         "id": 23,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Bonsái Ficus",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 40461.19,
@@ -461,7 +461,7 @@
     },
     {
         "id": 24,
-        "name": "Producto 24 (Materas)",
+        "name": "Maceta Barro Crudo",
         "category": "Materas",
         "supplierId": "Semillas de Vida",
         "basePrice": 14213.15,
@@ -481,7 +481,7 @@
     },
     {
         "id": 25,
-        "name": "Producto 25 (Abonos-Tierra)",
+        "name": "Abono de Cosecha",
         "category": "Abonos-Tierra",
         "supplierId": "Vivero Verde",
         "basePrice": 45336.09,
@@ -501,7 +501,7 @@
     },
     {
         "id": 26,
-        "name": "Producto 26 (Materas)",
+        "name": "Matera Redonda de Barro",
         "category": "Materas",
         "supplierId": "Semillas de Vida",
         "basePrice": 41301.48,
@@ -521,7 +521,7 @@
     },
     {
         "id": 27,
-        "name": "Producto 27 (Abonos-Tierra)",
+        "name": "Tierra para Macetas",
         "category": "Abonos-Tierra",
         "supplierId": "Jardines de Colombia",
         "basePrice": 46456.86,
@@ -541,7 +541,7 @@
     },
     {
         "id": 28,
-        "name": "Producto 28 (Artesanías)",
+        "name": "Máscara de Barro Tradicional",
         "category": "Artesanías",
         "supplierId": "Plantas del Caribe",
         "basePrice": 47007.54,
@@ -561,7 +561,7 @@
     },
     {
         "id": 29,
-        "name": "Producto 29 (Artesanías)",
+        "name": "Candelabro de Barro",
         "category": "Artesanías",
         "supplierId": "Jardines de Colombia",
         "basePrice": 34360.59,
@@ -581,7 +581,7 @@
     },
     {
         "id": 30,
-        "name": "Producto 30 (Abonos-Tierra)",
+        "name": "Sustrato Especial",
         "category": "Abonos-Tierra",
         "supplierId": "Jardines de Colombia",
         "basePrice": 49403.07,
@@ -601,7 +601,7 @@
     },
     {
         "id": 31,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Lavanda Francesa",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 24667.19,
@@ -621,7 +621,7 @@
     },
     {
         "id": 32,
-        "name": "Producto 32 (Materas)",
+        "name": "Matera de Barro para Cactus",
         "category": "Materas",
         "supplierId": "Sustentabilidad Verde",
         "basePrice": 30814.28,
@@ -641,7 +641,7 @@
     },
     {
         "id": 33,
-        "name": "Producto 33 (Abonos-Tierra)",
+        "name": "Abono de Guano",
         "category": "Abonos-Tierra",
         "supplierId": "Jardines de Colombia",
         "basePrice": 33344.01,
@@ -661,7 +661,7 @@
     },
     {
         "id": 34,
-        "name": "Producto 34 (Abonos-Tierra)",
+        "name": "Tierra Orgánica",
         "category": "Abonos-Tierra",
         "supplierId": "Plantas del Caribe",
         "basePrice": 20725.72,
@@ -681,7 +681,7 @@
     },
     {
         "id": 35,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Helecho de Boston",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 47314.82,
@@ -701,7 +701,7 @@
     },
     {
         "id": 36,
-        "name": "Producto 36 (Artesanías)",
+        "name": "Alcancía de Barro en Forma de Rana",
         "category": "Artesanías",
         "supplierId": "Huertos Urbanos",
         "basePrice": 15874.57,
@@ -721,7 +721,7 @@
     },
     {
         "id": 37,
-        "name": "Producto 37 (Abonos-Tierra)",
+        "name": "Fertilizante Orgánico",
         "category": "Abonos-Tierra",
         "supplierId": "Cultivos del Pacífico",
         "basePrice": 24358.66,
@@ -741,7 +741,7 @@
     },
     {
         "id": 38,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Dracaena Marginata",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 30455.16,
@@ -761,7 +761,7 @@
     },
     {
         "id": 39,
-        "name": "Producto 39 (Artesanías)",
+        "name": "Florero de Barro",
         "category": "Artesanías",
         "supplierId": "Plantas del Caribe",
         "basePrice": 13751.63,
@@ -781,7 +781,7 @@
     },
     {
         "id": 40,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Cactus Espino",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 13359.41,
@@ -801,7 +801,7 @@
     },
     {
         "id": 41,
-        "name": "Producto 41 (Materas)",
+        "name": "Matera Colgante de Barro",
         "category": "Materas",
         "supplierId": "Huertos Urbanos",
         "basePrice": 32996.56,
@@ -821,7 +821,7 @@
     },
     {
         "id": 42,
-        "name": "Producto 42 (Materas)",
+        "name": "Matera de Barro Pintada",
         "category": "Materas",
         "supplierId": "Verde Esperanza",
         "basePrice": 39794.99,
@@ -841,7 +841,7 @@
     },
     {
         "id": 43,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Ficus Benjamina",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 26572.56,
@@ -861,7 +861,7 @@
     },
     {
         "id": 44,
-        "name": "Producto 44 (Artesanías)",
+        "name": "Adorno de Barro con Pintura",
         "category": "Artesanías",
         "supplierId": "Semillas de Vida",
         "basePrice": 35945.01,
@@ -881,7 +881,7 @@
     },
     {
         "id": 45,
-        "name": "Producto 45 (Materas)",
+        "name": "Matera de Barro con Dibujo",
         "category": "Materas",
         "supplierId": "Huertos Urbanos",
         "basePrice": 28172.57,
@@ -901,7 +901,7 @@
     },
     {
         "id": 46,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Palmera Areca",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 18191.63,
@@ -921,7 +921,7 @@
     },
     {
         "id": 47,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Geranio Rojo",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 37385.68,
@@ -941,7 +941,7 @@
     },
     {
         "id": 48,
-        "name": "Producto 48 (Abonos-Tierra)",
+        "name": "Compost de Café",
         "category": "Abonos-Tierra",
         "supplierId": "Plantas del Caribe",
         "basePrice": 22064.62,
@@ -961,7 +961,7 @@
     },
     {
         "id": 49,
-        "name": "Producto 49 (Artesanías)",
+        "name": "Escultura de Barro",
         "category": "Artesanías",
         "supplierId": "Semillas de Vida",
         "basePrice": 31941.64,
@@ -981,7 +981,7 @@
     },
     {
         "id": 50,
-        "name": "Producto 50 (Materas)",
+        "name": "Maceta con Tapa de Barro",
         "category": "Materas",
         "supplierId": "Verde Esperanza",
         "basePrice": 15385.56,
@@ -1001,7 +1001,7 @@
     },
     {
         "id": 51,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Orquídea Cymbidium",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 17339.68,
@@ -1021,7 +1021,7 @@
     },
     {
         "id": 52,
-        "name": "Producto 52 (Materas)",
+        "name": "Matera de Barro para Plantas Grandes",
         "category": "Materas",
         "supplierId": "Verde Esperanza",
         "basePrice": 12208.8,
@@ -1041,7 +1041,7 @@
     },
     {
         "id": 53,
-        "name": "Producto 53 (Artesanías)",
+        "name": "Portavelas de Barro",
         "category": "Artesanías",
         "supplierId": "Plantas del Caribe",
         "basePrice": 21637.3,
@@ -1061,7 +1061,7 @@
     },
     {
         "id": 54,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Ficus elastica",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 36061.36,
@@ -1081,7 +1081,7 @@
     },
     {
         "id": 55,
-        "name": "Producto 55 (Abonos-Tierra)",
+        "name": "Abono para Flores",
         "category": "Abonos-Tierra",
         "supplierId": "Vivero Verde",
         "basePrice": 25948.71,
@@ -1101,7 +1101,7 @@
     },
     {
         "id": 56,
-        "name": "Producto 56 (Materas)",
+        "name": "Matera con Diseño Floral",
         "category": "Materas",
         "supplierId": "Cultivos del Pacífico",
         "basePrice": 32448.26,
@@ -1121,7 +1121,7 @@
     },
     {
         "id": 57,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Planta del Dinero",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 35756.23,
@@ -1141,7 +1141,7 @@
     },
     {
         "id": 58,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Spathiphyllum",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 36530.45,
@@ -1161,7 +1161,7 @@
     },
     {
         "id": 59,
-        "name": "Producto 59 (Abonos-Tierra)",
+        "name": "Sustrato para Cactus",
         "category": "Abonos-Tierra",
         "supplierId": "Huertos Urbanos",
         "basePrice": 21818.63,
@@ -1181,7 +1181,7 @@
     },
     {
         "id": 60,
-        "name": "Producto 60 (Abonos-Tierra)",
+        "name": "Fertilizante de Poda",
         "category": "Abonos-Tierra",
         "supplierId": "Raíces Naturales",
         "basePrice": 16549.64,
@@ -1201,7 +1201,7 @@
     },
     {
         "id": 61,
-        "name": "Producto 61 (Abonos-Tierra)",
+        "name": "Abono para Plantas de Interior",
         "category": "Abonos-Tierra",
         "supplierId": "Cultivos del Pacífico",
         "basePrice": 39968.02,
@@ -1221,7 +1221,7 @@
     },
     {
         "id": 62,
-        "name": "Producto 62 (Materas)",
+        "name": "Matera de Barro para Orquídeas",
         "category": "Materas",
         "supplierId": "Semillas de Vida",
         "basePrice": 12869.26,
@@ -1241,7 +1241,7 @@
     },
     {
         "id": 63,
-        "name": "Producto 63 (Materas)",
+        "name": "Matera de Barro Esmaltada",
         "category": "Materas",
         "supplierId": "Raíces Naturales",
         "basePrice": 26087.98,
@@ -1261,7 +1261,7 @@
     },
     {
         "id": 64,
-        "name": "Producto 64 (Artesanías)",
+        "name": "Cesta de Barro Tejida",
         "category": "Artesanías",
         "supplierId": "Raíces Naturales",
         "basePrice": 22479.77,
@@ -1281,7 +1281,7 @@
     },
     {
         "id": 65,
-        "name": "Producto 65 (Materas)",
+        "name": "Maceta de Cerámica con Dibujo",
         "category": "Materas",
         "supplierId": "Flores de la Montaña",
         "basePrice": 19992.51,
@@ -1301,7 +1301,7 @@
     },
     {
         "id": 66,
-        "name": "Producto 66 (Materas)",
+        "name": "Matera de Barro Tradicional",
         "category": "Materas",
         "supplierId": "Verde Esperanza",
         "basePrice": 29208.22,
@@ -1321,7 +1321,7 @@
     },
     {
         "id": 67,
-        "name": "Producto 67 (Artesanías)",
+        "name": "Alcancía de Barro con Forma de Pez",
         "category": "Artesanías",
         "supplierId": "Flores de la Montaña",
         "basePrice": 25579.81,
@@ -1341,7 +1341,7 @@
     },
     {
         "id": 68,
-        "name": "Producto 68 (Abonos-Tierra)",
+        "name": "Compost de Restos de Jardín",
         "category": "Abonos-Tierra",
         "supplierId": "Semillas de Vida",
         "basePrice": 45996.76,
@@ -1361,7 +1361,7 @@
     },
     {
         "id": 69,
-        "name": "Producto 69 (Artesanías)",
+        "name": "Adorno de Pared de Barro",
         "category": "Artesanías",
         "supplierId": "Raíces Naturales",
         "basePrice": 26912.97,
@@ -1381,7 +1381,7 @@
     },
     {
         "id": 70,
-        "name": "Producto 70 (Artesanías)",
+        "name": "Maceta Colgante de Barro",
         "category": "Artesanías",
         "supplierId": "Raíces Naturales",
         "basePrice": 48575.6,
@@ -1401,7 +1401,7 @@
     },
     {
         "id": 71,
-        "name": "Producto 71 (Materas)",
+        "name": "Matera de Barro con Soporte",
         "category": "Materas",
         "supplierId": "Vivero Verde",
         "basePrice": 32926.56,
@@ -1421,7 +1421,7 @@
     },
     {
         "id": 72,
-        "name": "Producto 72 (Materas)",
+        "name": "Matera de Barro Ovalada",
         "category": "Materas",
         "supplierId": "Verde Esperanza",
         "basePrice": 20432.95,
@@ -1441,7 +1441,7 @@
     },
     {
         "id": 73,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Bamboo Lucky",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 41576.55,
@@ -1461,7 +1461,7 @@
     },
     {
         "id": 74,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Poto",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 33745.22,
@@ -1481,7 +1481,7 @@
     },
     {
         "id": 75,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Bonsái de Olivo",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 16097.53,
@@ -1501,7 +1501,7 @@
     },
     {
         "id": 76,
-        "name": "Producto 76 (Abonos-Tierra)",
+        "name": "Tierra de Huerta",
         "category": "Abonos-Tierra",
         "supplierId": "Jardines de Colombia",
         "basePrice": 45687.43,
@@ -1521,7 +1521,7 @@
     },
     {
         "id": 77,
-        "name": "Producto 77 (Materas)",
+        "name": "Maceta Decorativa de Barro",
         "category": "Materas",
         "supplierId": "Raíces Naturales",
         "basePrice": 23383.31,
@@ -1541,7 +1541,7 @@
     },
     {
         "id": 78,
-        "name": "Producto 78 (Artesanías)",
+        "name": "Máscara de Barro de la Cultura Muisca",
         "category": "Artesanías",
         "supplierId": "Jardines de Colombia",
         "basePrice": 27938.78,
@@ -1561,7 +1561,7 @@
     },
     {
         "id": 79,
-        "name": "Producto 79 (Materas)",
+        "name": "Matera de Barro para Exterior",
         "category": "Materas",
         "supplierId": "Cultivos del Pacífico",
         "basePrice": 28545.3,
@@ -1581,7 +1581,7 @@
     },
     {
         "id": 80,
-        "name": "Producto 80 (Materas)",
+        "name": "Matera de Barro con Filigrana",
         "category": "Materas",
         "supplierId": "Cultivos del Pacífico",
         "basePrice": 33183.11,
@@ -1601,7 +1601,7 @@
     },
     {
         "id": 81,
-        "name": "Producto 81 (Artesanías)",
+        "name": "Vasija de Barro para Plantas",
         "category": "Artesanías",
         "supplierId": "Raíces Naturales",
         "basePrice": 46315.78,
@@ -1621,7 +1621,7 @@
     },
     {
         "id": 82,
-        "name": "Producto 82 (Artesanías)",
+        "name": "Porta incienso de Barro",
         "category": "Artesanías",
         "supplierId": "Flores de la Montaña",
         "basePrice": 17238.8,
@@ -1641,7 +1641,7 @@
     },
     {
         "id": 83,
-        "name": "Producto 83 (Artesanías)",
+        "name": "Alcancía de Barro en Forma de Perro",
         "category": "Artesanías",
         "supplierId": "Huertos Urbanos",
         "basePrice": 35811.76,
@@ -1661,7 +1661,7 @@
     },
     {
         "id": 84,
-        "name": "Producto 84 (Artesanías)",
+        "name": "Cuenco de Barro para Decoración",
         "category": "Artesanías",
         "supplierId": "Flores de la Montaña",
         "basePrice": 34768.02,
@@ -1681,7 +1681,7 @@
     },
     {
         "id": 85,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Cactáceas Variadas",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 35260.5,
@@ -1701,7 +1701,7 @@
     },
     {
         "id": 86,
-        "name": "Producto 86 (Materas)",
+        "name": "Matera de Barro Pintada a Mano",
         "category": "Materas",
         "supplierId": "Verde Esperanza",
         "basePrice": 39061.56,
@@ -1721,7 +1721,7 @@
     },
     {
         "id": 87,
-        "name": "Producto 87 (Materas)",
+        "name": "Matera de Barro Artística",
         "category": "Materas",
         "supplierId": "Sustentabilidad Verde",
         "basePrice": 28684.35,
@@ -1741,7 +1741,7 @@
     },
     {
         "id": 88,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Cebuella",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 46261.94,
@@ -1761,7 +1761,7 @@
     },
     {
         "id": 89,
-        "name": "Producto 89 (Materas)",
+        "name": "Matera con Base de Madera",
         "category": "Materas",
         "supplierId": "Vivero Verde",
         "basePrice": 18984.88,
@@ -1781,7 +1781,7 @@
     },
     {
         "id": 90,
-        "name": "Producto 90 (Abonos-Tierra)",
+        "name": "Fertilizante Natural para Césped",
         "category": "Abonos-Tierra",
         "supplierId": "Raíces Naturales",
         "basePrice": 29033.89,
@@ -1801,7 +1801,7 @@
     },
     {
         "id": 91,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Anthurium",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 14590.5,
@@ -1821,7 +1821,7 @@
     },
     {
         "id": 92,
-        "name": "Producto 92 (Materas)",
+        "name": "Matera de Barro para Interior",
         "category": "Materas",
         "supplierId": "Huertos Urbanos",
         "basePrice": 30021.22,
@@ -1841,7 +1841,7 @@
     },
     {
         "id": 93,
-        "name": "Fertilizante para Plantas Cactáceas",
+        "name": "Begonia",
         "category": "Plantas",
         "supplierId": 1697742943154,
         "basePrice": 27770.61,
@@ -1861,7 +1861,7 @@
     },
     {
         "id": 94,
-        "name": "Producto 94 (Artesanías)",
+        "name": "Jarrón de Barro con Diseño Floral",
         "category": "Artesanías",
         "supplierId": "Vivero Verde",
         "basePrice": 29703.95,
@@ -1881,7 +1881,7 @@
     },
     {
         "id": 95,
-        "name": "Producto 95 (Abonos-Tierra)",
+        "name": "Abono para Hortalizas",
         "category": "Abonos-Tierra",
         "supplierId": "Flores de la Montaña",
         "basePrice": 36902.55,
@@ -1901,7 +1901,7 @@
     },
     {
         "id": 96,
-        "name": "Producto 96 (Materas)",
+        "name": "Matera de Barro Decorativa",
         "category": "Materas",
         "supplierId": "Vivero Verde",
         "basePrice": 27261.58,
@@ -1921,7 +1921,7 @@
     },
     {
         "id": 97,
-        "name": "Producto 97 (Materas)",
+        "name": "Matera de Barro con Relieve",
         "category": "Materas",
         "supplierId": "Raíces Naturales",
         "basePrice": 39757.83,
@@ -1941,7 +1941,7 @@
     },
     {
         "id": 98,
-        "name": "Producto 98 (Abonos-Tierra)",
+        "name": "Abono para Césped",
         "category": "Abonos-Tierra",
         "supplierId": "Plantas del Caribe",
         "basePrice": 40887.64,
@@ -1961,7 +1961,7 @@
     },
     {
         "id": 99,
-        "name": "Producto 99 (Artesanías)",
+        "name": "Candelabro de Cerámica",
         "category": "Artesanías",
         "supplierId": "Raíces Naturales",
         "basePrice": 11611.17,
@@ -1981,7 +1981,7 @@
     },
     {
         "id": 100,
-        "name": "Producto 100 (Materas)",
+        "name": "Maceta de Barro de Color",
         "category": "Materas",
         "supplierId": "Jardines de Colombia",
         "basePrice": 27857.3,

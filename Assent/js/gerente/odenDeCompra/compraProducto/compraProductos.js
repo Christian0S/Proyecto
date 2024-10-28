@@ -238,18 +238,7 @@ nextBtn.addEventListener('click', () => {
 });
 
 
-// Función para actualizar la posición del botón "Siguiente"
-function updateNextButtonPosition() {
-    const formHeight = formContainer.offsetHeight;
-    nextBtn.style.position = 'relative';
-    nextBtn.style.top = '10px';
-    nextBtn.style.bottom = '80px'; // Coloca el botón al final
-    nextBtn.style.right = '20px'; // Coloca el botón a la derecha
-    nextBtn.style.width = '100px';
-    nextBtn.style.left = '940px';
-    nextBtn.style.margin = '40px';
 
-}
 
 
 // Llamar a la función para cargar productos al cargar la página

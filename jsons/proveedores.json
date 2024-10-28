@@ -10,6 +10,7 @@
         "telefono": "3101234567",
         "correo": "jardinbotanico@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Plantas",
         "productos": [
             "Orquídea Phalaenopsis",
             "Hortensia Azul",
@@ -38,6 +39,7 @@
         "telefono": "3209876543",
         "correo": "plantasyflores@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Plantas",
         "productos": [
             "Helecho de Boston",
             "Dracaena Marginata",
@@ -66,6 +68,7 @@
         "telefono": "3141234567",
         "correo": "naturalezaviva@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Plantas",
         "productos": [
             "Orquídea Cymbidium",
             "Ficus elastica",
@@ -94,6 +97,7 @@
         "telefono": "3116549870",
         "correo": "viveroelparaiso@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Plantas",
         "productos": [
             "Bonsái de Olivo",
             "Cactáceas Variadas",
@@ -122,6 +126,7 @@
         "telefono": "3161234567",
         "correo": "jardindemisabuelos@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Plantas",
         "productos": [
             "Hortensia Rosa",
             "Lirio de Agua",
@@ -150,6 +155,7 @@
         "telefono": "3109876543",
         "correo": "info@materasraquira.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Materas",
         "productos": [
             "Matera de Barro Grande",
             "Matera de Barro Decorativa",
@@ -178,6 +184,7 @@
         "telefono": "3156789012",
         "correo": "contacto@artesaniasbarro.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Materas",
         "productos": [
             "Matera Redonda de Barro",
             "Matera de Barro para Cactus",
@@ -206,6 +213,7 @@
         "telefono": "3111234567",
         "correo": "ventas@materasartesanales.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Materas",
         "productos": [
             "Matera de Barro para Plantas Grandes",
             "Matera con Diseño Floral",
@@ -234,6 +242,7 @@
         "telefono": "3149876543",
         "correo": "info@barroycolor.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Materas",
         "productos": [
             "Matera de Barro con Soporte",
             "Matera de Barro Ovalada",
@@ -262,6 +271,7 @@
         "telefono": "3106543210",
         "correo": "contacto@raquiramateras.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Materas",
         "productos": [
             "Matera de Barro Artística",
             "Matera con Base de Madera",
@@ -290,6 +300,7 @@
         "telefono": "3101234567",
         "correo": "artesanias.raquira@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Artesanías",
         "productos": [
             "Alcancía de Barro en Forma de Cerdito",
             "Maceta de Barro Decorativa",
@@ -318,6 +329,7 @@
         "telefono": "3209876543",
         "correo": "decoraciones.viento@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Artesanías",
         "productos": [
             "Alcancía de Barro en Forma de Rana",
             "Florero de Barro",
@@ -346,6 +358,7 @@
         "telefono": "3001234567",
         "correo": "artesanias.tierra@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Artesanías",
         "productos": [
             "Alcancía de Barro con Forma de Pez",
             "Adorno de Pared de Barro",
@@ -374,6 +387,7 @@
         "telefono": "3149876543",
         "correo": "taller.artesanias@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Artesanías",
         "productos": [
             "Alcancía de Barro en Forma de Perro",
             "Cuenco de Barro para Decoración",
@@ -402,6 +416,7 @@
         "telefono": "3151234567",
         "correo": "raices.barro@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Artesanías",
         "productos": [
             "Alcancía de Barro Decorativa",
             "Vasija de Barro Grande",
@@ -430,6 +445,7 @@
         "telefono": "3001234567",
         "correo": "abonosnaturales@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Abonos-Tierra",
         "productos": [
             "Abono Orgánico Universal",
             "Fertilizante Mineral",
@@ -458,6 +474,7 @@
         "telefono": "3109876543",
         "correo": "fertilizantesvalle@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Abonos-Tierra",
         "productos": [
             "Abono para Jardines",
             "Fertilizante Líquido",
@@ -486,6 +503,7 @@
         "telefono": "3002345678",
         "correo": "ecoabonos@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Abonos-Tierra",
         "productos": [
             "Abono de Guano",
             "Tierra Orgánica",
@@ -514,6 +532,7 @@
         "telefono": "3145678901",
         "correo": "abonoscaribe@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Abonos-Tierra",
         "productos": [
             "Fertilizante de Poda",
             "Abono para Plantas de Interior",
@@ -542,6 +561,7 @@
         "telefono": "3107654321",
         "correo": "fertilizanteslaselva@ejemplo.com",
         "fechaCreacion": "20/10/2024",
+        "category": "Abonos-Tierra",
         "productos": [
             "Abono para Césped",
             "Fertilizante para Plantas Aromáticas",

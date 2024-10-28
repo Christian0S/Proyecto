@@ -7,6 +7,23 @@ async function sha256(message) {
     return hashHex;
 }
 
+// Función para redirigir según el rol del usuario
+function redirectUser(role) {
+    switch (role) {
+        case "empleado":
+            window.location.href = "html/empleado/inicio.html";
+            break;
+        case "proveedor":
+            window.location.href = "html/proveedor/inicio.html";
+            break;
+        case "gerente":
+            window.location.href = "html/gerente/inicio.html";
+            break;
+        default:
+            alert("Rol de usuario desconocido.");
+    }
+}
+
 // Función para manejar el inicio de sesión
 async function login(event) {
     event.preventDefault();
@@ -22,6 +39,7 @@ async function login(event) {
     if (users.length === 0) {
         try {
             const response = await fetch('jsons/usuarios.json');
+            if (!response.ok) throw new Error('Error al cargar usuarios predeterminados');
             users = await response.json();
             localStorage.setItem('usuarios', JSON.stringify(users)); // Guardar en localStorage
         } catch (error) {
@@ -35,26 +53,29 @@ async function login(event) {
     const user = users.find(user => user.email === username && user.password === hashedPassword && user.accepted);
 
     if (user) {
-        alert(`Bienvenido, ${user.name}!`);
-
         // Guardar los datos del usuario en localStorage
         localStorage.setItem('userData', JSON.stringify({
-            nombre: user.name,
-            rol: user.position // Asumiendo que 'position' contiene el rol
+            email: user.email, // Cambia 'nombre' a 'email'
+            rol: user.position // Suponiendo que 'position' contiene el rol
         }));
 
         // Redirigir según el rol del usuario
-        if (user.position === "empleado") {
-            window.location.href = "html/empleado/inicio.html";
-        } else if (user.position === "proveedor") {
-            window.location.href = "proveedor.html";
-        } else if (user.position === "gerente") {
-            window.location.href = "html/gerente/Inicio.html";
-        }
+        redirectUser(user.position);
     } else {
         alert("Usuario o contraseña incorrectos o cuenta no aceptada.");
     }
 }
 
+// Función para verificar sesión al cargar la página
+function checkSession() {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    if (userData) {
+        redirectUser(userData.rol); // Redirigir según el rol del usuario
+    }
+}
+
 // Asociar la función al botón de inicio de sesión
 document.querySelector('form').addEventListener('submit', login);
+
+// Verificar sesión al cargar la página
+window.onload = checkSession;

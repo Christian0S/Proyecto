@@ -51,63 +51,40 @@
             const urlParams = new URLSearchParams(window.location.search);
             const cotizacionId = urlParams.get('id');
 
-            // Simulación de la búsqueda de cotización
-            const cotizaciones = [
-                {
-                    id: 1,
-                    nombreCompra: 'Compra de Suministros',
-                    correo: 'juan@example.com',
-                    proveedor: 'Proveedor 1',
-                    fechaCreada: '2024-10-01',
-                    fechaEntrega: '2024-10-10',
-                    valor: '$2000',
-                    creadaPor: 'Gerente A',
-                    productos: [
-                        { name: 'Producto 1', category: 'Categoría 1', size: 'Mediano', date: '2024-10-01', quantity: 10, description: 'Descripción del producto 1', price: '$100' },
-                        { name: 'Producto 2', category: 'Categoría 2', size: 'Grande', date: '2024-10-02', quantity: 5, description: 'Descripción del producto 2', price: '$200' }
-                    ]
-                },
-                {
-                    id: 2,
-                    nombreCompra: 'Compra de Equipos',
-                    correo: 'ana@example.com',
-                    proveedor: 'Proveedor 2',
-                    fechaCreada: '2024-10-02',
-                    fechaEntrega: '2024-10-12',
-                    valor: '$1500',
-                    creadaPor: 'Gerente B',
-                    productos: [
-                        { name: 'Producto 3', category: 'Categoría 3', size: 'Pequeño', date: '2024-10-03', quantity: 20, description: 'Descripción del producto 3', price: '$75' }
-                    ]
-                }
-            ];
+            // Cargar datos desde el archivo JSON
+            fetch('/jsons/cotizaciones.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('Error al cargar el JSON');
+                    return response.json();
+                })
+                .then(cotizaciones => {
+                    const cotizacion = cotizaciones.find(cot => cot.id == cotizacionId);
+                    if (cotizacion) {
+                        document.getElementById('nombreCompra').textContent = cotizacion.nombreCompra;
+                        document.getElementById('correo').textContent = cotizacion.correo;
+                        document.getElementById('proveedor').textContent = cotizacion.proveedor;
+                        document.getElementById('fechaCreada').textContent = cotizacion.fechaCreada;
+                        document.getElementById('fechaEntrega').textContent = cotizacion.fechaEntrega;
+                        document.getElementById('valor').textContent = cotizacion.valor;
+                        document.getElementById('creadaPor').textContent = cotizacion.creadaPor;
 
-            const cotizacion = cotizaciones.find(cot => cot.id == cotizacionId);
-
-            if (cotizacion) {
-                document.getElementById('nombreCompra').textContent = cotizacion.nombreCompra;
-                document.getElementById('correo').textContent = cotizacion.correo;
-                document.getElementById('proveedor').textContent = cotizacion.proveedor;
-                document.getElementById('fechaCreada').textContent = cotizacion.fechaCreada;
-                document.getElementById('fechaEntrega').textContent = cotizacion.fechaEntrega;
-                document.getElementById('valor').textContent = cotizacion.valor;
-                document.getElementById('creadaPor').textContent = cotizacion.creadaPor;
-
-                const productList = document.getElementById('productList');
-                cotizacion.productos.forEach(producto => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${producto.name}</td>
-                        <td>${producto.category}</td>
-                        <td>${producto.size}</td>
-                        <td>${producto.date}</td>
-                        <td>${producto.quantity}</td>
-                        <td>${producto.description}</td>
-                        <td>${producto.price}</td>
-                    `;
-                    productList.appendChild(row);
-                });
-            }
+                        const productList = document.getElementById('productList');
+                        cotizacion.productos.forEach(producto => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${producto.name}</td>
+                                <td>${producto.category}</td>
+                                <td>${producto.size}</td>
+                                <td>${producto.date}</td>
+                                <td>${producto.quantity}</td>
+                                <td>${producto.description}</td>
+                                <td>${producto.price}</td>
+                            `;
+                            productList.appendChild(row);
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error));
 
             document.getElementById('volverBtn').addEventListener('click', () => {
                 window.location.href = '/html/gerente/procesos/cotizaciones.html', '_blank';

@@ -1,19 +1,12 @@
-// Supongamos que tienes el ID del proveedor almacenado en la URL o de otra manera
-const providerId = 1729284403041; // Cambia esto según el proveedor seleccionado
-let provider;
-
-// Cargar datos del proveedor
+// Cargar datos del proveedor desde localStorage
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/JSONs/proveedores.json')
-        .then(response => response.json())
-        .then(data => {
-            provider = data.find(p => p.id === providerId);
-            if (provider) {
-                document.getElementById('providerImage').src = provider.imagen;
-                document.getElementById('providerName').innerText = provider.nombre;
-            }
-        })
-        .catch(error => console.error('Error cargando el proveedor:', error));
+    const providerData = JSON.parse(localStorage.getItem('selectedProvider'));
+    if (providerData) {
+        document.getElementById('providerImage').src = providerData.imagen;
+        document.getElementById('providerName').innerText = providerData.nombre;
+    } else {
+        console.error('No se encontró información del proveedor en localStorage');
+    }
 
     // Agregar el evento de envío
     document.getElementById('sendButton').addEventListener('click', sendMessage);
@@ -32,6 +25,7 @@ function sendMessage() {
     // Mensaje de texto
     if (messageInput.value.trim() !== '') {
         const textMessage = document.createElement('div');
+        textMessage.classList.add('text-message');
         textMessage.innerText = messageInput.value.trim();
         message.appendChild(textMessage);
     }
@@ -39,6 +33,8 @@ function sendMessage() {
     // Preview del archivo
     if (file) {
         const preview = document.createElement('div');
+        preview.classList.add('file-preview');
+        
         if (file.type.startsWith('image/')) {
             const img = document.createElement('img');
             img.src = URL.createObjectURL(file);
@@ -58,7 +54,4 @@ function sendMessage() {
     // Desplazar hacia abajo para ver el nuevo mensaje
     messageContainer.scrollTop = messageContainer.scrollHeight;
 
-    // Limpiar los inputs
-    fileInput.value = '';
-    messageInput.value = '';
 }

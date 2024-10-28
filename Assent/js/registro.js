@@ -14,25 +14,9 @@ function validarContraseña(contraseña) {
     return regex.test(contraseña); // La contraseña debe tener al menos una letra mayúscula, un número y un mínimo de 8 caracteres
 }
 
-// Función para mostrar la pantalla inicial
-function mostrarPantallaInicial() {
-    const pantallaInicial = document.createElement('div');
-    pantallaInicial.id = 'pantalla-inicial';
-    pantallaInicial.innerHTML = `
-        <h2>Bienvenido al sistema</h2>
-        <p>Esta es tu primera vez aquí. Por favor completa el registro.</p>
-        <button id="cerrar-pantalla">Cerrar</button>
-    `;
-    document.body.appendChild(pantallaInicial);
-    
-    document.getElementById('cerrar-pantalla').addEventListener('click', function() {
-        document.body.removeChild(pantallaInicial);
-        localStorage.setItem('primerAcceso', 'false');  // Marca que ya no es el primer acceso
-    });
-}
-
 // Función para guardar la solicitud de registro pendiente
 async function guardarSolicitudPendiente(nombre, cargo, correo, contraseña) {
+    console.log(contraseña)
     const hashedPassword = await sha256(contraseña);
     const usuario = {
         name: nombre,
@@ -104,6 +88,5 @@ document.getElementById('registroForm').addEventListener('submit', async functio
 
 // Verificar si es la primera vez que el usuario accede
 if (localStorage.getItem('primerAcceso') !== 'false') {
-    mostrarPantallaInicial();
     localStorage.setItem('primerAcceso', 'true');  // Marca que es la primera vez
 }

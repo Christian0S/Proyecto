@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Obtener datos de la cotización y cargar campos
     const fetchCotizacionData = async () => {
         try {
-            const response = await fetch('/jsons/comprasPorValidar.json');
+            const response = await fetch('/jsons/compras.json');
             const data = await response.json();
             const cotizacion = data.find(cot => cot.id == cotizacionId);
             if (cotizacion) {

@@ -212,7 +212,7 @@ h1, h2 {
 @media (max-width: 768px) {
     .sidebar {
         display: none; /* Ocultar la barra lateral en dispositivos pequeños */
-        position: absolute; /* Posicionarlo absoluto */
+        position: absolute; /* Posicionar absoluto */
         background-color: #41855d; /* Color de fondo */
         width: 100%; /* Ajustar el ancho al 100% */
         z-index: 1000; /* Asegurarse de que esté encima de otros elementos */

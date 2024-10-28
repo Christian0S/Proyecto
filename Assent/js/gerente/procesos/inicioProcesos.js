@@ -2,52 +2,74 @@ const nextBtn = document.getElementById('nextBtn');
 const tableBody = document.getElementById('table-body');
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
+let products = [];
 
-// Datos de ejemplo (puedes cargar estos datos desde otro lugar si prefieres)
-const products = [
-    { name: "Producto 1", category: "Categoría 1", size: "Pequeño", date: "2024-10-21", quantity: "10", description: "Descripción del producto 1" },
-    { name: "Producto 2", category: "Categoría 2", size: "Mediano", date: "2024-10-22", quantity: "5", description: "Descripción del producto 2" },
-    { name: "Producto 3", category: "Categoría 3", size: "Grande", date: "2024-10-23", quantity: "20", description: "Descripción del producto 3" }
-];
+// Cargar datos desde el archivo JSON
+fetch('/jsons/OrdenesDeCompra.json')
+    .then(response => {
+        if (!response.ok) throw new Error('Error al cargar el JSON');
+        return response.json();
+    })
+    .then(data => {
+        products = data; // Guardar los datos de productos
+        loadTableData(); // Cargar los datos en la tabla
+    })
+    .catch(error => console.error('Error:', error));
 
 // Función para llenar la tabla con los productos
 function loadTableData(filteredProducts = products) {
     tableBody.innerHTML = ''; // Limpiar tabla
 
-    filteredProducts.forEach((product, index) => {
+    filteredProducts.forEach(product => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td><input type="checkbox" id="select_${index}" class="product-select"></td>
+            <td><input type="checkbox" id="select_${product.id}" class="product-select"></td>
             <td>${product.name}</td>
             <td>${product.category}</td>
             <td>${product.size}</td>
             <td>${product.date}</td>
             <td>${product.quantity}</td>
             <td>${product.description}</td>
-            <td><button onclick="goToNextPage(${index})">Enviar Producto</button></td>
+            <td><button onclick="goToNextPage('${product.id}')"> 📦Compra</button>
+             <button onclick="deleteProduct('${product.id}')"> 🗑️ Eliminar</button></td>
         `;
         tableBody.appendChild(row);
     });
 }
 
-// Cargar los datos cuando la página esté lista (invocar sin filtro)
-document.addEventListener('DOMContentLoaded', () => {
-    loadTableData();  // Asegurar que la tabla se cargue con todos los productos inicialmente
-});
+// Función para eliminar un producto
+function deleteProduct(productId) {
+    // Filtrar el producto que no se va a eliminar
+    products = products.filter(product => product.id !== productId);
+    loadTableData(); // Actualizar la tabla para reflejar los cambios
+    alert('Producto eliminado.');
+}
 
 // Función para manejar el botón de acciones por producto
-function goToNextPage(index) {
-    const selectedProduct = products[index];
-    localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
-    window.location.href = '/html/gerente/OrdenDeCompra/crearOrden/EnviarOrdenDeCompra.html';
+function goToNextPage(productId) {
+    const selectedProduct = products.find(product => product.id === productId);
+
+    // Verificar si se ha seleccionado el producto
+    const checkbox = document.getElementById(`select_${productId}`);
+    if (checkbox && checkbox.checked) {
+        if (selectedProduct) {
+            localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+            alert('Producto seleccionado: ' + selectedProduct.name);
+            window.location.href = '/html/gerente/OrdenDeCompra/crearOrden/EnviarOrdenDeCompra.html';
+        } else {
+            alert('Producto no encontrado.');
+        }
+    } else {
+        alert('Por favor, selecciona el producto antes de continuar.');
+    }
 }
 
 // Función del botón "Siguiente" para manejar varios productos seleccionados
 nextBtn.addEventListener('click', () => {
     const selectedProducts = [];
 
-    products.forEach((product, index) => {
-        const checkbox = document.getElementById(`select_${index}`);
+    products.forEach(product => {
+        const checkbox = document.getElementById(`select_${product.id}`);
         if (checkbox.checked) {
             selectedProducts.push(product);
         }
@@ -67,4 +89,9 @@ searchButton.addEventListener('click', () => {
     const searchTerm = searchInput.value.toLowerCase();
     const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchTerm));
     loadTableData(filteredProducts); // Recargar la tabla con los productos filtrados
+});
+
+// Cargar los datos cuando la página esté lista
+document.addEventListener('DOMContentLoaded', () => {
+    // Ya manejamos la carga de productos en la promesa del fetch
 });

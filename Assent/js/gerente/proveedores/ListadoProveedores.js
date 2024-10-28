@@ -74,10 +74,12 @@ function renderProviders() {
 function openChat(id) {
     const provider = providers.find(p => p.id === id);
     if (provider) {
-        const chatWindow = window.open('/Html/gerente/CHAT/chat.html', '_blank', 'width=400,height=600');
+        localStorage.setItem('selectedProvider', JSON.stringify(provider)); // Guarda datos del proveedor en localStorage
+
+        // Abre la ventana de chat
+        const chatWindow = window.open('/Html/gerente/CHAT/chat.html', '_blank', 'width=950,height=700');
         chatWindow.onload = function() {
-            // Pasar datos del proveedor al chat
-            chatWindow.localStorage.setItem('selectedProvider', JSON.stringify(provider));
+            // No es necesario cargar datos aquí ya que se manejarán en el archivo de chat
         };
     } else {
         console.error(`Proveedor con ID ${id} no encontrado.`);
@@ -137,3 +139,6 @@ function renderFilteredProviders(filteredProviders) {
         providerBody.appendChild(row);
     });
 }
+document.getElementById("dashboardBtn").addEventListener("click", function() {
+    window.location.href = "/html/gerente/proveedores/tableroDeProveedores.html";
+  });
