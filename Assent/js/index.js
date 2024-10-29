@@ -17,7 +17,7 @@ function redirectUser(role) {
             window.location.href = "html/proveedor/inicio.html";
             break;
         case "gerente":
-            window.location.href = "html/gerente/inicio.html";
+            window.location.href = "html\gerente\Inicio.html";
             break;
         default:
             alert("Rol de usuario desconocido.");
