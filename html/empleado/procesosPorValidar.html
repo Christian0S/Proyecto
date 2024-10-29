@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio - Vivero Las Magnolias</title>
+    <link rel="stylesheet" href="/Assent/css/empleado/validar.css">
+    <link rel="stylesheet" href="/Assent/css/empleado/general.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.70/vfs_fonts.js"></script>
+</head>
+<body>
+    <header>
+        <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+        <h1>PROCESOS</h1>
+        <div class="header-icons">
+            <div class="notification" onclick="toggleNotifications()">
+                <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                    </div>
+                </div>
+            </div>
+            <div class="user" onclick="toggleProfile()">
+                <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+                <div class="profile-menu" id="profileMenu">
+                    <p><a href="/html/gerente/edicion_perfil.html" class="button1" id="editProfileBtn">Editar Perfil</a></p>
+                    <p><a href="/html/gerente/historialDECambio.html" class="button1" id="historyBtn">Historial</a></p>
+                    <p><a href="#" class="button1" id="logoutBtn">Cerrar Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <nav class="sidebar" id="sidebar">
+            <ul>
+                <li><a href="/html/empleado/inicio.html" class="button">INICIO</a></li>
+                <li><a href="/html/empleado/OrdenDeCompra/InvetarioBajo.html" class="button">MENÚ DE INVENTARIO BAJO</a></li>
+                <li><a href="/html/empleado/OrdenDeCompra/crearOrdenDeCompra.html" class="button">CREAR ORDEN DE COMPRA</a></li>
+                <li><a href="/html/empleado/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+                <li><a href="/html/empleado/procesosPorValidar.html" class="button">VALIDAR</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main Content -->
+    <div class="contenido inicio">
+    <main class="content">
+        <!-- Menú de navegación -->
+        <h1 style="margin: 20px;">Lista de Compras</h1>
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Buscar..." oninput="filterTable()">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre de Compra</th>
+                    <th>Fecha Creada</th>
+                    <th>Dirección</th>
+                    <th>Fecha Entrega</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Las filas de datos se llenarán mediante JavaScript -->
+            </tbody>
+        </table>
+    
+        
+    </main>
+    </div>
+    </div>
+
+    <script src="/Assent/js/empleado/general.js"></script>
+    <script src="/Assent/js/empleado/procesosPorValidar.js"></script>
+</body>
+</html>

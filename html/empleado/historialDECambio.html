@@ -44,7 +44,14 @@
     <div class="contenido inicio">
         <div class="search-bar">
             <input type="text" id="searchInput" placeholder="Buscar">
-            <button onclick="filterByDate()">Seleccionar Periodo</button>
+            <button id="toggleCalendar" onclick="toggleCalendario()" >📅 Generar Informe</button> <!-- Botón para el calendario e informe -->
+            <div id="calendario-container" style="display:none;">
+                <label for="startDate">Desde:</label>
+                <input type="date" id="startDate">
+                <label for="endDate">Hasta:</label>
+                <input type="date" id="endDate">
+                <button onclick="generarInformePorFecha()">Generar PDF</button>
+            </div>
         </div>
     
         <div class="inventory-grid">

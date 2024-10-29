@@ -60,10 +60,27 @@ function renderEmpleados() {
             <td>
                 <button onclick="editEmpleado(${empleado.id})">✏️</button>
                 <button onclick="deleteEmpleado(${empleado.id})">❌</button>
+                <button onclick="openChat(${empleado.id})">💬</button>
             </td>
         `;
         employeeBody.appendChild(row);
     });
+}
+
+// Abrir chat con proveedor en una ventana nueva
+function openChat(id) {
+    const empleado = empleados.find(p => p.id === id);
+    if (empleado) {
+        localStorage.setItem('selectedempleado', JSON.stringify(empleado)); // Guarda datos del proveedor en localStorage
+
+        // Abre la ventana de chat
+        const chatWindow = window.open('/Html/gerente/CHAT/chat.html', '_blank', 'width=950,height=700');
+        chatWindow.onload = function() {
+            // No es necesario cargar datos aquí ya que se manejarán en el archivo de chat
+        };
+    } else {
+        console.error(`Proveedor con ID ${id} no encontrado.`);
+    }
 }
 
 // Editar empleado (redirigir a la página de edición)
