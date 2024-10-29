@@ -2,7 +2,7 @@ let providers = [];
 
 // Cargar datos de un archivo JSON al cargar la página
 document.addEventListener('DOMContentLoaded', () => {
-    fetch('/JSONs/proveedores.json')
+    fetch('../../../../jsons/proveedores.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
