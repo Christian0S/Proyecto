@@ -28,9 +28,9 @@ document.getElementById('historyBtn').addEventListener('click', function() {
 
 // Manejo del cierre de sesión
 document.getElementById('logoutBtn').addEventListener('click', function() {
-    localStorage.clear();
+    localStorage.clear()
     console.log("localStorage ha sido limpiado.");
-    window.location.href = '/Index.html'; 
+    window.location.href = '/index.html'; 
 });
 
 // Función para mostrar notificaciones de solicitudes pendientes
