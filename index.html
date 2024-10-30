@@ -5,6 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inicio de Sesión</title>
     <link rel="stylesheet" href="Assent/css/index.css">
+    <style>
+       
+       
+        /* Estilos para el popup */
+        .popup {
+            display: none; /* Ocultado por defecto */
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo más oscuro */
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 90%; /* Ancho responsive */
+            max-width: 400px; /* Ancho máximo */
+        }
+        .close-btn {
+            cursor: pointer;
+            color: red;
+            float: right;
+            font-size: 20px; /* Aumentar el tamaño del botón de cerrar */
+        }
+        input[type="email"] {
+            width: calc(100% - 20px); /* Ancho completo con un margen */
+            padding: 10px;
+            margin: 10px 0; /* Margen para separar los inputs */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 12px 20px; /* Ajustar el padding */
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px; /* Aumentar el tamaño de la fuente */
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -18,7 +68,7 @@
                 <label for="password">Contraseña</label>
                 <input type="password" id="password" placeholder="Ingresa tu contraseña" required />
 
-                <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                <p><a href="#" onclick="openPopup()">¿Olvidaste tu contraseña?</a></p>
 
                 <button type="submit" id="loginBtn">Iniciar Sesión</button>
             </form>
@@ -27,6 +77,42 @@
             <img src="Assent/img/idex-createProfile/pexels-photo-10186615.jpeg" alt="imagen Inicio">
         </div>
     </div>
+
+    <!-- Popup de restablecimiento de contraseña -->
+    <div class="popup" id="resetPasswordPopup">
+        <div class="popup-content">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <h2>Restablecer Contraseña</h2>
+            <p>Escribe tu correo electrónico y se te enviará un correo para establecer la contraseña.</p>
+            <input type="email" id="resetEmail" placeholder="Correo electrónico" required>
+            <br>
+            <button onclick="sendResetLink()">Enviar</button>
+        </div>
+    </div>
+
     <script src="Assent/js/index.js"></script>
+    <script>
+        // Función para abrir el popup
+        function openPopup() {
+            document.getElementById('resetPasswordPopup').style.display = 'flex';
+        }
+
+        // Función para cerrar el popup
+        function closePopup() {
+            document.getElementById('resetPasswordPopup').style.display = 'none';
+            document.getElementById('resetEmail').value = ''; // Limpiar el input al cerrar
+        }
+
+        // Función para simular el envío de un correo de restablecimiento de contraseña
+        function sendResetLink() {
+            const emailInput = document.getElementById('resetEmail');
+            if (emailInput.value.trim() === "") {
+                alert("Por favor, ingresa un correo electrónico válido."); // Mensaje de error
+            } else {
+                alert("Se ha enviado un enlace de restablecimiento a tu correo electrónico.");
+                closePopup(); // Cierra el popup después de enviar
+            }
+        }
+    </script>
 </body>
 </html>
