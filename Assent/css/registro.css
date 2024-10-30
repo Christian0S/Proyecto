@@ -23,6 +23,7 @@ body {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
+/* Sección del formulario */
 .form-container {
     width: 60%; /* Ahora ocupa el 60% de la pantalla */
     background-color: #a0dbb9;
@@ -103,6 +104,7 @@ button i {
     text-align: center;
 }
 
+/* Sección de la imagen */
 .image-container {
     width: 40%; /* Cambiado de 60% a 40% */
     background-color: #e0e0e0;
@@ -113,4 +115,26 @@ button i {
 
 .image-container img {
     width: 100%;
+}
+
+/* Estilos responsivos */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column; /* Cambiar a columna en pantallas más pequeñas */
+    }
+
+    .form-container {
+        width: 100%; /* Ocupar el 100% en pantallas pequeñas */
+        padding: 20px; /* Reducir el padding */
+    }
+
+    .image-container {
+        width: 100%; /* Ocupar el 100% en pantallas pequeñas */
+        height: 200px; /* Ajustar altura en pantallas pequeñas */
+    }
+
+    .image-container img {
+        height: 100%; /* Mantener la imagen ajustada al contenedor */
+        object-fit: cover; /* Mantener proporción de aspecto */
+    }
 }
