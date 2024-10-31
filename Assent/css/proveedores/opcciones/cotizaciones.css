@@ -1,5 +1,11 @@
 /* Estilos para la tabla con más columnas */
 
+.content {
+    width: 90%;
+}
+h1 {
+    text-align: center;
+}
 .search-bar {
     display: flex;
     justify-content: flex-start; /* Cambiar para alinear a la izquierda */

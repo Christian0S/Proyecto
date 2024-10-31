@@ -1,39 +1,7 @@
 /* Estilos del menú de navegación */
-.menu-navigation {
-    margin-bottom: 20px;
+.content {
+    width: 90%;
 }
-
-.menu-navigation ul {
-    list-style: none;
-    padding: 0;
-    display: flex; /* Coloca los elementos del menú en línea horizontal */
-    justify-content: center; /* Centra los elementos del menú */
-    background-color: #35424a; /* Color de fondo del menú */
-}
-
-.menu-navigation li {
-    margin: 0 15px; /* Espacio entre los elementos del menú */
-}
-
-.menu-navigation a {
-    color: white; /* Color del texto */
-    text-decoration: none;
-    padding: 10px 15px;
-    display: inline-block;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.menu-navigation a:hover {
-    background-color: #1692df; /* Color de fondo cuando se pasa el cursor */
-    color: white; /* Color del texto cuando se pasa el cursor */
-}
-
-.menu-navigation .active {
-    background-color: #1692df; /* Color de fondo cuando está activo */
-    color: white; /* Color del texto cuando está activo */
-    border-radius: 5px;
-}
-
 
 h1 {
     text-align: center;

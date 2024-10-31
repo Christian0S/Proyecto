@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Proveedores</title>
     <link rel="stylesheet" href="/Assent/css/proveedores/inicio.css">
-    <link rel="stylesheet" href="/Assent/css/proveedores/general.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
@@ -40,14 +40,15 @@
         </div>
     </header>
 
-    <div>
+    <!-- Contenedor principal para el contenido -->
+    <div class="container">
         <!-- Navigation Menu -->
         <div class="nav-buttons">
             <button id="cotizacionBtn" onclick="navigateTo('/html/proveedor/opciones/cotizaciones.html')">Hacer
                 Cotizaciones</button>
-            <button onclick="navigateTo('opciones/estadoPedido.html')">Estados Pedidos</button>
-            <button onclick="navigateTo('opciones/desempeno.html')">Desempeño</button>
-            <button onclick="navigateTo('opciones/gestionFacturas.html')">Gestionar Facturas</button>
+            <button onclick="navigateTo('/html/proveedor/opciones/estadoPedido.html')">Estados Pedidos</button>
+            <button onclick="navigateTo('/html/proveedor/opciones/desempeno.html')">Desempeño</button>
+            <button onclick="navigateTo('/html/proveedor/opciones/gestionFacturas.html')">Gestionar Facturas</button>
         </div>
 
         <!-- Main Content -->

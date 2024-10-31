@@ -200,11 +200,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         alert("Producto guardado exitosamente.");
         // Redirigir a la página de listado de productos
-        window.location.href = '/Html/Inventario/ListadoHistorial.html';
+        window.location.href = '/html/empleado/Inventario/listadoDeInventario.html';
     });
 
     // Cancelar acción
     document.querySelector('.cancel-button').addEventListener('click', function() {
-        window.location.href = '/Html/Inventario/ListadoHistorial.html';
+        window.location.href = '/html/empleado/Inventario/listadoDeInventario.html';
     });
 });

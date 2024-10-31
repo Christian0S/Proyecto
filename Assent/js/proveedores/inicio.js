@@ -1,5 +1,14 @@
 let data = [];
 
+function renderizarProductos(productos) {
+    if (!productos || productos.length === 0) return 'Sin productos';
+    return productos.map(producto => `
+        <div>
+            <strong>${producto.name || producto.nombre}</strong> - ${producto.quantity || producto.cantidad} unidades
+        </div>
+    `).join('');
+}
+
 function navigateTo(page) {
     fetch(page)
         .then(response => {
@@ -10,19 +19,20 @@ function navigateTo(page) {
         })
         .then(html => {
             document.getElementById('main-content').innerHTML = html;
-            // Inicializa el contenido correspondiente según la página cargada
+            //Comentamos las llamadas para identificar cuál función podría causar problemas.
             if (page.includes('cotizaciones.html')) {
-                initCotizaciones(); // Inicializar contenido de cotizaciones
+                 initCotizaciones();
             } else if (page.includes('estadoPedido.html')) {
-                initEstadoPedidos(); // Inicializar contenido de estado de pedidos
-            } else if (page.includes('gestionFacturas.html')) { // Nueva sección para facturas
-                initFacturas(); // Inicializar contenido de facturas
-            }else {
-                iniDesempeno();
+                 initEstadoPedidos();
+            } else if (page.includes('gestionFacturas.html')) {
+                 initFacturas();
+            } else {
+                 iniDesempeno();
             }
         })
         .catch(error => console.error('Error al cargar la página:', error));
 }
+
 
 function initCotizaciones() {
     const tableBody = document.querySelector('#cotizacionesTable tbody');
@@ -452,4 +462,10 @@ function viewSLAva(id) {
         console.error('Los datos no están disponibles para la validación.');
     }
 }
+
+function clearContent() {
+    const contentArea = document.getElementById('content'); // Asegúrate de que este ID coincida
+    contentArea.innerHTML = ''; // O puedes usar contentArea.style.display = 'none';
+}
+
 

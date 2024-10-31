@@ -1,10 +1,78 @@
+/* Global */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1 {
+    text-align: center;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura */
+    background-color: #f0f8e7; /* Fondo claro y fresco */
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #fff;
+    position: fixed; /* Fijo en la parte superior */
+    z-index: 2;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+header h1 {
+    font-size: 24px;
+    color: #333;
+    flex-grow: 1; /* Permite que el h1 tome el espacio disponible */
+}
+
+.notification img,
+.user img,
+.message img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Contenedor principal */
+.container {
+    margin-top: 75px; /* Espacio para el header */
+    flex-grow: 1; /* Para ocupar el espacio restante */
+}
+
+/* Main Content */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f8f1; /* Fondo claro */
+}
+
 /* Navigation Buttons */
 .nav-buttons {
     display: flex;
     justify-content: center;
     padding: 20px;
     background-color: #b2c2a1; /* Verde claro sutil */
-    margin-top: 75px; /* Espacio para el header fijo */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
 }
 
 .nav-buttons button {
@@ -22,17 +90,6 @@
     background-color: #c4cdb0; /* Verde pastel más oscuro */
 }
 
-/* Main Content */
-.main-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #f5f8f1; /* Fondo claro */
-    margin-top: 20px;
-}
-
 /* Placeholder for Images */
 .image-placeholder {
     width: 100%;
@@ -47,9 +104,69 @@
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
+/* Menús desplegables de perfil y notificaciones */
+.profile-menu, .notification-menu {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    width: 200px;
+    padding: 10px;
+    display: none;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-menu a, .notification-menu a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.profile-menu a:hover, .notification-menu a:hover {
+    background-color: #dfe7df; /* Color sutil al pasar el mouse */
+    color: #333;
+}
 .image-placeholder img {
     width: 100%;
     height: auto;
     max-height: 100%;
     object-fit: cover;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Cambia la dirección del flex para dispositivos más pequeños */
+        align-items: flex-start; /* Alinea los elementos al inicio */
+        padding: 10px; /* Ajusta el padding */
+    }
+
+    header h1 {
+        font-size: 20px; /* Tamaño de fuente más pequeño para el encabezado */
+        margin: 10px 0; /* Margen vertical */
+    }
+
+    .nav-buttons {
+        flex-direction: column; /* Coloca los botones en columna en pantallas pequeñas */
+        align-items: center; /* Alinea los botones al centro */
+    }
+
+    .nav-buttons button {
+        width: 100%; /* Hace que los botones ocupen el 100% del ancho */
+        margin: 5px 0; /* Espaciado vertical entre botones */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 18px; /* Tamaño de fuente aún más pequeño */
+    }
+
+    .image-placeholder {
+        height: 300px; /* Ajusta la altura de la imagen para pantallas pequeñas */
+    }
 }

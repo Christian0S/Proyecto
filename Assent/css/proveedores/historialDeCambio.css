@@ -1,7 +1,8 @@
 /* Estilos generales para la página */
-.main-content {
-    flex: 1;
+.content {
+    margin: 100px 0;
     padding: 20px;
+    width: 90%;
 }
 
 th {
