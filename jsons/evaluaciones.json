@@ -1,0 +1,197 @@
+[
+    {
+      "idEvaluacion": 1,
+      "idCompra": 41,
+      "producto": {
+        "index": 0,
+        "calificacion": {
+          "calidad": 10,
+          "precio": 8,
+          "entrega": 10,
+          "puntualidad": 8,
+          "descripcion": "Macetas de cerámica de excelente calidad y entrega rápida."
+        },
+        "desempeño": 9
+      }
+    },
+    {
+      "idEvaluacion": 2,
+      "idCompra": 41,
+      "producto": {
+        "index": 1,
+        "calificacion": {
+          "calidad": 8,
+          "precio": 6,
+          "entrega": 10,
+          "puntualidad": 10,
+          "descripcion": "Las macetas de vidrio llegaron a tiempo, pero el precio es algo alto."
+        },
+        "desempeño": 8
+      }
+    },
+    {
+      "idEvaluacion": 3,
+      "idCompra": 42,
+      "producto": {
+        "index": 0,
+        "calificacion": {
+          "calidad": 8,
+          "precio": 8,
+          "entrega": 8,
+          "puntualidad": 8,
+          "descripcion": "Macetas de metal de buena calidad y precio justo."
+        },
+        "desempeño": 8
+      }
+    },
+    {
+      "idEvaluacion": 4,
+      "idCompra": 42,
+      "producto": {
+        "index": 1,
+        "calificacion": {
+          "calidad": 10,
+          "precio": 8,
+          "entrega": 10,
+          "puntualidad": 8,
+          "descripcion": "Macetas de terracota de excelente acabado."
+        },
+        "desempeño": 9
+      }
+    },
+    {
+      "idEvaluacion": 5,
+      "idCompra": 43,
+      "producto": {
+        "index": 0,
+        "calificacion": {
+          "calidad": 10,
+          "precio": 8,
+          "entrega": 10,
+          "puntualidad": 10,
+          "descripcion": "Macetas de madera con acabado impecable y entrega puntual."
+        },
+        "desempeño": 9.5
+      }
+    },
+    {
+      "idEvaluacion": 6,
+      "idCompra": 43,
+      "producto": {
+        "index": 1,
+        "calificacion": {
+          "calidad": 8,
+          "precio": 8,
+          "entrega": 8,
+          "puntualidad": 8,
+          "descripcion": "Macetas colgantes de buena calidad, pero algo costosas."
+        },
+        "desempeño": 8.5
+      }
+    },
+    {
+      "idEvaluacion": 7,
+      "idCompra": 44,
+      "producto": {
+        "index": 0,
+        "calificacion": {
+          "calidad": 8,
+          "precio": 8,
+          "entrega": 8,
+          "puntualidad": 8,
+          "descripcion": "Macetas colgantes adecuadas, pero el precio podría ser mejor."
+        },
+        "desempeño": 8
+      }
+    },
+    {
+      "idEvaluacion": 8,
+      "idCompra": 44,
+      "producto": {
+        "index": 1,
+        "calificacion": {
+          "calidad": 10,
+          "precio": 8,
+          "entrega": 10,
+          "puntualidad": 10,
+          "descripcion": "Macetas de tela de alta durabilidad y entrega puntual."
+        },
+        "desempeño": 9
+      }
+    },
+    {
+      "idEvaluacion": 9,
+      "idCompra": 45,
+      "producto": {
+        "index": 0,
+        "calificacion": {
+          "calidad": 10,
+          "precio": 8,
+          "entrega": 10,
+          "puntualidad": 10,
+          "descripcion": "Macetas de fibra de vidrio con excelente resistencia."
+        },
+        "desempeño": 9
+      }
+    },
+    {
+      "idEvaluacion": 10,
+      "idCompra": 45,
+      "producto": {
+        "index": 1,
+        "calificacion": {
+          "calidad": 8,
+          "precio": 8,
+          "entrega": 8,
+          "puntualidad": 8,
+          "descripcion": "Macetas de cemento de buena calidad y entrega a tiempo."
+        },
+        "desempeño": 8.5
+      }
+    },
+    {
+      "idEvaluacion": 11,
+      "idCompra": 46,
+      "producto": {
+        "index": 0,
+        "calificacion": {
+          "calidad": 8,
+          "precio": 8,
+          "entrega": 8,
+          "puntualidad": 10,
+          "descripcion": "Macetas de tela resistentes y entrega puntual."
+        },
+        "desempeño": 8.5
+      }
+    },
+    {
+      "idEvaluacion": 12,
+      "idCompra": 46,
+      "producto": {
+        "index": 1,
+        "calificacion": {
+          "calidad": 8,
+          "precio": 6,
+          "entrega": 10,
+          "puntualidad": 8,
+          "descripcion": "Macetas de terracota con buen diseño, pero algo caras."
+        },
+        "desempeño": 8.5
+      }
+    },
+    {
+      "idEvaluacion": 13,
+      "idCompra": 47,
+      "producto": {
+        "index": 0,
+        "calificacion": {
+          "calidad": 10,
+          "precio": 10,
+          "entrega": 10,
+          "puntualidad": 10,
+          "descripcion": "Macetas de cemento de excelente calidad y precio competitivo."
+        },
+        "desempeño": 9
+      }
+    }
+]

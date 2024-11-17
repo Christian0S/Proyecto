@@ -4,19 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const productError = document.getElementById('productError');
     const nextBtn = document.getElementById('nextBtn');
     const saveBtn = document.getElementById('saveBtn');
-    const prevBtn = document.getElementById('prevBtn'); // Botón Anterior
+    const prevBtn = document.getElementById('prevBtn');
     const closeBtn = document.getElementById('closeBtn');
-
-    // Verificar si los elementos existen
-    if (!ratingModal || !selectProduct || !productError || !nextBtn || !saveBtn || !prevBtn || !closeBtn) {
-        console.error('Uno o más elementos del DOM no se encontraron.');
-        return;
-    }
+    const volverBtn = document.getElementById('volverBtn');
 
     const urlParams = new URLSearchParams(window.location.search);
     const cotizacionId = urlParams.get('id');
     let currentProductIndex = 0;
-    let productos = []; // Variable para almacenar los productos
+    let productos = [];
+    let evaluaciones = [];
 
     // Obtener datos de la cotización y cargar campos
     const fetchCotizacionData = async () => {
@@ -31,16 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('valor').textContent = cotizacion.valorTotal;
                 document.getElementById('estado').textContent = cotizacion.estado;
 
-                // Almacenar productos para su uso posterior
                 productos = cotizacion.productos;
-
-                // Cargar la lista de productos en la tabla
                 loadProductTable(productos);
-
-                // Cargar el selector de productos
                 selectProduct.innerHTML = productos.map((producto, index) =>
                     `<option value="${index}">${producto.nombre}</option>`
                 ).join('');
+                obtenerEvaluacionesPorCompra(cotizacionId);
             } else {
                 console.error('No se encontró la cotización con el ID proporcionado.');
             }
@@ -48,6 +40,86 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error al cargar los datos:', error);
         }
     };
+
+    function obtenerEvaluacionesPorCompra(idCompra) {
+        console.log('idCompra recibido:', idCompra);  // Verificar el id recibido
+        fetch('/jsons/evaluaciones.json')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Datos cargados:', data);  // Verificar los datos del JSON cargado
+                let evaluaciones = data.filter(evaluacion => evaluacion.idCompra === Number(idCompra));
+                console.log('Evaluaciones encontradas:', evaluaciones);
+                if (evaluaciones.length > 0) {
+                    evaluaciones.forEach(evaluacion => {
+                        const calificacion = evaluacion.producto.calificacion;
+                        console.log('Calificación:', calificacion);
+                        mostrarEvaluaciones(calificacion);
+                    });
+                } else {
+                    console.log('No hay evaluaciones para esta compra.');
+                }
+            })
+            .catch(error => {
+                console.error('Error al cargar el archivo JSON:', error);
+            });
+    }
+    
+
+    // Función para mostrar las evaluaciones
+    function mostrarEvaluaciones(evaluaciones) {
+        // Verificar si evaluaciones es un objeto y no un array
+        if (evaluaciones && typeof evaluaciones === 'object' && !Array.isArray(evaluaciones)) {
+            const calidad = evaluaciones.calidad;
+            const precio = evaluaciones.precio;
+            const entrega = evaluaciones.entrega;
+            const puntualidad = evaluaciones.puntualidad;
+            const descripcion = evaluaciones.descripcion;
+    
+            // Función para marcar el radio correspondiente
+            function marcarRadio(nombreCampo, valor) {
+                const radios = document.getElementsByName(nombreCampo);
+                radios.forEach(radio => {
+                    if (radio.value == valor) {
+                        radio.checked = true;
+                    }
+                });
+            }
+    
+            // Marcar los radios para cada sección
+            marcarRadio('calidad', calidad);
+            marcarRadio('precio', precio);
+            marcarRadio('entrega', entrega);
+            marcarRadio('puntualidad', puntualidad);
+    
+            // Descripción
+            const descripcionField = document.getElementById('descripcion');
+            if (descripcionField) {
+                descripcionField.value = descripcion;
+            }
+        } else {
+            console.error('Las evaluaciones no son un objeto válido:', evaluaciones);
+        }
+    }
+    
+
+    function loadProduct(index) {
+        const product = productos[index];
+        if (product) {
+            selectProduct.value = index; // Selecciona el producto
+            document.getElementById('descripcion').value = ''; // Resetea la descripción
+    
+            // Verificar si el producto ya tiene una calificación guardada
+            const evaluacion = evaluaciones.find(evaluacion => evaluacion.idCompra == cotizacionId && evaluacion.productoIndex == index);
+            if (evaluacion) {
+                document.querySelector(`input[name="calidad"][value="${evaluacion.calificacion.calidad}"]`).checked = true;
+                document.querySelector(`input[name="precio"][value="${evaluacion.calificacion.precio}"]`).checked = true;
+                document.querySelector(`input[name="entrega"][value="${evaluacion.calificacion.entrega}"]`).checked = true;
+                document.querySelector(`input[name="puntualidad"][value="${evaluacion.calificacion.puntualidad}"]`).checked = true;
+                document.getElementById('descripcion').value = evaluacion.calificacion.descripcion;
+            }
+        }
+    }
+    
 
     // Función para cargar la tabla de productos
     const loadProductTable = (productos) => {
@@ -68,28 +140,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cargar los datos de la cotización al iniciar
     fetchCotizacionData();
 
-    // Mostrar modal
+    // Mostrar modal para calificar
     document.getElementById('calificarBtn').addEventListener('click', () => {
         ratingModal.style.display = 'block';
-        currentProductIndex = 0; // Reinicia el índice al abrir el modal
-        selectProduct.selectedIndex = currentProductIndex; // Selecciona el primer producto
-        productError.textContent = ''; // Limpia errores al abrir
-        loadProduct(currentProductIndex); // Cargar el primer producto
+        currentProductIndex = 0;
+        selectProduct.selectedIndex = currentProductIndex;
+        productError.textContent = '';
+        loadProduct(currentProductIndex);
     });
 
-    // Ocultar modal
+    // Cerrar modal
     closeBtn.addEventListener('click', () => {
         ratingModal.style.display = 'none';
     });
 
-    // Función para cargar el producto actual
+    // Función para cargar el producto actual en el modal
     function loadProduct(index) {
         const product = productos[index];
         if (product) {
-            selectProduct.value = index; // Selecciona el producto
-            // Aquí puedes actualizar los campos del modal con la información del producto
-            // Por ejemplo:
-            document.getElementById('descripcion').value = ''; // Resetea la descripción
+            selectProduct.value = index;
+            document.getElementById('descripcion').value = '';
+
+            const evaluacion = evaluaciones.find(evaluacion => evaluacion.idCompra == cotizacionId && evaluacion.productoIndex == index);
+            if (evaluacion) {
+                document.querySelector(`input[name="calidad"][value="${evaluacion.calificacion.calidad}"]`).checked = true;
+                document.querySelector(`input[name="precio"][value="${evaluacion.calificacion.precio}"]`).checked = true;
+                document.querySelector(`input[name="entrega"][value="${evaluacion.calificacion.entrega}"]`).checked = true;
+                document.querySelector(`input[name="puntualidad"][value="${evaluacion.calificacion.puntualidad}"]`).checked = true;
+                document.getElementById('descripcion').value = evaluacion.calificacion.descripcion;
+            }
         }
     }
 
@@ -97,8 +176,8 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => {
         if (currentProductIndex < productos.length - 1) {
             currentProductIndex++;
-            loadProduct(currentProductIndex); // Cambiar el producto seleccionado
-            productError.textContent = ''; // Limpia errores al cambiar
+            loadProduct(currentProductIndex);
+            productError.textContent = '';
         } else {
             alert('No hay más productos para calificar.');
         }
@@ -108,16 +187,16 @@ document.addEventListener('DOMContentLoaded', () => {
     prevBtn.addEventListener('click', () => {
         if (currentProductIndex > 0) {
             currentProductIndex--;
-            loadProduct(currentProductIndex); // Cambiar el producto seleccionado
-            productError.textContent = ''; // Limpia errores al cambiar
+            loadProduct(currentProductIndex);
+            productError.textContent = '';
         } else {
             console.log('Este es el primer producto.');
         }
     });
 
-    document.getElementById('volverBtn').addEventListener('click', () => {
+    // Volver a la página de inicio de procesos
+    volverBtn.addEventListener('click', () => {
         const currentUrl = window.location.href;
-        // Verifica si la URL actual no es la de inicio de procesos
         if (!currentUrl.includes('inicoProcesos.html')) {
             window.location.href = '/html/gerente/procesos/inicoProcesos.html', '_blank';
         } else {
@@ -125,26 +204,45 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Guardar calificación del producto
+    // Guardar la calificación del producto
     saveBtn.addEventListener('click', () => {
-        const selectedProduct = selectProduct.value;
+        const selectedProductIndex = selectProduct.value;
+        const productoSeleccionado = productos[selectedProductIndex];
         const calidad = document.querySelector('input[name="calidad"]:checked')?.value;
         const precio = document.querySelector('input[name="precio"]:checked')?.value;
         const entrega = document.querySelector('input[name="entrega"]:checked')?.value;
         const puntualidad = document.querySelector('input[name="puntualidad"]:checked')?.value;
         const descripcion = document.getElementById('descripcion').value;
 
-        if (selectedProduct && calidad && precio && entrega && puntualidad) {
-            console.log("Producto:", selectedProduct, "Calidad:", calidad, "Precio:", precio, "Entrega:", entrega, "Puntualidad:", puntualidad, "Descripción:", descripcion);
-            alert("Calificación guardada con éxito.");
-            // Aquí puedes agregar la lógica para guardar la calificación en tu sistema
-            // Por ejemplo, enviar los datos a un servidor
-            ratingModal.style.display = 'none'; // Cierra el modal al guardar
-        } else {
-            productError.textContent = "Complete todos los campos de calificación.";
+        if (!calidad || !precio || !entrega || !puntualidad) {
+            productError.textContent = 'Por favor, califique todos los aspectos.';
+            return;
         }
-    });
 
-    // Inicializa el primer producto en el modal
-    loadProduct(currentProductIndex);
+        const nuevaEvaluacion = {
+            idCompra: cotizacionId,
+            productoIndex: selectedProductIndex,
+            producto: {
+                nombre: productoSeleccionado.nombre,
+                calificacion: {
+                    calidad,
+                    precio,
+                    entrega,
+                    puntualidad
+                },
+                descripcion
+            }
+        };
+
+        const existingEvaluacionIndex = evaluaciones.findIndex(evaluacion => evaluacion.productoIndex === selectedProductIndex);
+        if (existingEvaluacionIndex !== -1) {
+            evaluaciones[existingEvaluacionIndex] = nuevaEvaluacion;
+        } else {
+            evaluaciones.push(nuevaEvaluacion);
+        }
+
+        alert("Calificación guardada correctamente.");
+        ratingModal.style.display = 'none';
+        loadProduct(currentProductIndex);
+    });
 });

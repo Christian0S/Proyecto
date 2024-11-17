@@ -146,7 +146,7 @@ function renderEstadoPedidosTable(data) {
 }
 
 function viewQuote(id) {
-    window.open(`/html/proveedor/opciones/cotizaciones/cotizacionesAceptadas.html?id=${id}`);
+    window.location.href = (`/html/proveedor/opciones/cotizaciones/cotizacionesAceptadas.html?id=${id}`);
 }
 
 function filterTable() {
@@ -355,12 +355,17 @@ function renderDesempenoTable(data) {
             <td>${item.direccionEntrega}</td>
             <td>${item.desempeño}</td>
             <td>
+                <button class="view-Evaluación" data-id="${item.id}" onclick="viewEvaluación(${item.id})">Evaluación</button>
                 <button class="view-quote" data-id="${item.id}" onclick="viewQuote(${item.id})">Cotización</button>
                 <button class="sla" onclick="viewSLAva(${item.id})">SLA</button>
             </td>
         `;
         tableBody.appendChild(row);
     });
+}
+// ver evaaluacion  ========================================================================
+function viewEvaluación(id) {
+    window.location.href = (`/html/proveedor/opciones/cotizaciones/verCalificacion.html?id=${id}`);
 }
 
 // sla =============================================================================================

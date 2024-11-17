@@ -10,7 +10,7 @@
     <div class="calificacion-details">
         <h1>Evaluación de Productos</h1>
 
-        <!-- Cotización Information -->
+        <!-- Información de la Cotización -->
         <div class="cotizacion-info">
             <div class="calificacion-field">
                 <label>Nombre de Compra:</label>
@@ -28,11 +28,13 @@
                 <label>Valor Total:</label>
                 <span id="valor"></span>
             </div>
+            <div class="calificacion-field">
+                <label>Estado:</label>
+                <span id="estado"></span>
+            </div>
         </div>
-        <div class="calificacion-field">
-            <label>Estado:</label>
-            <span id="estado"></span>
-        </div>
+
+        <!-- Lista de Productos -->
         <table>
             <thead>
                 <tr>
@@ -44,115 +46,101 @@
             <tbody id="productList"></tbody>
         </table>
 
-        <!-- Product Rating Popup Modal -->
+        <!-- Modal para Evaluar Productos -->
         <div id="ratingModal" class="modal">
             <div class="modal-content">
                 <h2>Evaluar Producto</h2>
 
-                <!-- Select Product -->
+                <!-- Selección de Producto -->
                 <label for="selectProduct">Seleccionar Producto:</label>
                 <select id="selectProduct">
                     <option value="">Seleccione un producto</option>
                 </select>
                 <span id="productError" class="error-message"></span>
 
-                <!-- Quality Section -->
+                <!-- Sección de Calidad -->
                 <div class="rating-section">
-                    <h3>CALIDAD</h3>
-                    <div class="rating">
-                        <label>Calificación Producto</label>
-                        <div class="rating-options">
-                            <span>Mala</span>
-                            <input type="radio" name="calidad" value="1">1
-                            <input type="radio" name="calidad" value="2">2
-                            <input type="radio" name="calidad" value="3">3
-                            <input type="radio" name="calidad" value="4">4
-                            <input type="radio" name="calidad" value="5">5
-                            <input type="radio" name="calidad" value="6">6
-                            <input type="radio" name="calidad" value="7">7
-                            <input type="radio" name="calidad" value="8">8
-                            <input type="radio" name="calidad" value="9">9
-                            <input type="radio" name="calidad" value="10">10
-                            <span>Buena</span>
-                        </div>
+                    <h3>Calidad</h3>
+                    <div class="rating-options">
+                        <span>Mala</span>
+                        <input type="radio" name="calidad" value="1">1
+                        <input type="radio" name="calidad" value="2">2
+                        <input type="radio" name="calidad" value="3">3
+                        <input type="radio" name="calidad" value="4">4
+                        <input type="radio" name="calidad" value="5">5
+                        <input type="radio" name="calidad" value="6">6
+                        <input type="radio" name="calidad" value="7">7
+                        <input type="radio" name="calidad" value="8">8
+                        <input type="radio" name="calidad" value="9">9
+                        <input type="radio" name="calidad" value="10">10
+                        <span>Buena</span>
                     </div>
                 </div>
 
-                <!-- Price Section -->
+                <!-- Sección de Precio -->
                 <div class="rating-section">
-                    <h3>PRECIO</h3>
-                    <div class="rating">
-                        <label>Calificación Producto</label>
-                        <div class="rating-options">
-                            <span>Mala</span>
-                            <input type="radio" name="precio" value="1">1
-                            <input type="radio" name="precio" value="2">2
-                            <input type="radio" name="precio" value="3">3
-                            <input type="radio" name="precio" value="4">4
-                            <input type="radio" name="precio" value="5">5
-                            <input type="radio" name="precio" value="6">6
-                            <input type="radio" name="precio" value="7">7
-                            <input type="radio" name="precio" value="8">8
-                            <input type="radio" name="precio" value="9">9
-                            <input type="radio" name="precio" value="10">10
-                            <span>Buena</span>
-                        </div>
+                    <h3>Precio</h3>
+                    <div class="rating-options">
+                        <span>Mala</span>
+                        <input type="radio" name="precio" value="1">1
+                        <input type="radio" name="precio" value="2">2
+                        <input type="radio" name="precio" value="3">3
+                        <input type="radio" name="precio" value="4">4
+                        <input type="radio" name="precio" value="5">5
+                        <input type="radio" name="precio" value="6">6
+                        <input type="radio" name="precio" value="7">7
+                        <input type="radio" name="precio" value="8">8
+                        <input type="radio" name="precio" value="9">9
+                        <input type="radio" name="precio" value="10">10
+                        <span>Buena</span>
                     </div>
                 </div>
 
-                <!-- Delivery Section -->
+                <!-- Sección de Entrega -->
                 <div class="rating-section">
-                    <h3>ENTREGA</h3>
-                    <!--<label>Porcentaje de entrega</label> -->
-                    <!--<span id="porcentajeEntrega">90%</span> -->
-                    <div class="rating">
-                        <label>Calificación Producto</label>
-                        <div class="rating-options">
-                            <span>Mala</span>
-                            <input type="radio" name="entrega" value="1">1
-                            <input type="radio" name="entrega" value="2">2
-                            <input type="radio" name="entrega" value="3">3
-                            <input type="radio" name="entrega" value="4">4
-                            <input type="radio" name="entrega" value="5">5
-                            <input type="radio" name="entrega" value="6">6
-                            <input type="radio" name="entrega" value="7">7
-                            <input type="radio" name="entrega" value="8">8
-                            <input type="radio" name="entrega" value="9">9
-                            <input type="radio" name="entrega" value="10">10
-                            <span>Buena</span>
-                        </div>
+                    <h3>Flexibilidad y Adaptación</h3>
+                    <div class="rating-options">
+                        <span>Mala</span>
+                        <input type="radio" name="entrega" value="1">1
+                        <input type="radio" name="entrega" value="2">2
+                        <input type="radio" name="entrega" value="3">3
+                        <input type="radio" name="entrega" value="4">4
+                        <input type="radio" name="entrega" value="5">5
+                        <input type="radio" name="entrega" value="6">6
+                        <input type="radio" name="entrega" value="7">7
+                        <input type="radio" name="entrega" value="8">8
+                        <input type="radio" name="entrega" value="9">9
+                        <input type="radio" name="entrega" value="10">10
+                        <span>Buena</span>
                     </div>
                 </div>
 
-                <!-- Punctuality Section -->
+                <!-- Sección de Puntualidad -->
                 <div class="rating-section">
-                    <h3>PUNTUALIDAD</h3>
-                    <div class="rating">
-                        <label>Calificación Producto</label>
-                        <div class="rating-options">
-                            <span>Mala</span>
-                            <input type="radio" name="puntualidad" value="1">1
-                            <input type="radio" name="puntualidad" value="2">2
-                            <input type="radio" name="puntualidad" value="3">3
-                            <input type="radio" name="puntualidad" value="4">4
-                            <input type="radio" name="puntualidad" value="5">5
-                            <input type="radio" name="puntualidad" value="6">6
-                            <input type="radio" name="puntualidad" value="7">7
-                            <input type="radio" name="puntualidad" value="8">8
-                            <input type="radio" name="puntualidad" value="9">9
-                            <input type="radio" name="puntualidad" value="10">10
-                            <span>Buena</span>
-                        </div>
+                    <h3>Puntualidad</h3>
+                    <div class="rating-options">
+                        <span>Mala</span>
+                        <input type="radio" name="puntualidad" value="1">1
+                        <input type="radio" name="puntualidad" value="2">2
+                        <input type="radio" name="puntualidad" value="3">3
+                        <input type="radio" name="puntualidad" value="4">4
+                        <input type="radio" name="puntualidad" value="5">5
+                        <input type="radio" name="puntualidad" value="6">6
+                        <input type="radio" name="puntualidad" value="7">7
+                        <input type="radio" name="puntualidad" value="8">8
+                        <input type="radio" name="puntualidad" value="9">9
+                        <input type="radio" name="puntualidad" value="10">10
+                        <span>Buena</span>
                     </div>
                 </div>
 
-                <!-- Optional Description -->
+                <!-- Descripción Opcional -->
                 <div class="rating-section">
-                    <label for="descripcion">Otra información relevante?</label>
+                    <label for="descripcion">Otra información relevante:</label>
                     <textarea id="descripcion" rows="4" placeholder="Descripción opcional..."></textarea>
                 </div>
 
-                <!-- Buttons -->
+                <!-- Botones del Modal -->
                 <div class="buttons">
                     <button id="closeBtn">Cerrar</button>
                     <button id="prevBtn">Volver</button>
@@ -160,14 +148,21 @@
                     <button id="saveBtn">Guardar</button>
                 </div>
             </div>
+            
         </div>
-    
+
+        <!-- Botones de Acción Principal -->
         <div class="buttons">
             <button id="volverBtn">🔙 Volver</button>
             <button id="calificarBtn">✅ Calificar</button>
         </div>
+
     </div>
 
+     
+
+
+    <!-- Script de Funcionalidad -->
     <script src="/Assent/js/gerente/procesos/calificacionDeProveedores.js"></script>
 </body>
 </html>

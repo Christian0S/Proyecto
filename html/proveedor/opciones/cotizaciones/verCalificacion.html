@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación de Productos</title>
+    <link rel="stylesheet" href="/Assent/css/proveedores/opcciones/verCalificacion.css">
+</head>
+<body>
+    <div class="calificacion-details">
+        <h1>Evaluación de Productos</h1>
+
+        <!-- Información de la Cotización -->
+        <div class="cotizacion-info">
+            <div class="calificacion-field">
+                <label>Nombre de Compra:</label>
+                <span id="nombreCompra"></span>
+            </div>
+            <div class="calificacion-field">
+                <label>Proveedor:</label>
+                <span id="proveedor"></span>
+            </div>
+            <div class="calificacion-field">
+                <label>Fecha Creada:</label>
+                <span id="fechaCreada"></span>
+            </div>
+            <div class="calificacion-field">
+                <label>Valor Total:</label>
+                <span id="valor"></span>
+            </div>
+            <div class="calificacion-field">
+                <label>Estado:</label>
+                <span id="estado"></span>
+            </div>
+        </div>
+
+        <!-- Lista de Productos -->
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Precio Unitario</th>
+                    <th>Calificación (Calidad)</th>
+                    <th>Calificación (Precio)</th>
+                    <th>Calificación (Entrega)</th>
+                    <th>Calificación (Puntualidad)</th>
+                </tr>
+            </thead>
+            <tbody id="productList"></tbody>
+        </table>
+
+        <!-- Calificación Completa -->
+        <div class="calificacion-info">
+            <h2>Calificación de Productos</h2>
+            <div class="calificacion-field">
+                <label>Informe de Calificación</label>
+                <span id="calificacionCompleta"></span>
+            </div>
+        </div>
+
+        <!-- Botón de Volver -->
+        <div class="buttons">
+            <button onclick="volver()" id="volverBtn">🔙 Volver</button>
+        </div>
+
+        <!-- Botón para abrir el chat de reclamación o contextualización -->
+        <div class="buttons">
+            <button id="btnMenssage" onclick="abrirChat()">Reclamación / Contextualización</button>
+        </div>
+        
+        <!-- Contenedor del chat (inicialmente oculto) -->
+        <div id="chatContainer" style="display:none;">
+            <button id="btnCerrarChat" onclick="cerrarChat()">Cerrar Chat</button>
+            <div id="chatBox">
+                <h3>Chat de Reclamación / Contextualización</h3>
+                <div id="messages">
+                    <!-- Los mensajes aparecerán aquí -->
+                </div>
+                <input type="text" id="userMessage" placeholder="Escribe tu mensaje..." />
+                <button onclick="enviarMensaje()">Enviar</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script de Funcionalidad -->
+    <script src="/Assent/js/proveedores/opcciones/verCalificacion.js"></script>
+</body>
+</html>

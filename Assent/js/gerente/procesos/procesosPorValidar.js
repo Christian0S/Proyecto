@@ -5,7 +5,7 @@ async function fetchData() {
         const response = await fetch('/jsons/compras.json'); // Ajusta la ruta a tu archivo JSON
         const allData = await response.json();
         
-        // Filtrar los datos para obtener solo aquellos con estado "pendiente"
+        // Filtrar los datos para obtener solo aquellos con estado "validar"
         data = allData.filter(item => item.estado.toLowerCase() === 'validar');
         
         fillTable();
@@ -139,4 +139,54 @@ function filterTable() {
     });
 }
 
+function validateOrder(order) {
+    // Validar campos principales del pedido
+    if (!order.nombrePedido || order.nombrePedido.trim() === "") {
+        alert("El nombre del pedido es obligatorio.");
+        return false;
+    }
+    if (!order.proveedor || order.proveedor.trim() === "") {
+        alert("El proveedor es obligatorio.");
+        return false;
+    }
+    if (!order.fechaCreacion || isNaN(new Date(order.fechaCreacion))) {
+        alert("La fecha de creación es inválida.");
+        return false;
+    }
+    if (!order.valorTotal || !/^\$\d+(,\d{3})*(\.\d{2})?$/.test(order.valorTotal)) {
+        alert("El valor total es inválido. Debe estar en formato de moneda (ejemplo: $24,000).");
+        return false;
+    }
+    if (!order.fechaEntrega || isNaN(new Date(order.fechaEntrega))) {
+        alert("La fecha de entrega es inválida.");
+        return false;
+    }
+    if (!order.estado || !["Pendiente", "Validar", "Completado"].includes(order.estado)) {
+        alert("El estado del pedido es inválido.");
+        return false;
+    }
+
+    // Validar cada producto en el pedido
+    for (const producto of order.productos) {
+        if (!producto.nombre || producto.nombre.trim() === "") {
+            alert("El nombre del producto es obligatorio.");
+            return false;
+        }
+        if (isNaN(producto.cantidad) || producto.cantidad <= 0) {
+            alert(`La cantidad del producto "${producto.nombre}" debe ser un número positivo.`);
+            return false;
+        }
+        // Eliminar el símbolo de moneda para validar el valor unitario
+        const valorUnitario = parseFloat(producto.valorUnitario.replace(/[$,]/g, ''));
+        if (isNaN(valorUnitario) || valorUnitario <= 0) {
+            alert(`El valor unitario del producto "${producto.nombre}" es inválido.`);
+            return false;
+        }
+    }
+
+    // Si todas las validaciones pasan
+    return true;
+}
+
+// Llamamos a fetchData para cargar los datos de los pedidos
 fetchData();
