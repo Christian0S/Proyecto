@@ -60,6 +60,9 @@
                 .then(cotizaciones => {
                     const cotizacion = cotizaciones.find(cot => cot.id == cotizacionId);
                     if (cotizacion) {
+                        // Guardar los valores originales
+                        const originalCotizacion = { ...cotizacion };
+
                         document.getElementById('nombreCompra').textContent = cotizacion.nombreCompra;
                         document.getElementById('correo').textContent = cotizacion.correo;
                         document.getElementById('proveedor').textContent = cotizacion.proveedor;
@@ -82,6 +85,37 @@
                             `;
                             productList.appendChild(row);
                         });
+
+                        // Comparar los cambios realizados
+                        let cambios = '';
+                        if (cotizacion.nombreCompra !== originalCotizacion.nombreCompra) {
+                            cambios += `Nombre de Compra: Original - ${originalCotizacion.nombreCompra}, Modificado - ${cotizacion.nombreCompra} <br>`;
+                        }
+                        if (cotizacion.correo !== originalCotizacion.correo) {
+                            cambios += `Correo: Original - ${originalCotizacion.correo}, Modificado - ${cotizacion.correo} <br>`;
+                        }
+                        if (cotizacion.proveedor !== originalCotizacion.proveedor) {
+                            cambios += `Proveedor: Original - ${originalCotizacion.proveedor}, Modificado - ${cotizacion.proveedor} <br>`;
+                        }
+                        if (cotizacion.fechaCreada !== originalCotizacion.fechaCreada) {
+                            cambios += `Fecha Creada: Original - ${originalCotizacion.fechaCreada}, Modificado - ${cotizacion.fechaCreada} <br>`;
+                        }
+                        if (cotizacion.fechaEntrega !== originalCotizacion.fechaEntrega) {
+                            cambios += `Fecha de Entrega: Original - ${originalCotizacion.fechaEntrega}, Modificado - ${cotizacion.fechaEntrega} <br>`;
+                        }
+                        if (cotizacion.valor !== originalCotizacion.valor) {
+                            cambios += `Valor Total: Original - ${originalCotizacion.valor}, Modificado - ${cotizacion.valor} <br>`;
+                        }
+                        if (cotizacion.creadaPor !== originalCotizacion.creadaPor) {
+                            cambios += `Creada Por: Original - ${originalCotizacion.creadaPor}, Modificado - ${cotizacion.creadaPor} <br>`;
+                        }
+
+                        // Mostrar los cambios realizados
+                        if (cambios) {
+                            document.getElementById('cambiosRealizados').innerHTML = cambios;
+                        } else {
+                            document.getElementById('cambiosRealizados').textContent = 'No hubo cambios en los datos.';
+                        }
                     }
                 })
                 .catch(error => console.error('Error:', error));
@@ -142,6 +176,11 @@
         <div class="cotizacion-field">
             <label>Creada Por:</label>
             <span id="creadaPor"></span>
+        </div>
+
+        <div class="cotizacion-field">
+            <label>Cambios Realizados:</label>
+            <p id="cambiosRealizados"></p>
         </div>
 
         <table>

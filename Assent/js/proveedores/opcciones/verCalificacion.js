@@ -63,6 +63,7 @@ async function cargarInformacionPorId(compraId) {
                     <td>${evaluacion.producto.calificacion.precio}</td>
                     <td>${evaluacion.producto.calificacion.entrega}</td>
                     <td>${evaluacion.producto.calificacion.puntualidad}</td>
+                    <td>${evaluacion.producto.calificacion.puntualidad}</td>
                 `;
             } else {
                 row.innerHTML = `
@@ -104,8 +105,10 @@ async function cargarInformacionPorId(compraId) {
 
         document.getElementById('calificacionCompleta').innerHTML = `
             <p><strong>Puntualidad en las Entregas:</strong> ${entregaDesc}. La puntualidad en las entregas es evaluada en función del porcentaje de entregas realizadas a tiempo, con una calificación de ${evaluaciones[0]?.producto?.calificacion?.entrega ?? 0} sobre 10.</p>
-            <p><strong>Costos:</strong> ${precioDesc}. Los costos fueron evaluados en función de si se ajustaron al presupuesto o al precio de mercado, con una calificación de ${evaluaciones[0]?.producto?.calificacion?.precio ?? 0} sobre 10.</p>
-            <p><strong>Calidad del Producto:</strong> ${calidadDesc}. La calidad se evaluó en función del porcentaje de productos defectuosos por lote, con una calificación de ${evaluaciones[0]?.producto?.calificacion?.calidad ?? 0} sobre 10.</p>
+            <p><strong>Costo de Productos/Servicios:</strong> ${precioDesc}. Los Costo de Productos/Servicios fueron evaluados en función de si se ajustaron al presupuesto o al precio de mercado, con una calificación de ${evaluaciones[0]?.producto?.calificacion?.precio ?? 0} sobre 10.</p>
+            <p><strong>Calidad del Producto:</strong> ${calidadDesc}. La Calidad del Producto se evaluó en función del porcentaje de productos defectuosos por lote, con una calificación de ${evaluaciones[0]?.producto?.calificacion?.calidad ?? 0} sobre 10.</p>
+            <p><strong>Flexibilidad y Adaptación a Cambios:</strong> ${calidadDesc}. La Flexibilidad y Adaptación a Cambios se evaluó en función del porcentaje de productos defectuosos por lote, con una calificación de ${evaluaciones[0]?.producto?.calificacion?.calidad ?? 0} sobre 10.</p>
+            <p><strong>Sostenibilidad y Responsabilidad Social:</strong> ${calidadDesc}. La Sostenibilidad y Responsabilidad Social se evaluó en función del porcentaje de productos defectuosos por lote, con una calificación de ${evaluaciones[0]?.producto?.calificacion?.calidad ?? 0} sobre 10.</p>
             <p><strong>Desempeño General:</strong>. Este desempeño se calcula como el promedio ponderado de las métricas anteriores, con una calificación de ${resultadoFinal.toFixed(2)} sobre 10, lo que resulta en una calificación global de <strong>${resultadoTexto}</strong>.</p>
         `;
         
@@ -131,7 +134,7 @@ window.onload = function() {
 function enviarMensajeGerente(compra, evaluacion, resultadoFinal) {
     const mensajeGerente = `
         [Notificación Automática] Evaluación de Compra:
-        - Compra: ${compra.nombreCompra}
+        - Compra: ${compra.nombrePedido}
         - Proveedor: ${compra.proveedor}
         - Desempeño General: ${resultadoFinal.toFixed(2)}
         - Comentario: ${evaluacion?.descripcion ?? "Sin comentario"}

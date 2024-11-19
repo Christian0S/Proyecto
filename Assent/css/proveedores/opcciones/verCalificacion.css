@@ -18,7 +18,7 @@ body {
 
 /* Contenedor de detalles */
 .calificacion-details {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -204,8 +204,8 @@ label {
     top: 50%; /* Para que esté en la mitad de la pantalla */
     left: 50%;
     transform: translate(-50%, -50%); /* Centra el contenedor en la pantalla */
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: auto;
     background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     border-radius: 8px;
@@ -218,6 +218,7 @@ label {
 /* Estilo para los mensajes */
 #messages {
     height: 280px;
+    max-height: auto;
     overflow-y: auto;
     margin-bottom: 10px;
     padding-right: 10px;

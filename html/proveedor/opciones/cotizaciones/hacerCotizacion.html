@@ -7,24 +7,44 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
         }
         .cotizacion-details {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 20px auto;
             padding: 20px;
             border: 1px solid #ccc;
             border-radius: 10px;
-            background-color: #f9f9f9;
+            background-color: #fff;
         }
         h1 {
             text-align: center;
+            color: #333;
         }
         .cotizacion-field {
             margin-bottom: 15px;
         }
         .cotizacion-field label {
             font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
         }
+        input[type="date"],
+        textarea {
+            width: 30%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="number"]{
+            width: 30%;
+            padding: 2px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            height: 20px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
@@ -42,84 +62,21 @@
             display: flex;
             justify-content: space-between;
         }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #volverBtn {
+            background-color: #f44336;
+            color: #fff;
+        }
+        #enviarBtn {
+            background-color: #4CAF50;
+            color: #fff;
+        }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const cotizacionId = urlParams.get('id');
-
-            // Cargar datos desde el archivo JSON
-            fetch('/jsons/cotizaciones.json')
-                .then(response => {
-                    if (!response.ok) throw new Error('Error al cargar el JSON');
-                    return response.json();
-                })
-                .then(cotizaciones => {
-                    const cotizacion = cotizaciones.find(cot => cot.id == cotizacionId);
-                    if (cotizacion) {
-                        document.getElementById('nombreCompra').textContent = cotizacion.nombreCompra;
-                        document.getElementById('correo').textContent = cotizacion.correo;
-                        document.getElementById('proveedor').textContent = cotizacion.proveedor;
-                        document.getElementById('fechaCreada').textContent = cotizacion.fechaCreada;
-                        document.getElementById('fechaEntrega').textContent = cotizacion.fechaEntrega;
-                        document.getElementById('valor').textContent = cotizacion.valor;
-                        document.getElementById('creadaPor').textContent = cotizacion.creadaPor;
-
-                        const productList = document.getElementById('productList');
-                        let totalValor = 0;
-
-                        cotizacion.productos.forEach(producto => {
-                            const row = document.createElement('tr');
-                            const priceInputId = `price_${producto.name.replace(/\s/g, '_')}`;
-                            row.innerHTML = `
-                                <td>${producto.name}</td>
-                                <td>${producto.category}</td>
-                                <td>${producto.size}</td>
-                                <td>${producto.date}</td>
-                                <td>${producto.quantity}</td>
-                                <td>${producto.description}</td>
-                                <td>
-                                    <input type="number" id="${priceInputId}" value="${producto.price}" min="0" style="width: 100%;" />
-                                </td>
-                                <td class="totalProduct" data-quantity="${producto.quantity}">${(producto.price * producto.quantity).toFixed(2)}</td>
-                            `;
-                            productList.appendChild(row);
-
-                            // Actualizar total al cambiar el precio
-                            const priceInput = document.getElementById(priceInputId);
-                            priceInput.addEventListener('input', () => {
-                                const quantity = producto.quantity;
-                                const newPrice = parseFloat(priceInput.value) || 0;
-                                const newTotal = (quantity * newPrice).toFixed(2);
-                                row.querySelector('.totalProduct').textContent = newTotal;
-
-                                // Calcular valor total
-                                updateTotalValue();
-                            });
-                        });
-
-                        // Inicializar el valor total
-                        updateTotalValue();
-
-                        function updateTotalValue() {
-                            totalValor = Array.from(document.querySelectorAll('.totalProduct'))
-                                .reduce((acc, td) => acc + parseFloat(td.textContent), 0);
-                            document.getElementById('valor').textContent = totalValor.toFixed(2);
-                        }
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-
-            document.getElementById('volverBtn').addEventListener('click', () => {
-                window.location.href = '/html/proveedor/inicio.html', '_blank';
-            });
-
-            document.getElementById('enviarBtn').addEventListener('click', () => {
-                alert('Cotización enviada con éxito.');
-                window.location.href = '/html/proveedor/inicio.html', '_blank';
-            });
-        });
-    </script>
 </head>
 <body>
     <div class="cotizacion-details">
@@ -147,17 +104,22 @@
 
         <div class="cotizacion-field">
             <label>Fecha de Entrega:</label>
-            <span id="fechaEntrega"></span>
+            <input type="date" id="fechaEntregaInput" />
         </div>
 
         <div class="cotizacion-field">
             <label>Valor Total:</label>
-            <span id="valor">0.00</span>
+            <span id="valorTotal">0.00</span>
         </div>
 
         <div class="cotizacion-field">
             <label>Creada Por:</label>
             <span id="creadaPor"></span>
+        </div>
+
+        <div class="cotizacion-field">
+            <label>Explicaciones Adicionales:</label>
+            <textarea id="explicacionesAdicionales" rows="4" placeholder="Añadir comentarios o explicaciones..."></textarea>
         </div>
 
         <table>
@@ -181,5 +143,93 @@
             <button id="enviarBtn">📤 Enviar</button>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const cotizacionId = urlParams.get('id');
+
+            fetch('/jsons/cotizaciones.json')
+                .then(response => {
+                    if (!response.ok) throw new Error('Error al cargar el JSON');
+                    return response.json();
+                })
+                .then(cotizaciones => {
+                    const cotizacion = cotizaciones.find(cot => cot.id == cotizacionId);
+                    if (cotizacion) {
+                        document.getElementById('nombreCompra').textContent = cotizacion.nombreCompra;
+                        document.getElementById('correo').textContent = cotizacion.correo;
+                        document.getElementById('proveedor').textContent = cotizacion.proveedor;
+                        document.getElementById('fechaCreada').textContent = cotizacion.fechaCreada;
+
+                        const fechaEntregaInput = document.getElementById('fechaEntregaInput');
+                        fechaEntregaInput.value = cotizacion.fechaEntrega;
+
+                        const explicacionesInput = document.getElementById('explicacionesAdicionales');
+                        explicacionesInput.value = cotizacion.explicaciones || '';
+
+                        document.getElementById('creadaPor').textContent = cotizacion.creadaPor;
+
+                        const productList = document.getElementById('productList');
+                        let totalCotizacion = 0;
+
+                        cotizacion.productos.forEach((producto, index) => {
+                            const row = document.createElement('tr');
+                            row.innerHTML = `
+                                <td>${producto.name}</td>
+                                <td>${producto.category}</td>
+                                <td>${producto.size}</td>
+                                <td>${producto.date}</td>
+                                <td>
+                                    <input type="number" value="${producto.quantity}" class="quantity-input" data-index="${index}" style="width: 100%;" />
+                                </td>
+                                <td>${producto.description}</td>
+                                <td>
+                                    <input type="number" value="${producto.price}" min="0" class="price-input" data-index="${index}" style="width: 100%;" />
+                                </td>
+                                <td class="total-product">${(producto.price * producto.quantity).toFixed(2)}</td>
+                            `;
+                            productList.appendChild(row);
+                            totalCotizacion += producto.price * producto.quantity;
+                        });
+
+                        document.getElementById('valorTotal').textContent = totalCotizacion.toFixed(2);
+
+                        // Actualizar el total automáticamente
+                        document.querySelectorAll('.price-input, .quantity-input').forEach(input => {
+                            input.addEventListener('input', (e) => {
+                                const index = e.target.getAttribute('data-index');
+                                const newPrice = parseFloat(document.querySelectorAll('.price-input')[index].value) || 0;
+                                const newQuantity = e.target.closest('tr').querySelector('.quantity-input').value;
+                                const totalProducto = newQuantity === 'No disponible' ? 0 : newPrice * newQuantity;
+
+                                e.target.closest('tr').querySelector('.total-product').textContent = totalProducto.toFixed(2);
+
+                                // Recalcular el total general
+                                let nuevoTotal = 0;
+                                document.querySelectorAll('.total-product').forEach(td => {
+                                    nuevoTotal += parseFloat(td.textContent);
+                                });
+
+                                document.getElementById('valorTotal').textContent = nuevoTotal.toFixed(2);
+                            });
+                        });
+
+                        document.getElementById('enviarBtn').addEventListener('click', () => {
+                            const nuevaFechaEntrega = fechaEntregaInput.value;
+                            const explicaciones = explicacionesInput.value;
+
+                            alert(`Cotización enviada con éxito.\nNueva Fecha de Entrega: ${nuevaFechaEntrega}\nComentarios: ${explicaciones}`);
+                            window.location.href = '/html/proveedor/inicio.html';
+                        });
+
+                        document.getElementById('volverBtn').addEventListener('click', () => {
+                            window.location.href = '/html/proveedor/inicio.html';
+                        });
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>
