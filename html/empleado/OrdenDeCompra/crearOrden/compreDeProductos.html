@@ -9,71 +9,45 @@
   </head>
   <body>
     <!-- Header -->
+    <!-- Header -->
     <header>
       <button class="toggle-button" onclick="toggleSidebar()">☰</button>
       <h1>PORTAL EMPLEADO</h1>
       <div class="header-icons">
-        <div class="notification" onclick="toggleNotifications()">
-          <img src="/Assent/img/notificacion/bell.png" alt="Notificaciones" />
-          <div
-            class="notification-menu"
-            id="notificationMenu"
-            style="display: none"
-          >
-            <div id="notificaciones">
-              <!-- Aquí se mostrarán las notificaciones -->
-            </div>
+          <div class="icon message" onclick="toggleMessages()">
+              <img src="/Assent/img/notificacion/mensaje.png" alt="Mensajes">
           </div>
-        </div>
-        <div class="user" onclick="toggleProfile()">
-          <img
-            id="avatar"
-            src="/Assent/img/profile/default-avatar.jpeg"
-            alt="User Avatar"
-          />
-          <div class="profile-menu" id="profileMenu" style="display: none">
-            <p>
-              <a href="/html/gerente/edicion_perfil.html" class="button1"
-                >Editar Perfil</a
-              >
-            </p>
-            <p><a href="#" class="button1">Historial</a></p>
-            <p><a href="#" class="button1">Cerrar Sesión</a></p>
+          <div class="notification" onclick="toggleNotifications()">
+              <img src="/Assent/img/notificacion/bell.png" alt="Notificaciones">
+              <div class="notification-menu" id="notificationMenu" style="display: none;">
+                  <div id="notificaciones">
+                      <!-- Aquí se mostrarán las notificaciones -->
+                  </div>
+              </div>
           </div>
-        </div>
+          <div class="user" onclick="toggleProfile()">
+              <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="User Avatar">
+              <div class="profile-menu" id="profileMenu" style="display: none;">
+                  <p><a href="/html/empleado/edicion_perfil.html" class="button1">Editar Perfil</a></p>
+                  <p><a href="/html/empleado/historialDECambio.html" class="button1">Historial</a></p>
+                  <p><a id="logoutBtn" href="#" class="button1">Cerrar Sesión</a></p>
+              </div>
+          </div>
       </div>
-    </header>
-    <div>
-      <!-- Sidebar -->
-      <div class="container">
-        <nav class="sidebar" id="sidebar">
+  </header>
+  <div>
+  <!-- Sidebar -->
+  <div class="container">
+      <nav class="sidebar" id="sidebar">
           <ul>
-            <li>
-              <a href="/html/empleado/inicio.html" class="button">INICIO</a>
-            </li>
-            <li>
-              <a
-                href="/html/empleado/OrdenDeCompra/InvetarioBajo.html"
-                class="button"
-                >MENÚ DE INVENTARIO BAJO</a
-              >
-            </li>
-            <li>
-              <a
-                href="/html/empleado/OrdenDeCompra/crearOrdenDeCompra.html"
-                class="button"
-                >CREAR ORDEN DE COMPRA</a
-              >
-            </li>
-            <li>
-              <a
-                href="/html/empleado/Inventario/listadoDeInventario.html"
-                class="button"
-                >INVENTARIO</a
-              >
-            </li>
+              <li><a href="/html/empleado/inicio.html" class="button">INICIO</a></li>
+              <li><a href="/html/empleado/OrdenDeCompra/InvetarioBajo.html" class="button">MENÚ DE INVENTARIO BAJO</a></li>
+              <li><a href="/html/empleado/OrdenDeCompra/crearOrdenDeCompra.html" class="button">CREAR ORDEN DE COMPRA</a></li>
+              <li><a href="/html/empleado/Inventario/listadoDeInventario.html" class="button">INVENTARIO</a></li>
+              <li><a href="/html/empleado/procesosPorValidar.html" class="button">VALIDAR</a></li>
+              <li><a href="/html/empleado/ventas/ventas.html" class="button">VENTAS</a></li>
           </ul>
-        </nav>
+      </nav>
       </div>
 
       <!-- Main Content -->

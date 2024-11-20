@@ -170,6 +170,49 @@ header h1 {
     flex-grow: 1;
 }
 
+/* Estilo para el botón dentro de la notificación */
+.notification-button {
+    margin: 5px;
+    background-color: #f44336; /* Rojo */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+/* Efecto de hover para el botón */
+.notification-button:hover {
+    background-color: #d32f2f;
+}
+
+/* Estilo para las notificaciones si no hay alertas */
+#notificaciones {
+    padding: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 5px;
+}
+/* Estilo para el contenedor de notificaciones */
+.notification-menu {
+    display: none;
+    max-height: 300px; /* Tamaño máximo para el contenedor */
+    overflow-y: auto;  /* Agrega barra de desplazamiento vertical cuando sea necesario */
+    padding-right: 10px; /* Espacio para la barra de desplazamiento */
+}
+
+/* Estilo para las notificaciones si no hay alertas */
+#notificaciones {
+    padding: 10px;
+    background-color: #f9f9f9;
+    color: #333;
+    border-radius: 5px;
+    max-height: 100%; /* Asegura que el contenedor ocupe todo el espacio disponible */
+}
+
+
 @media (max-width: 768px) {
     .contenido {
         margin-left: 0; /* Eliminar el margen cuando el menú está oculto */

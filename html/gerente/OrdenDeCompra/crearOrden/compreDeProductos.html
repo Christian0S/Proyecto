@@ -10,12 +10,15 @@
 </head>
 <body>
     <header>
-        <h1>AGREGAR PRODUCTOS</h1>
+        <button class="toggle-button" onclick="toggleSidebar()">☰</button>
+        <h1>PAGINA DE INICIO</h1>
         <div class="header-icons">
             <div class="notification" onclick="toggleNotifications()">
                 <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
-                <div class="notification-menu" id="notificationMenu">
-                    <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                    </div>
                 </div>
             </div>
             <div class="user" onclick="toggleProfile()">
@@ -63,6 +66,6 @@
         </main>
     </div>
     <script src="/Assent/js/gerente/odenDeCompra/compraProducto/compraProductos.js"></script>
-    <script src="/Assent/js/gerente/inicio.js"></script>
+    <script src="/Assent/js/gerente/general.js"></script>
 </body>
 </html>

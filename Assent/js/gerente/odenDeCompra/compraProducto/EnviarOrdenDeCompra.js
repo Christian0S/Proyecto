@@ -173,6 +173,7 @@ document.getElementById('sendButton').addEventListener('click', () => {
 
     // Aquí puedes implementar la lógica para enviar el mensaje
     alert('Los productos han sido enviados a los proveedores seleccionados.');
+    window.location.href = "/html/gerente/inicio.html";
 });
 
 

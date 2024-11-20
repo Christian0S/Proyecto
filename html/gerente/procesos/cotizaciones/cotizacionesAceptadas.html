@@ -79,14 +79,14 @@
             fetchCotizacionData();
 
             document.getElementById('volverBtn').addEventListener('click', () => {
-                window.open('/html/gerente/procesos/inicoProcesos.html', '_blank');
+                window.location.href = ('/html/gerente/procesos/inicoProcesos.html');
             });
 
             document.getElementById('rechazarBtn').addEventListener('click', () => {
                 const razon = prompt('Por favor, ingrese la razón del rechazo:');
                 if (razon) {
                     alert(`Cotización rechazada. Razón: ${razon}`);
-                    window.open('/html/gerente/procesos/inicoProcesos.html', '_blank');
+                    window.location.href = ('/html/gerente/procesos/inicoProcesos.html');
                 }
             });
         });

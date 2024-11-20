@@ -38,7 +38,7 @@ function fillTable() {
 }
 
 function viewQuote(id) {
-    window.open(`/html/gerente/procesos/cotizaciones/comprasPorValidar.html?id=${id}`);
+    window.location.href = (`/html/gerente/procesos/cotizaciones/comprasPorValidar.html?id=${id}`);
 }
 
 function viewSLAv(id) {

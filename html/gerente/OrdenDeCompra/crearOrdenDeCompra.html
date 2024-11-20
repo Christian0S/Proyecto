@@ -12,8 +12,12 @@
         <h1>CREAR ORDEN DE COMPRA</h1>
         <div class="header-icons">
             <div class="notification" onclick="toggleNotifications()">
-                <img src="/Assent/img/notificacion/bell.png" alt="Notificaciones">
-                <div class="notification-menu" id="notificationMenu"></div>
+                <img src="/Assent/img/notificacion/bell.png" alt="User Avatar">
+                <div class="notification-menu" id="notificationMenu" style="display: none;">
+                    <div id="notificaciones">
+                        <!-- Aquí se mostrarán las notificaciones de aceptación -->
+                    </div>
+                </div>
             </div>
             <div class="user" onclick="toggleProfile()">
                 <img id="avatar" src="/Assent/img/profile/default-avatar.jpeg" alt="Usuario">

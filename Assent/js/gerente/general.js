@@ -117,3 +117,47 @@ function toggleNotifications() {
 document.addEventListener('DOMContentLoaded', () => {
     mostrarNotificaciones(); // Muestra las notificaciones al cargar la página
 });
+
+// Función para mostrar notificaciones de inventario bajo
+function mostrarNotificacionesInventario() {
+    const notificationContainer = document.getElementById("notificaciones");
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+
+    // Limpiar notificaciones previas
+    notificationContainer.innerHTML = ""; 
+
+    // Filtrar productos con inventario bajo
+    const lowStockProducts = products.filter(product => product.quantityToAdd <= product.quantityToAlert);
+
+    if (lowStockProducts.length === 0) {
+        notificationContainer.innerHTML = '<p>No hay alertas de inventario bajo.</p>';
+        return;
+    }
+
+    // Crear notificaciones
+    lowStockProducts.forEach(product => {
+        const notification = document.createElement("div");
+        notification.classList.add("notificacion");
+
+        // Crear un botón para cada notificación con el enlace a la página de inventario bajo
+        const button = document.createElement("button");
+        button.classList.add("notification-button");
+        button.textContent = `Inventario bajo: ${product.name} (${product.quantityToAdd} unidades)`;
+        button.onclick = function() {
+            // Redirigir a la página de inventario bajo
+            window.location.href = "/html/gerente/OrdenDeCompra/InvetarioBajo.html";
+        };
+
+        notification.appendChild(button);
+        notificationContainer.appendChild(notification);
+    });
+}
+
+// Función para mostrar y ocultar el menú de notificaciones
+function toggleNotifications() {
+    const notificationMenu = document.getElementById("notificationMenu");
+    notificationMenu.style.display = (notificationMenu.style.display === 'none' || notificationMenu.style.display === '') ? 'block' : 'none';
+}
+
+// Llamar a la función para mostrar las notificaciones cuando se carga la página
+document.addEventListener("DOMContentLoaded", mostrarNotificacionesInventario);
