@@ -69,21 +69,3 @@
     margin-top: 20px;
     max-width: 800px; /* Alinea el texto con las imágenes */
 }
-
-.notification-menu,
-.profile-menu {
-    position: absolute; /* Posición absoluta para mostrar los menús */
-    display: none; /* Oculta por defecto */
-    background-color: #fff; /* Fondo blanco */
-    border: 1px solid #ccc; /* Borde del menú */
-    z-index: 1; /* Asegura que el menú esté sobre otros elementos */
-    width: 200px; /* Ancho fijo para los menús */
-    padding: 10px; /* Espaciado interno del menú */
-}
-
-.notification:hover .notification-menu,
-.user:hover .profile-menu {
-    display: block; /* Muestra el menú al pasar el mouse */
-}
-
-
