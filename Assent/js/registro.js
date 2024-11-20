@@ -16,7 +16,6 @@ function validarContraseña(contraseña) {
 
 // Función para guardar la solicitud de registro pendiente
 async function guardarSolicitudPendiente(nombre, cargo, correo, contraseña) {
-    console.log(contraseña)
     const hashedPassword = await sha256(contraseña);
     const usuario = {
         name: nombre,
@@ -40,15 +39,22 @@ async function guardarSolicitudPendiente(nombre, cargo, correo, contraseña) {
     let usuariosJson = [];
     try {
         const response = await fetch('../../jsons/usuarios.json');
-        usuariosJson = await response.json();
+        if (response.ok) {
+            usuariosJson = await response.json();
+        } else {
+            console.error("No se pudo leer el archivo JSON de usuarios.");
+        }
     } catch (error) {
         console.error("Error al leer el archivo JSON de usuarios:", error);
     }
 
-    // Verificar si el usuario ya existe en el JSON
-    const usuarioExistenteJson = usuariosJson.find(user => user.email === correo);
+    // Si el archivo JSON tiene usuarios, los fusionamos con los de localStorage
+    usuarios = usuarios.concat(usuariosJson);
+
+    // Verificar si el usuario ya existe en el archivo JSON o en localStorage
+    const usuarioExistenteJson = usuarios.find(user => user.email === correo);
     if (usuarioExistenteJson) {
-        alert("Ya existe una solicitud de registro con este correo electrónico en el archivo JSON.");
+        alert("Ya existe una solicitud de registro con este correo electrónico en el archivo JSON o localStorage.");
         return;
     }
 
@@ -57,6 +63,21 @@ async function guardarSolicitudPendiente(nombre, cargo, correo, contraseña) {
 
     // Guardar los usuarios actualizados en localStorage
     localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+    console.log("Usuarios después de agregar el nuevo usuario:", JSON.parse(localStorage.getItem('usuarios')));
+
+    // Notificación al gerente
+    enviarNotificacionAlGerente(usuario);
+}
+
+// Función para enviar una notificación al gerente
+function enviarNotificacionAlGerente(usuario) {
+    // Aquí va el código para enviar la notificación al gerente
+    // Podría ser un correo electrónico, una notificación dentro de la aplicación, etc.
+    console.log("Notificación enviada al gerente para aprobar al usuario:", usuario.email);
+
+    // Este es un ejemplo simple de una notificación visual en el navegador
+    alert(`Notificación al gerente: Nueva solicitud de registro de ${usuario.name} (${usuario.email}).`);
 }
 
 // Evento de envío del formulario
@@ -90,3 +111,27 @@ document.getElementById('registroForm').addEventListener('submit', async functio
 if (localStorage.getItem('primerAcceso') !== 'false') {
     localStorage.setItem('primerAcceso', 'true');  // Marca que es la primera vez
 }
+
+// Función para que el gerente acepte la solicitud
+async function aceptarSolicitud(email) {
+    // Leer usuarios existentes desde localStorage
+    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+
+    // Buscar al usuario por su correo electrónico
+    const usuario = usuarios.find(user => user.email === email);
+
+    if (usuario) {
+        usuario.accepted = true;  // Marcar la solicitud como aceptada
+
+        // Guardar los usuarios actualizados en localStorage
+        localStorage.setItem('usuarios', JSON.stringify(usuarios));
+
+        console.log("Solicitud aceptada para el usuario:", email);
+        alert(`El usuario ${usuario.name} ha sido aceptado.`);
+    } else {
+        alert("No se encontró al usuario.");
+    }
+}
+
+// Llamada a la función de aceptación del gerente
+// Para probar, podrías llamar a esta función con el correo del usuario que deseas aceptar.

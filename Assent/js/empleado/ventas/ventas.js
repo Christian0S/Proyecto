@@ -62,7 +62,7 @@ function mostrarNotificacionesInventario() {
         button.textContent = `Inventario bajo: ${product.name} (${product.quantityToAdd} unidades)`;
         button.onclick = function() {
             // Redirigir a la página de inventario bajo
-            window.location.href = "/html/gerente/OrdenDeCompra/InvetarioBajo.html";
+            window.location.href = "/html/empleado/OrdenDeCompra/InvetarioBajo.html";
         };
 
         notification.appendChild(button);
@@ -186,7 +186,7 @@ document.addEventListener("DOMContentLoaded", mostrarNotificacionesInventario);
 
         // Aquí no hacemos una redirección inmediata para permitir ver las notificaciones
         // Si deseas redirigir a otra página después de completar la venta, puedes hacerlo aquí.
-        window.location.href = "/html/gerente/inicio.html";
+        window.location.href = "/html/empleado/inicio.html";
     });
 
     // Mostrar notificaciones al cargar

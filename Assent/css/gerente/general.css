@@ -2,10 +2,9 @@
     box-sizing: border-box;
 }
 
-
 /* Estilo para el botón dentro de la notificación */
 .notification-button {
-    margin: 5px;
+    margin: 0px;
     background-color: #f44336; /* Rojo */
     color: white;
     border: none;
@@ -28,7 +27,6 @@
     color: #333;
     border-radius: 5px;
 }
-
 
 body {
     font-family: Arial, sans-serif;
@@ -63,12 +61,12 @@ h1, h2 {
     position: relative;
 }
 
-
 .container {
     display: flex;
 }
 
-.button1{display: inline-block;
+.button1 {
+    display: inline-block;
     text-align: left;
     width: 90%;
     padding: 10px 20px;
@@ -80,11 +78,9 @@ h1, h2 {
     text-align: center;
 }
 
-.button1:hover{
+.button1:hover {
     background-color: #1b2e1c;
 }
-
-
 
 .button {
     background-color: #41855d; /* Color del botón */
@@ -135,12 +131,10 @@ h1, h2 {
 }
 
 .sidebar ul li div {
-    padding: 0 0 0 10px ;
+    padding: 0 0 0 10px;
     width: 90%;
     cursor: pointer;
 }
-
-
 
 /* Estilos para los enlaces en el dropdown */
 .orden-dropdown a {
@@ -168,7 +162,7 @@ h1, h2 {
 
 .orden-dropdown {
     display: none; /* Hidden by default */
-    position: absolute;/* Posición relativa al padre */
+    position: absolute; /* Posición relativa al padre */
     left: 0; /* Alineado a la izquierda del padre */
     top: 100%; /* Posicionado debajo del toggle */
     background-color: #41855d; /* Color de fondo para el dropdown */
@@ -241,7 +235,7 @@ h1, h2 {
 .notification-menu {
     display: none;
     max-height: 300px; /* Tamaño máximo para el contenedor */
-    overflow-y: auto;  /* Agrega barra de desplazamiento vertical cuando sea necesario */
+    overflow-y: auto; /* Agrega barra de desplazamiento vertical cuando sea necesario */
     padding-right: 10px; /* Espacio para la barra de desplazamiento */
 }
 
@@ -270,7 +264,6 @@ h1, h2 {
     display: block; /* Muestra el menú al pasar el mouse */
 }
 
-
 /* Si el contenedor de notificaciones tiene muchas notificaciones, permite el desplazamiento */
 .notification-menu {
     overflow-y: auto; /* Habilita el desplazamiento vertical */
@@ -295,3 +288,57 @@ h1, h2 {
     }
 }
 
+/* Estilos generales para el contenedor de notificaciones */
+#notificaciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Estilos para cada not
+
+/* Estilo para el menú desplegable (oculto por defecto) */
+.menu-desplegable {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #1b2e1c;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    font-size: 12px;
+    z-index: 10;
+}
+
+/* Estilo para los botones dentro del menú desplegable */
+.menu-desplegable button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 5px 0;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.2s ease;
+}
+
+/* Cambio de color del botón al pasar el mouse */
+.menu-desplegable button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo para las notificaciones de solicitudes pendientes */
+.notificacion {
+    background-color: #f44336;
+    border-radius: 5px;
+    color: white;    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+}
+
+.notificacion:hover{
+    background-color: #d32f2f;
+}
